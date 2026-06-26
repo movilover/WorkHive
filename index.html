@@ -112,10 +112,20 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .jobs-grid-label{font-size:10px;color:var(--text2);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.3px}
 .jobs-grid-value{font-size:22px;font-weight:900}
 .bal-actions{display:flex;gap:10px}
-.bal-btn{flex:1;padding:14px 0;border-radius:50px;text-align:center;font-weight:800;font-size:14px;cursor:pointer;transition:transform .15s;letter-spacing:.2px}
+.bal-btn{flex:1;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:18px;cursor:pointer;transition:transform .15s,box-shadow .15s;letter-spacing:.2px}
 .bal-btn:active{transform:scale(.96)}
-.bal-btn.deposit{background:var(--green);color:#fff;box-shadow:0 6px 20px rgba(29,185,84,0.3)}
-.bal-btn.withdraw{background:var(--bg2);border:1px solid var(--border2);color:var(--text)}
+.bal-btn.deposit{background:var(--grad-mint);box-shadow:0 8px 22px rgba(29,185,84,0.35)}
+.bal-btn.withdraw{background:var(--bg2);border:1px solid var(--border2)}
+.bal-btn .bal-ico{width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.bal-btn.deposit .bal-ico{background:rgba(255,255,255,0.18);color:#fff}
+.bal-btn.withdraw .bal-ico{background:rgba(245,166,35,0.15);color:var(--orange)}
+.bal-btn .bal-txt{display:flex;flex-direction:column;line-height:1.25;text-align:left}
+.bal-btn .bal-txt .t1{font-size:13px;font-weight:800}
+.bal-btn.deposit .bal-txt .t1{color:#fff}
+.bal-btn.withdraw .bal-txt .t1{color:var(--text)}
+.bal-btn .bal-txt .t2{font-size:10px;font-weight:600}
+.bal-btn.deposit .bal-txt .t2{color:rgba(255,255,255,0.75)}
+.bal-btn.withdraw .bal-txt .t2{color:var(--text3)}
 .bal-meta{display:flex;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
 .bal-stat .v{font-size:14px;font-weight:800;color:var(--green)}
 .bal-stat .l{font-size:10px;color:var(--text3);font-weight:600;margin-top:1px;text-transform:uppercase;letter-spacing:.3px}
@@ -186,6 +196,7 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .cashback-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;display:flex;flex-direction:column;align-items:flex-start;cursor:pointer;transition:transform .15s,border-color .15s}
 .cashback-card:hover{border-color:var(--green);transform:translateY(-2px)}
 .cashback-card:active{transform:scale(.97)}
+.cashback-card.selected{border-color:var(--green);box-shadow:0 0 0 2px rgba(29,185,84,0.25)}
 .cashback-logo{font-size:28px;margin-bottom:8px}
 .cashback-name{font-size:13px;font-weight:800;margin-bottom:2px}
 .cashback-pct{font-size:18px;font-weight:900;color:var(--green)}
@@ -324,7 +335,7 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .role-opt.active{background:var(--green);color:#fff}
 .edit-profile-btn{width:100%;padding:12px;border-radius:var(--r-md);border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:10px;transition:border-color .15s,background .15s;display:flex;align-items:center;justify-content:center;gap:8px}
 .edit-profile-btn:hover{border-color:var(--green);background:rgba(29,185,84,0.06)}
-.danger-zone{background:rgba(244,67,54,0.05);border:1px solid rgba(244,67,54,0.15);border-radius:var(--r-lg);padding:14px;margin-bottom:14px}
+.danger-zone{background:rgba(244,67,54,0.05);border:1px solid rgba(244,67,54,0.35);border-radius:var(--r-lg);padding:14px;margin-bottom:14px;box-shadow:0 0 26px rgba(244,67,54,0.16)}
 .danger-zone h4{font-size:12px;font-weight:800;color:var(--coral);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
 .btn-danger{width:100%;padding:11px;border-radius:var(--r-md);border:1px solid rgba(244,67,54,0.3);background:rgba(244,67,54,0.1);color:var(--coral);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s}
 .btn-danger:hover{background:rgba(244,67,54,0.15)}
@@ -351,15 +362,15 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .ref-table-row.header{font-weight:800;color:var(--text2);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
 
 /* ===== BOTTOM NAV ===== */
-nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.06);padding:10px 8px 20px;gap:2px}
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;cursor:pointer;color:var(--text3);transition:color .2s}
-.tab svg{width:22px;height:22px;stroke:var(--text3);transition:stroke .2s,transform .2s}
-.tab span{font-size:10px;font-weight:700;transition:color .2s}
+nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgba(10,10,10,0.98);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.06);padding:10px 2px 20px;gap:0}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;cursor:pointer;color:var(--text3);transition:color .2s;min-width:0}
+.tab svg{width:19px;height:19px;stroke:var(--text3);transition:stroke .2s,transform .2s}
+.tab span{font-size:9px;font-weight:700;transition:color .2s;white-space:nowrap}
 .tab.active{color:var(--green)}
 .tab.active svg{stroke:var(--green);transform:scale(1.12)}
-.tab .fab{width:50px;height:50px;border-radius:16px;background:var(--green);display:flex;align-items:center;justify-content:center;margin-top:-26px;box-shadow:0 0 0 3px rgba(29,185,84,0.18),0 8px 28px rgba(29,185,84,0.4);transition:transform .15s,box-shadow .15s}
+.tab .fab{width:46px;height:46px;border-radius:15px;background:var(--green);display:flex;align-items:center;justify-content:center;margin-top:-24px;box-shadow:0 0 0 3px rgba(29,185,84,0.18),0 8px 28px rgba(29,185,84,0.4);transition:transform .15s,box-shadow .15s}
 .tab .fab:active{transform:scale(.93)}
-.tab .fab svg{stroke:#fff;width:22px;height:22px}
+.tab .fab svg{stroke:#fff;width:20px;height:20px}
 
 /* ===== CHECKIN BANNER ===== */
 .checkin-banner{display:flex;align-items:center;gap:12px;justify-content:space-between;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.2);border-radius:var(--r-lg);padding:14px;margin-bottom:14px}
@@ -411,6 +422,23 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 .pin-key.zero{grid-column:2}
 
 @media(max-width:380px){#appShell{border-radius:28px}#authScreen{border-radius:24px;padding:32px 22px}}
+
+/* ===== FULL-SCREEN MODE FOR REAL DEVICES (GitHub Pages / live deploy) ===== */
+@media(max-width:480px){
+  body{padding:0;align-items:stretch;justify-content:stretch}
+  #appShell{
+    width:100vw;max-width:100vw;height:100vh;max-height:100vh;
+    border-radius:0;border:none;box-shadow:none;
+  }
+  #authScreen{
+    width:100vw;max-width:100vw;min-height:100vh;height:100vh;
+    border-radius:0;border:none;box-shadow:none;justify-content:center;
+  }
+  .status-bar{display:none}
+  main{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+  nav.tabbar{padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+  .overlay{border-radius:0}
+}
 </style>
 </head>
 <body>
@@ -446,7 +474,13 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         <span class="pass-eye" onclick="togglePass('loginPass',this)">👁</span>
       </div>
     </div>
-    <div class="forgot-link" onclick="doForgotPassword()">Forgot password?</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:-6px;margin-bottom:14px">
+      <label style="display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--text2);font-weight:600;cursor:pointer">
+        <input type="checkbox" id="rememberMe" style="width:15px;height:15px;accent-color:var(--green);cursor:pointer">
+        Remember Me
+      </label>
+      <div class="forgot-link" style="margin:0" onclick="doForgotPassword()">Forgot password?</div>
+    </div>
     <div class="auth-error" id="loginErr"></div>
     <button class="btn-auth" id="loginBtn" onclick="doLogin()">
       <span id="loginBtnText">Login</span>
@@ -468,9 +502,14 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <label>Username</label>
       <input type="text" id="regUsername" placeholder="@username" autocomplete="username" style="text-transform:lowercase">
     </div>
+    <div class="demo-banner" style="margin-bottom:14px">📌 Username will be used for account recovery and support verification. Please choose a unique username.</div>
     <div class="auth-field">
       <label>Email Address</label>
       <input type="email" id="regEmail" placeholder="Enter your email" autocomplete="email">
+    </div>
+    <div class="auth-field">
+      <label>Phone Number</label>
+      <input type="tel" id="regPhone" placeholder="+880 1X-XXXX-XXXX" autocomplete="tel">
     </div>
     <div class="auth-field">
       <label>Country</label>
@@ -489,6 +528,13 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         <span class="pass-eye" onclick="togglePass('regPass',this)">👁</span>
       </div>
       <div class="strength-bar"><div class="strength-fill" id="strengthFill" style="width:0"></div></div>
+    </div>
+    <div class="auth-field">
+      <label>Confirm Password</label>
+      <div class="pass-toggle">
+        <input type="password" id="regConfirmPass" placeholder="Re-enter your password" autocomplete="new-password">
+        <span class="pass-eye" onclick="togglePass('regConfirmPass',this)">👁</span>
+      </div>
     </div>
     <div class="auth-field">
       <label>Referral Code (Optional)</label>
@@ -525,9 +571,6 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       </div>
     </div>
     <div class="top-actions">
-      <div class="icon-btn" onclick="goTab('spin')" title="Lucky Spin">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-      </div>
       <div class="icon-btn" id="notifBtn" onclick="goTab('notifications')">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
         <span class="notif-count" id="notifCount" style="display:none">0</span>
@@ -586,26 +629,20 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           </div>
         </div>
         <div class="bal-actions">
-          <div class="bal-btn deposit" onclick="goTab('post')">+ Post New Job</div>
-          <div class="bal-btn withdraw" onclick="goTab('wallet','deposit')">↑ Withdraw</div>
+          <div class="bal-btn deposit" onclick="goTab('post')">
+            <div class="bal-ico">➕</div>
+            <div class="bal-txt"><span class="t1">Post New Job</span><span class="t2">Create a task for workers</span></div>
+          </div>
+          <div class="bal-btn withdraw" onclick="goTab('wallet','withdraw')">
+            <div class="bal-ico">↑</div>
+            <div class="bal-txt"><span class="t1">Withdraw</span><span class="t2">bKash / Nagad / Bank</span></div>
+          </div>
         </div>
         <div class="bal-meta">
           <div class="bal-stat"><div class="v" id="homeStreak">🔥 0 days</div><div class="l">Streak</div></div>
           <div class="bal-stat"><div class="v" id="homeTasks">0</div><div class="l">Completed</div></div>
           <div class="bal-stat"><div class="v" id="homeAccuracy">92%</div><div class="l">Accuracy</div></div>
         </div>
-      </div>
-
-      <!-- CHECK-IN BANNER -->
-      <div class="checkin-banner" id="checkinBanner">
-        <div class="checkin-left">
-          <div class="checkin-icon">🎁</div>
-          <div>
-            <div class="checkin-text">Daily Check-in Bonus</div>
-            <div class="checkin-sub" id="checkinSub">Check in today and get $0.10!</div>
-          </div>
-        </div>
-        <button class="btn-checkin" id="checkinBtn" onclick="doCheckIn()">Check In</button>
       </div>
 
       <div class="stat-row">
@@ -630,6 +667,21 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div class="sec-title" style="margin-top:14px"><h3>Micro Tasks</h3><span id="taskCountBadge" style="font-size:12px;color:var(--text3);font-weight:700"></span></div>
       <div class="chip-row" id="categoryChips"></div>
       <div id="taskListFull"></div>
+    </section>
+
+    <!-- MY JOBS (Employer Job Tracking) -->
+    <section class="screen" id="screen-myjobs">
+      <div class="sec-title" style="margin-top:14px"><h3>💼 My Jobs</h3><span id="myJobsCountBadge" style="font-size:12px;color:var(--text3);font-weight:700"></span></div>
+      <div class="demo-banner">📌 আপনার পোস্ট করা সকল জব এখানে ট্র্যাক করুন — লাইভ প্রগ্রেস, কমপ্লিশন ও স্ট্যাটাস দেখুন।</div>
+      <div class="history-filter" id="myJobsFilterChips">
+        <div class="h-chip active" onclick="filterMyJobs('all',this)">All</div>
+        <div class="h-chip" onclick="filterMyJobs('pending',this)">⏳ Pending</div>
+        <div class="h-chip" onclick="filterMyJobs('running',this)">🟢 Running</div>
+        <div class="h-chip" onclick="filterMyJobs('completed',this)">✅ Completed</div>
+        <div class="h-chip" onclick="filterMyJobs('rejected',this)">❌ Rejected</div>
+        <div class="h-chip" onclick="filterMyJobs('paused',this)">⏸ Paused</div>
+      </div>
+      <div id="myJobsList"></div>
     </section>
 
     <!-- SURVEY WALL -->
@@ -681,45 +733,77 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 
     <!-- POST / NEW JOB -->
     <section class="screen" id="screen-post">
-      <div class="sec-title" style="margin-top:14px"><h3>Post New Job</h3></div>
-      <div class="demo-banner">📌 Employer Mode: Post a job and workers will complete it. Jobs require admin approval before going live.</div>
-      <div class="field"><label>Job Title *</label><input type="text" id="pTitle" placeholder="e.g. Like our Facebook page" maxlength="100"></div>
-      <div class="field"><label>Detailed Instructions *</label><textarea id="pInstructions" placeholder="Describe step-by-step how to complete this task..." rows="3"></textarea></div>
-      <div class="field">
-        <label>Proof Type</label>
-        <div class="toggle-row">
-          <div class="toggle-opt active" id="proofTypeProof" onclick="setProofType('proof')">📸 Screenshot/Text</div>
-          <div class="toggle-opt" id="proofTypeLink" onclick="setProofType('link')">🔗 Direct Link</div>
+      <div class="sec-title" style="margin-top:14px"><h3>Post New Job</h3><span id="postStepLabel" style="font-size:11px;color:var(--text3);font-weight:700">Step 1 of 5</span></div>
+      <div class="onboard-dots" id="postStepDots" style="margin-bottom:16px;justify-content:flex-start"></div>
+
+      <!-- STEP 1: CATEGORY -->
+      <div class="post-step" id="postStep1">
+        <p style="font-size:13px;color:var(--text2);margin-bottom:14px">আপনার জবের জন্য একটি ক্যাটাগরি নির্বাচন করুন</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="categoryPickGrid"></div>
+      </div>
+
+      <!-- STEP 2: JOB DETAILS -->
+      <div class="post-step" id="postStep2" style="display:none">
+        <div class="field"><label>Job Title *</label><input type="text" id="pTitle" placeholder="e.g. Like our Facebook page" maxlength="100"></div>
+        <div class="field"><label>Detailed Instructions *</label><textarea id="pInstructions" placeholder="Describe step-by-step how to complete this task..." rows="3"></textarea></div>
+        <div class="field">
+          <label>Proof Type</label>
+          <div class="toggle-row">
+            <div class="toggle-opt active" id="proofTypeProof" onclick="setProofType('proof')">📸 Screenshot/Text</div>
+            <div class="toggle-opt" id="proofTypeLink" onclick="setProofType('link')">🔗 Direct Link</div>
+          </div>
+        </div>
+        <div class="field" id="linkUrlField" style="display:none"><label>Direct Link *</label><input type="url" id="pLink" placeholder="https://example.com"></div>
+        <div class="field"><label>Target Country</label>
+          <select id="pCountry">
+            <option>All Countries</option><option>Bangladesh</option><option>India</option>
+            <option>Pakistan</option><option>Philippines</option><option>Global</option>
+          </select>
         </div>
       </div>
-      <div class="field" id="linkUrlField" style="display:none"><label>Direct Link *</label><input type="url" id="pLink" placeholder="https://example.com"></div>
-      <div class="field"><label>Category</label>
-        <select id="pCategory">
-          <option>Social Media</option><option>App Download</option>
-          <option>Website Visit</option><option>Review/Rating</option><option>Watch Video</option>
-        </select>
+
+      <!-- STEP 3: BUDGET CALCULATOR -->
+      <div class="post-step" id="postStep3" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="field"><label>Worker Limit</label><input type="number" id="pLimit" value="50" min="1" max="10000"></div>
+          <div class="field"><label>Budget per Task ($)</label><input type="number" id="pBudget" value="0.15" min="0.01" step="0.01"></div>
+        </div>
+        <div class="info-block" style="margin-bottom:14px">
+          <div class="info-row"><span class="l">Total Budget Required</span><span class="v" id="totalBudgetPreview" style="color:var(--orange)">$7.50</span></div>
+          <div class="info-row"><span class="l">Platform Fee (5%)</span><span class="v" id="platformFeePreview">$0.38</span></div>
+          <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Pending Approval</span></div>
+        </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <div class="field"><label>Worker Limit</label><input type="number" id="pLimit" value="50" min="1" max="10000"></div>
-        <div class="field"><label>Budget per Task ($)</label><input type="number" id="pBudget" value="0.15" min="0.01" step="0.01"></div>
+
+      <!-- STEP 4: PREVIEW -->
+      <div class="post-step" id="postStep4" style="display:none">
+        <div id="jobPreviewCard"></div>
       </div>
-      <div class="field"><label>Target Country</label>
-        <select id="pCountry">
-          <option>All Countries</option><option>Bangladesh</option><option>India</option>
-          <option>Pakistan</option><option>Philippines</option><option>Global</option>
-        </select>
+
+      <!-- STEP 5: PUBLISH -->
+      <div class="post-step" id="postStep5" style="display:none">
+        <div style="text-align:center;padding:10px 0 6px">
+          <div style="font-size:48px;margin-bottom:12px">📤</div>
+          <div style="font-size:16px;font-weight:800;margin-bottom:6px">পাবলিশের জন্য প্রস্তুত?</div>
+          <div style="font-size:13px;color:var(--text2);margin-bottom:6px">পাবলিশ করার পর আপনার জবটি অ্যাডমিন রিভিউ করবে এবং অনুমোদন পেলে লাইভ হবে।</div>
+        </div>
       </div>
-      <div class="info-block" style="margin-bottom:14px">
-        <div class="info-row"><span class="l">Total Budget Required</span><span class="v" id="totalBudgetPreview" style="color:var(--orange)">$7.50</span></div>
-        <div class="info-row"><span class="l">Platform Fee (5%)</span><span class="v" id="platformFeePreview">$0.38</span></div>
-        <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Pending Approval</span></div>
+
+      <div style="display:flex;gap:10px;margin-top:16px;margin-bottom:24px">
+        <button class="btn-ghost" id="postBackBtn" style="flex:1;display:none" onclick="postWizardBack()">← Back</button>
+        <button class="btn-primary" id="postNextBtn" style="flex:1" onclick="postWizardNext()">Next →</button>
       </div>
-      <button class="btn-primary" onclick="submitPost()">📤 Submit Job for Approval</button>
 
       <!-- ADMIN PANEL: PENDING JOBS -->
       <div style="margin-top:24px">
         <div class="sec-title"><h3>🛡️ Admin: Job Approvals</h3></div>
-        <div class="demo-banner">📌 Admin Panel — Review and approve or reject submitted jobs.</div>
+        <div class="demo-banner">📌 Admin Panel — Review and approve or reject submitted jobs. Rejections require a reason.</div>
+        <div class="chip-row" id="adminJobFilterChips">
+          <div class="chip active" onclick="filterAdminJobs('all',this)">All</div>
+          <div class="chip" onclick="filterAdminJobs('pending',this)">⏳ Pending</div>
+          <div class="chip" onclick="filterAdminJobs('approved',this)">✅ Approved</div>
+          <div class="chip" onclick="filterAdminJobs('rejected',this)">❌ Rejected</div>
+        </div>
         <div id="adminJobList"></div>
       </div>
     </section>
@@ -727,7 +811,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
     <!-- WALLET -->
     <section class="screen" id="screen-wallet">
       <div class="sec-title" style="margin-top:14px"><h3>Wallet</h3></div>
-      <div class="demo-banner">📌 Demo mode — no real money involved.</div>
+      <div class="demo-banner">🔒 All deposits & withdrawals are securely processed and verified by our team.</div>
       <div class="wallet-stat-grid">
         <div class="wallet-stat"><div class="wv" id="walletBalance" style="color:var(--green)">$0.00</div><div class="wl">Available</div></div>
         <div class="wallet-stat"><div class="wv" id="walletPending" style="color:var(--coral)">$0.00</div><div class="wl">Pending</div></div>
@@ -749,11 +833,20 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           <div class="method-card" data-method="Bank" onclick="selectMethod(this)"><span class="method-emoji">🏦</span>Bank</div>
         </div>
         <div class="field"><label>Amount ($) — Minimum $1.00</label><input type="number" id="depositAmt" placeholder="10.00" min="1" step="0.01" oninput="updateDepositPreview()"></div>
+        <div class="field"><label>Transaction ID *</label><input type="text" id="depositTxnId" placeholder="e.g. 8N7K2X9PQR"></div>
+        <div class="field"><label>Payment Proof Screenshot (Optional)</label>
+          <div class="upload-area" onclick="document.getElementById('depositProofFile').click()">
+            <div class="ua-icon">📎</div>
+            <div class="ua-text" id="depositProofFileName">Attach screenshot of payment</div>
+          </div>
+          <input type="file" id="depositProofFile" accept="image/*" style="display:none" onchange="document.getElementById('depositProofFileName').textContent=this.files[0]?.name||'Attach screenshot of payment'">
+        </div>
         <div class="info-block" style="margin-bottom:14px" id="depositPreview">
           <div class="info-row"><span class="l">Will be credited</span><span class="v" id="depositCreditPreview" style="color:var(--green)">—</span></div>
           <div class="info-row"><span class="l">First deposit bonus</span><span class="v" style="color:var(--orange)">+$0.10</span></div>
+          <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Verification Pending</span></div>
         </div>
-        <button class="btn-primary" onclick="doDeposit()">Deposit Now</button>
+        <button class="btn-primary" onclick="doDeposit()">📤 Submit Deposit for Verification</button>
       </div>
 
       <div id="withdrawPane" style="display:none">
@@ -784,6 +877,13 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         </div>
       </div>
       <div id="txList" style="padding:0 4px"></div>
+
+      <!-- ADMIN PANEL: DEPOSIT VERIFICATION -->
+      <div style="margin-top:24px">
+        <div class="sec-title"><h3>🛡️ Admin: Deposit Verification</h3></div>
+        <div class="demo-banner">📌 Admin Panel — Verify payment proof &amp; transaction ID before crediting a deposit. Rejections require a reason.</div>
+        <div id="adminDepositList"></div>
+      </div>
     </section>
 
     <!-- HISTORY -->
@@ -875,6 +975,24 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       </div>
     </section>
 
+    <!-- SUPPORT CENTER -->
+    <section class="screen" id="screen-support">
+      <div class="sec-title" style="margin-top:14px"><h3>🎧 Support Center</h3></div>
+      <div class="demo-banner">📌 আমরা আপনাকে সাহায্য করতে এখানে আছি। নিচে যোগাযোগের তথ্য ও সাধারণ প্রশ্নোত্তর দেওয়া আছে।</div>
+      <div class="info-block" style="margin-bottom:16px">
+        <div class="info-row"><span class="l">📧 Email</span><span class="v">support@workhive.app</span></div>
+        <div class="info-row"><span class="l">💬 Live Chat</span><span class="v" style="color:var(--green)">9 AM – 11 PM</span></div>
+        <div class="info-row"><span class="l">⏱️ Avg Response</span><span class="v">Within 12 hours</span></div>
+      </div>
+      <button class="btn-primary" style="margin-bottom:20px" onclick="window.open('mailto:support@workhive.app')">✉️ Contact Support</button>
+      <div class="sec-title"><h3>❓ FAQ</h3></div>
+      <div class="info-block">
+        <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">টাকা তুলতে কত সময় লাগে?</span><span style="font-size:12px;color:var(--text2)">সাধারণত ২৪–৪৮ ঘণ্টার মধ্যে প্রসেস হয়।</span></div>
+        <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">জব রিজেক্ট হলে কী হয়?</span><span style="font-size:12px;color:var(--text2)">"My Jobs" পেজে রিজেকশনের কারণ দেখতে পারবেন।</span></div>
+        <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">KYC কেন প্রয়োজন?</span><span style="font-size:12px;color:var(--text2)">টাকা তোলার সুরক্ষা ও যাচাইয়ের জন্য KYC বাধ্যতামূলক।</span></div>
+      </div>
+    </section>
+
     <!-- EDIT PROFILE -->
     <section class="screen" id="screen-editprofile">
       <div class="sec-title" style="margin-top:14px"><h3>✏️ Edit Profile</h3></div>
@@ -925,6 +1043,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         </div>
         <div class="profile-name-big" id="profileName">Loading</div>
         <div class="profile-username" id="profileUsername">@username</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:600;margin-bottom:2px">Member ID: <span id="profileMemberId">WH000000</span></div>
         <div class="profile-email" id="profileEmail">—</div>
         <div id="profileBio" style="font-size:12px;color:var(--text2);margin-bottom:10px;text-align:center;display:none"></div>
         <div class="profile-badges" id="profileBadges">
@@ -956,6 +1075,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         <div class="info-row"><span class="l">Tasks Completed</span><span class="v" id="profileTasks">0</span></div>
         <div class="info-row"><span class="l">Total Earned</span><span class="v" id="profileEarned">$0.00</span></div>
         <div class="info-row"><span class="l">Total Withdrawn</span><span class="v" id="profileWithdrawn">$0.00</span></div>
+        <div class="info-row"><span class="l">Total Referrals</span><span class="v" id="profileReferrals" style="color:var(--orange)">0</span></div>
         <div class="info-row"><span class="l">Country</span><span class="v" id="profileCountry">—</span></div>
         <div class="info-row"><span class="l">Phone</span><span class="v" id="profilePhone">—</span></div>
         <div class="info-row"><span class="l">District</span><span class="v" id="profileDistrict">—</span></div>
@@ -975,14 +1095,16 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
         <button class="edit-profile-btn" onclick="goTab('editprofile')">✏️ Edit Profile</button>
+        <button class="edit-profile-btn" onclick="openChangePassword()">🔒 Change Password</button>
         <button class="edit-profile-btn" onclick="goTab('kyc')">🪪 KYC</button>
-        <button class="edit-profile-btn" onclick="goTab('history')">📜 Task History</button>
         <button class="edit-profile-btn" onclick="goTab('referral')">👥 Referral</button>
+        <button class="edit-profile-btn" onclick="goTab('history')">📜 Task History</button>
+        <button class="edit-profile-btn" onclick="goTab('support')">🎧 Support Center</button>
       </div>
 
       <div class="danger-zone">
         <h4>⚠ Danger Zone</h4>
-        <button class="btn-danger" style="margin-bottom:8px" onclick="doLogout()">🚪 Log Out</button>
+        <button class="btn-danger" style="margin-bottom:8px" onclick="doLogoutConfirm()">🚪 Log Out</button>
         <button class="btn-danger" onclick="confirmDeleteAccount()">🗑️ Delete Account</button>
       </div>
     </section>
@@ -993,9 +1115,9 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
   <nav class="tabbar">
     <div class="tab active" data-tab="home" onclick="goTab('home')">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-      <span>Dashboard</span>
+      <span>Home</span>
     </div>
-    <div class="tab" data-tab="tasks" onclick="goTab('tasks')">
+    <div class="tab" data-tab="myjobs" onclick="goTab('myjobs')">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
       <span>My Jobs</span>
     </div>
@@ -1007,7 +1129,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
     </div>
     <div class="tab" data-tab="wallet" onclick="goTab('wallet')">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h3"/></svg>
-      <span>Deposits</span>
+      <span>Wallet</span>
     </div>
     <div class="tab" data-tab="profile" onclick="goTab('profile')">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
@@ -1042,7 +1164,7 @@ import {
   getAuth, signInWithPopup, GoogleAuthProvider,
   onAuthStateChanged, signOut, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail,
-  deleteUser
+  deleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore, doc, setDoc, getDoc, updateDoc,
@@ -1070,21 +1192,34 @@ window._fb = {
   signInWithPopup, signOut, onAuthStateChanged,
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
   updateProfile, sendPasswordResetEmail, deleteUser,
+  EmailAuthProvider, reauthenticateWithCredential, updatePassword,
   doc, setDoc, getDoc, updateDoc, increment,
   collection, addDoc, getDocs, query, orderBy, limit,
   serverTimestamp, deleteDoc
 };
 window._fbReady = true;
+if (window._resolveFbReady) window._resolveFbReady();
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     window._currentUser = user;
+
+    // 1) Try to show the UI INSTANTLY from local cache (fast path),
+    //    while we refresh from Firestore in the background.
+    let cached = null;
+    try { cached = JSON.parse(localStorage.getItem('wh_cache_' + user.uid) || 'null'); } catch (e) {}
+    if (cached) {
+      window._userData = cached;
+      showApp(user, cached);
+    }
+
     try {
       const ref = doc(db, 'users', user.uid);
       const snap = await getDoc(ref);
+      let data;
       if (!snap.exists()) {
         const refCode = 'WH' + Math.random().toString(36).substr(2,6).toUpperCase();
-        await setDoc(ref, {
+        data = {
           name: user.displayName || 'WorkHive User',
           username: '',
           email: user.email || '',
@@ -1098,16 +1233,20 @@ onAuthStateChanged(auth, async (user) => {
           referralCount: 0, referralEarned: 0,
           spinLastUsed: null, checkInLastUsed: null,
           firstDeposit: false, isNewUser: true,
-          createdAt: serverTimestamp()
-        });
+          createdAt: new Date()
+        };
+        // Fire-and-forget write — don't make the user wait for this round trip.
+        setDoc(ref, { ...data, createdAt: serverTimestamp() }).catch(e => console.error('setDoc error:', e));
+      } else {
+        data = snap.data();
       }
-      const data = (await getDoc(ref)).data();
       window._userData = data;
       window._userRef = ref;
+      try { localStorage.setItem('wh_cache_' + user.uid, JSON.stringify(data)); } catch(e) {}
       showApp(user, data);
     } catch(e) {
       console.error('Firestore error:', e);
-      showApp(user, {});
+      if (!cached) showApp(user, {});
     }
   } else {
     window._currentUser = null;
@@ -1119,12 +1258,33 @@ onAuthStateChanged(auth, async (user) => {
 
 <!-- ===================== MAIN SCRIPT ===================== -->
 <script>
+// Promise that resolves the moment the Firebase module script finishes loading.
+// Lets login/register react instantly instead of polling in 200ms steps.
+window._fbReadyPromise = new Promise(resolve => { window._resolveFbReady = resolve; });
+if (window._fbReady) window._resolveFbReady();
+
+// Pre-fill remembered email (Remember Me)
+(function(){
+  try {
+    const savedEmail = localStorage.getItem('wh_remember_email');
+    if (savedEmail) {
+      const emailInput = document.getElementById('loginEmail');
+      const rememberBox = document.getElementById('rememberMe');
+      if (emailInput) emailInput.value = savedEmail;
+      if (rememberBox) rememberBox.checked = true;
+    }
+  } catch(e) {}
+})();
+
 // ===================== STATE =====================
 const S = {
   walletTab: 'deposit',
   selectedMethod: 'bKash',
   selectedWithdrawMethod: 'bKash',
   postProofType: 'proof',
+  postStep: 1,
+  postSelectedCategory: '',
+  myJobsFilter: 'all',
   balance: 0,
   totalEarned: 0,
   totalWithdrawn: 0,
@@ -1142,6 +1302,8 @@ const S = {
   spinHistory: [],
   activeRole: 'worker',
   pendingJobs: [],
+  adminJobFilter: 'all',
+  pendingDeposits: [],
   nextJobId: 200,
 
   tasks: [
@@ -1221,6 +1383,15 @@ const S = {
   lbTab: 'weekly',
 };
 
+const postCategories = [
+  {name:'Social Media', emoji:'📱'},
+  {name:'App Download', emoji:'⬇️'},
+  {name:'Website Visit', emoji:'🌐'},
+  {name:'Review/Rating', emoji:'⭐'},
+  {name:'Watch Video', emoji:'🎬'},
+];
+const postStepTitles = ['ক্যাটাগরি নির্বাচন','জব বিস্তারিত','বাজেট ক্যালকুলেটর','জব প্রিভিউ','পাবলিশ করুন'];
+
 // ===================== FORMAT =====================
 const fmtUSD = n => '$' + Number(Math.abs(n)).toFixed(2);
 const fmtShort = n => {
@@ -1243,11 +1414,15 @@ function showAuthScreen() {
   document.getElementById('appShell').style.display = 'none';
 }
 
+let _appInitialized = false;
+
 function showApp(user, data) {
   clearTimeout(_loadingFallbackTimer);
   const ls = document.getElementById('loadingScreen');
-  ls.style.opacity = '0'; ls.style.transition = 'opacity .4s';
-  setTimeout(() => ls.style.display = 'none', 400);
+  if (ls.style.display !== 'none') {
+    ls.style.opacity = '0'; ls.style.transition = 'opacity .4s';
+    setTimeout(() => ls.style.display = 'none', 400);
+  }
   document.getElementById('authScreen').style.display = 'none';
   const shell = document.getElementById('appShell');
   shell.style.display = 'flex';
@@ -1272,6 +1447,7 @@ function showApp(user, data) {
   const refCode = data?.referralCode || 'WH000000';
   if (document.getElementById('refCode')) document.getElementById('refCode').textContent = refCode;
   if (document.getElementById('refCodePage')) document.getElementById('refCodePage').textContent = refCode;
+  if (document.getElementById('profileMemberId')) document.getElementById('profileMemberId').textContent = refCode;
 
   document.getElementById('profileTasks').textContent = data?.tasksCompleted || 0;
   document.getElementById('profileEarned').textContent = fmtUSD(data?.totalEarned || 0);
@@ -1281,6 +1457,7 @@ function showApp(user, data) {
   document.getElementById('profileDistrict').textContent = data?.district || '—';
   document.getElementById('profileCountry').textContent = data?.country || '—';
   document.getElementById('profileUsername').textContent = username ? '@' + username : '@username';
+  if (document.getElementById('profileReferrals')) document.getElementById('profileReferrals').textContent = data?.referralCount || 0;
 
   if (data?.bio) {
     const bioEl = document.getElementById('profileBio');
@@ -1307,8 +1484,8 @@ function showApp(user, data) {
   document.getElementById('homeKycStatus').textContent = kyc ? '✓' : '⚠';
 
   if (data?.createdAt) {
-    const d = data.createdAt.toDate ? data.createdAt.toDate() : new Date();
-    document.getElementById('profileJoined').textContent = d.toLocaleDateString('en-US');
+    const d = data.createdAt.toDate ? data.createdAt.toDate() : new Date(data.createdAt);
+    if (!isNaN(d)) document.getElementById('profileJoined').textContent = d.toLocaleDateString('en-US');
   }
 
   updateAvatar(name);
@@ -1334,39 +1511,49 @@ function showApp(user, data) {
   renderReferralPage(data);
   renderRecentActivity();
   renderAdminJobList();
+  renderAdminDepositList();
+  renderMyJobs();
+  renderCategoryPickGrid();
+  showPostStep(1);
   drawSpinWheel();
   checkSpinUsed();
   checkCheckin();
   updatePostBudgetPreview();
 
-  setInterval(updateGreeting, 30000);
-  setInterval(() => {
-    document.getElementById('clockTime').textContent =
-      new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-  }, 10000);
+  // One-time setup: intervals, popups, onboarding — must not be duplicated
+  // if showApp() is called again later (cache hit -> fresh Firestore refresh).
+  if (!_appInitialized) {
+    _appInitialized = true;
 
-  const isNew = data?.isNewUser;
-  const firstName = (data?.name || user.displayName || 'Friend').split(' ')[0];
+    setInterval(updateGreeting, 30000);
+    setInterval(() => {
+      const clockEl = document.getElementById('clockTime');
+      if (clockEl) clockEl.textContent = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    }, 10000);
 
-  setTimeout(() => {
-    const popup = document.createElement('div');
-    popup.id = 'welcomePopup';
-    popup.style.cssText = 'position:absolute;top:80px;left:16px;right:16px;background:rgba(29,185,84,0.1);border:1px solid rgba(29,185,84,0.3);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:60;animation:slideDown .4s cubic-bezier(.34,1.56,.64,1);backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.4)';
-    popup.innerHTML = `
-      <div style="width:42px;height:42px;border-radius:12px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">👋</div>
-      <div style="flex:1">
-        <div style="font-size:13px;font-weight:800;margin-bottom:2px">Welcome, ${firstName}!</div>
-        <div style="font-size:11.5px;color:var(--text2)">${isNew ? 'Account created! Start earning 🚀' : 'Great to have you back!'}</div>
-      </div>
-      <div onclick="this.parentElement.remove()" style="cursor:pointer;font-size:16px;opacity:.5;padding:4px">✕</div>`;
-    document.getElementById('appShell').appendChild(popup);
-    const style = document.createElement('style');
-    style.textContent = '@keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}';
-    document.head.appendChild(style);
-    setTimeout(() => { if(popup.parentElement){popup.style.opacity='0';popup.style.transition='opacity .4s';setTimeout(()=>popup.remove(),400);}}, 4000);
-  }, 600);
+    const isNew = data?.isNewUser;
+    const firstName = (data?.name || user.displayName || 'Friend').split(' ')[0];
 
-  if (isNew) setTimeout(() => showOnboarding(), 1500);
+    setTimeout(() => {
+      const popup = document.createElement('div');
+      popup.id = 'welcomePopup';
+      popup.style.cssText = 'position:absolute;top:80px;left:16px;right:16px;background:rgba(29,185,84,0.1);border:1px solid rgba(29,185,84,0.3);border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;z-index:60;animation:slideDown .4s cubic-bezier(.34,1.56,.64,1);backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.4)';
+      popup.innerHTML = `
+        <div style="width:42px;height:42px;border-radius:12px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">👋</div>
+        <div style="flex:1">
+          <div style="font-size:13px;font-weight:800;margin-bottom:2px">Welcome, ${firstName}!</div>
+          <div style="font-size:11.5px;color:var(--text2)">${isNew ? 'Account created! Start earning 🚀' : 'Great to have you back!'}</div>
+        </div>
+        <div onclick="this.parentElement.remove()" style="cursor:pointer;font-size:16px;opacity:.5;padding:4px">✕</div>`;
+      document.getElementById('appShell').appendChild(popup);
+      const style = document.createElement('style');
+      style.textContent = '@keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}';
+      document.head.appendChild(style);
+      setTimeout(() => { if(popup.parentElement){popup.style.opacity='0';popup.style.transition='opacity .4s';setTimeout(()=>popup.remove(),400);}}, 4000);
+    }, 600);
+
+    if (isNew) setTimeout(() => showOnboarding(), 1500);
+  }
 }
 
 // ===================== AVATAR =====================
@@ -1429,14 +1616,18 @@ function setAuthLoading(type, loading) {
   txt.textContent = loading ? (type === 'login' ? 'Logging in...' : 'Creating...') : (type === 'login' ? 'Login' : 'Create Account');
 }
 
+// Wait for the Firebase module script to finish loading — promise based
+// (reacts the instant it's ready, no polling delay).
+async function waitForFirebase(timeoutMs = 4000) {
+  if (window._fbReady) return true;
+  await Promise.race([
+    window._fbReadyPromise,
+    new Promise(r => setTimeout(r, timeoutMs))
+  ]);
+  return !!window._fbReady;
+}
+
 async function doLogin() {
-  if (!window._fbReady) {
-    document.getElementById('loginErr').textContent = '⏳ Connecting...';
-    let waited = 0;
-    while (!window._fbReady && waited < 3000) { await new Promise(r => setTimeout(r, 200)); waited += 200; }
-    if (!window._fbReady) { document.getElementById('loginErr').textContent = '❌ Check your internet connection'; return; }
-    document.getElementById('loginErr').textContent = '';
-  }
   const fb = window._fb;
   const email = document.getElementById('loginEmail').value.trim();
   const pass = document.getElementById('loginPass').value;
@@ -1445,9 +1636,18 @@ async function doLogin() {
   if (!email) { errEl.textContent = '❌ Enter email'; return; }
   if (!pass) { errEl.textContent = '❌ Enter password'; return; }
   if (!/\S+@\S+\.\S+/.test(email)) { errEl.textContent = '❌ Enter a valid email'; return; }
-  setAuthLoading('login', true);
+  const remember = document.getElementById('rememberMe')?.checked;
   try {
-    await fb.signInWithEmailAndPassword(fb.auth, email, pass);
+    if (remember) localStorage.setItem('wh_remember_email', email);
+    else localStorage.removeItem('wh_remember_email');
+  } catch(e) {}
+  setAuthLoading('login', true);
+  if (!window._fbReady) {
+    const ready = await waitForFirebase();
+    if (!ready) { errEl.textContent = '❌ Check your internet connection'; setAuthLoading('login', false); return; }
+  }
+  try {
+    await window._fb.signInWithEmailAndPassword(window._fb.auth, email, pass);
   } catch(e) {
     const msgs = {
       'auth/wrong-password':'❌ Wrong password',
@@ -1461,39 +1661,46 @@ async function doLogin() {
     errEl.textContent = msgs[e.code] || '❌ Login failed: ' + e.message;
     setAuthLoading('login', false);
   }
+  // NOTE: on success we deliberately do NOT reset the button here —
+  // onAuthStateChanged will fire and swap straight to the app instantly.
 }
 
 async function doRegister() {
-  if (!window._fbReady) {
-    document.getElementById('regErr').textContent = '⏳ Connecting...';
-    let waited = 0;
-    while (!window._fbReady && waited < 3000) { await new Promise(r => setTimeout(r, 200)); waited += 200; }
-    if (!window._fbReady) { document.getElementById('regErr').textContent = '❌ Check your internet connection'; return; }
-    document.getElementById('regErr').textContent = '';
-  }
-  const fb = window._fb;
   const name = document.getElementById('regName').value.trim();
   const username = document.getElementById('regUsername').value.trim().toLowerCase();
   const email = document.getElementById('regEmail').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
   const pass = document.getElementById('regPass').value;
+  const confirmPass = document.getElementById('regConfirmPass').value;
   const country = document.getElementById('regCountry').value;
   const refCode = document.getElementById('regRef').value.trim().toUpperCase();
   const errEl = document.getElementById('regErr');
   errEl.style.color = 'var(--coral)'; errEl.textContent = '';
   if (!name) { errEl.textContent = '❌ Enter your name'; return; }
+  if (!username) { errEl.textContent = '❌ Enter a username'; return; }
   if (!email) { errEl.textContent = '❌ Enter email'; return; }
   if (!/\S+@\S+\.\S+/.test(email)) { errEl.textContent = '❌ Enter a valid email'; return; }
+  if (!phone) { errEl.textContent = '❌ Enter your phone number'; return; }
   if (!pass) { errEl.textContent = '❌ Enter password'; return; }
   if (pass.length < 6) { errEl.textContent = '❌ Password must be at least 6 characters'; return; }
+  if (!confirmPass) { errEl.textContent = '❌ Confirm your password'; return; }
+  if (pass !== confirmPass) { errEl.textContent = '❌ Passwords do not match'; return; }
   setAuthLoading('register', true);
+  if (!window._fbReady) {
+    const ready = await waitForFirebase();
+    if (!ready) { errEl.textContent = '❌ Check your internet connection'; setAuthLoading('register', false); return; }
+  }
+  const fb = window._fb;
   try {
     const cred = await fb.createUserWithEmailAndPassword(fb.auth, email, pass);
-    await fb.updateProfile(cred.user, { displayName: name });
+    // Don't block the UI on these two writes — fire them in the background.
+    // onAuthStateChanged will create/merge the Firestore profile doc itself.
+    fb.updateProfile(cred.user, { displayName: name }).catch(()=>{});
     const ref = fb.doc(fb.db, 'users', cred.user.uid);
     const refCodeGen = 'WH' + Math.random().toString(36).substr(2,6).toUpperCase();
-    await fb.setDoc(ref, {
-      name, username, email, country,
-      phone: '', bio: '', district: '', job: '',
+    fb.setDoc(ref, {
+      name, username, email, country, phone,
+      bio: '', district: '', job: '',
       balance: 0, totalEarned: 0, totalWithdrawn: 0, pendingWithdraw: 0,
       tasksCompleted: 0, accuracy: 100, streak: 0,
       workerLevel: 1, investorLevel: 1,
@@ -1504,7 +1711,7 @@ async function doRegister() {
       spinLastUsed: null, checkInLastUsed: null,
       firstDeposit: false, isNewUser: true,
       createdAt: fb.serverTimestamp()
-    });
+    }).catch(e => console.error('Profile create error:', e));
   } catch(e) {
     const msgs = {
       'auth/email-already-in-use':'❌ An account with this email already exists. Login instead.',
@@ -1518,7 +1725,11 @@ async function doRegister() {
 }
 
 async function doGoogle() {
-  if (!window._fbReady) { showToast('Loading...', 'info'); return; }
+  if (!window._fbReady) {
+    showToast('Loading...', 'info');
+    const ready = await waitForFirebase();
+    if (!ready) { showToast('Check your internet connection', 'error'); return; }
+  }
   try {
     await window._fb.signInWithPopup(window._fb.auth, window._fb.googleProvider);
   } catch(e) {
@@ -1528,22 +1739,149 @@ async function doGoogle() {
   }
 }
 
+let _resetCooldown = false;
 async function doForgotPassword() {
   const email = document.getElementById('loginEmail').value.trim();
-  if (!email) { document.getElementById('loginErr').textContent = '❌ Enter your email first'; return; }
-  if (!window._fbReady) return;
+  const errEl = document.getElementById('loginErr');
+  if (!email) { errEl.style.color='var(--coral)'; errEl.textContent = '❌ Enter your email first'; return; }
+  if (!/\S+@\S+\.\S+/.test(email)) { errEl.style.color='var(--coral)'; errEl.textContent = '❌ Enter a valid email'; return; }
+  if (_resetCooldown) { showToast('Please wait a moment before resending', 'info'); return; }
+  if (!window._fbReady) {
+    const ready = await waitForFirebase();
+    if (!ready) { errEl.style.color='var(--coral)'; errEl.textContent = '❌ Check your internet connection'; return; }
+  }
   try {
-    await window._fb.sendPasswordResetEmail(window._fb.auth, email);
-    document.getElementById('loginErr').style.color = 'var(--green)';
-    document.getElementById('loginErr').textContent = '✅ Password reset link sent!';
+    const actionCodeSettings = {
+      url: window.location.origin + window.location.pathname,
+      handleCodeInApp: false
+    };
+    await window._fb.sendPasswordResetEmail(window._fb.auth, email, actionCodeSettings);
+    errEl.textContent = '';
+    _resetCooldown = true;
+    setTimeout(() => { _resetCooldown = false; }, 30000);
+    showForgotPasswordSentModal(email);
   } catch(e) {
-    document.getElementById('loginErr').textContent = '❌ Could not send email. Check your email address.';
+    const msgs = {
+      'auth/user-not-found': '❌ No account found with this email',
+      'auth/invalid-email': '❌ Invalid email address',
+      'auth/network-request-failed': '❌ Check your internet connection',
+    };
+    errEl.style.color = 'var(--coral)';
+    errEl.textContent = msgs[e.code] || '❌ Could not send email. Try again.';
+  }
+}
+
+function showForgotPasswordSentModal(email) {
+  document.getElementById('confirmContent').innerHTML = `
+    <div class="modal-handle"></div>
+    <div style="text-align:center;padding:10px 0 16px">
+      <div style="font-size:46px;margin-bottom:12px">📩</div>
+      <div class="modal-title">রিসেট লিঙ্ক পাঠানো হয়েছে!</div>
+      <div class="modal-sub" style="margin-bottom:4px"><b>${email}</b> এই ইমেইলে একটি পাসওয়ার্ড রিসেট লিঙ্ক পাঠানো হয়েছে।</div>
+      <div style="background:var(--bg2);border-radius:var(--r-md);padding:14px;text-align:left;margin:14px 0;font-size:12.5px;color:var(--text2);line-height:1.7">
+        📥 ইনবক্স চেক করুন (কয়েক মিনিট সময় লাগতে পারে)<br>
+        📁 না পেলে Spam/Junk ফোল্ডার দেখুন<br>
+        🔗 লিঙ্কে ক্লিক করে নতুন পাসওয়ার্ড সেট করুন<br>
+        ⏰ লিঙ্কটি সীমিত সময়ের জন্য বৈধ থাকবে
+      </div>
+      <button class="btn-primary" onclick="closeConfirm()">ঠিক আছে</button>
+    </div>`;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+
+// ===================== CHANGE PASSWORD =====================
+function openChangePassword() {
+  document.getElementById('confirmContent').innerHTML = `
+    <div class="modal-handle"></div>
+    <div style="padding:6px 0 4px">
+      <div class="modal-title">🔒 Change Password</div>
+      <div class="modal-sub">নিরাপত্তার জন্য আগের পাসওয়ার্ড দিয়ে যাচাই করুন।</div>
+      <div class="field"><label>Current Password</label><input type="password" id="cpOld" placeholder="Current password"></div>
+      <div class="field"><label>New Password</label><input type="password" id="cpNew" placeholder="At least 6 characters"></div>
+      <div class="field"><label>Confirm New Password</label><input type="password" id="cpConfirm" placeholder="Re-enter new password"></div>
+      <div class="auth-error" id="cpErr"></div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-ghost" style="flex:1" onclick="closeConfirm()">Cancel</button>
+        <button class="btn-primary" style="flex:1" onclick="submitChangePassword()">Update</button>
+      </div>
+    </div>`;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+
+async function submitChangePassword() {
+  const oldPass = document.getElementById('cpOld').value;
+  const newPass = document.getElementById('cpNew').value;
+  const confirmPass = document.getElementById('cpConfirm').value;
+  const errEl = document.getElementById('cpErr');
+  errEl.textContent = '';
+  if (!oldPass || !newPass || !confirmPass) { errEl.textContent = '❌ সব ফিল্ড পূরণ করুন'; return; }
+  if (newPass.length < 6) { errEl.textContent = '❌ নতুন পাসওয়ার্ড কমপক্ষে ৬ ক্যারেক্টার হতে হবে'; return; }
+  if (newPass !== confirmPass) { errEl.textContent = '❌ পাসওয়ার্ড মিলছে না'; return; }
+  const user = window._currentUser;
+  if (!user || !window._fbReady) { errEl.textContent = '❌ Please try again'; return; }
+  try {
+    const fb = window._fb;
+    const credential = fb.EmailAuthProvider.credential(user.email, oldPass);
+    await fb.reauthenticateWithCredential(user, credential);
+    await fb.updatePassword(user, newPass);
+    closeConfirm();
+    showToast('✅ Password updated successfully!');
+  } catch(e) {
+    const msgs = {
+      'auth/wrong-password': '❌ পুরাতন পাসওয়ার্ড সঠিক নয়',
+      'auth/invalid-credential': '❌ পুরাতন পাসওয়ার্ড সঠিক নয়',
+      'auth/too-many-requests': '⚠ অনেকবার চেষ্টা হয়েছে, কিছুক্ষণ পর চেষ্টা করুন',
+      'auth/network-request-failed': '❌ ইন্টারনেট সংযোগ চেক করুন',
+    };
+    errEl.textContent = msgs[e.code] || '❌ পাসওয়ার্ড পরিবর্তন করা যায়নি';
   }
 }
 
 async function doLogout() {
   if (!window._fbReady) return;
-  try { await window._fb.signOut(window._fb.auth); } catch(e) {}
+  try {
+    await window._fb.signOut(window._fb.auth);
+    resetAppState();
+  } catch(e) {
+    showToast('লগ আউট করা যায়নি, আবার চেষ্টা করুন', 'error');
+  }
+}
+
+function doLogoutConfirm() {
+  document.getElementById('confirmContent').innerHTML = `
+    <div class="modal-handle"></div>
+    <div style="text-align:center;padding:10px 0 20px">
+      <div style="font-size:40px;margin-bottom:12px">🚪</div>
+      <div class="modal-title">লগ আউট করবেন?</div>
+      <div class="modal-sub" style="margin-bottom:20px">আপনি যেকোনো সময় আবার লগইন করে ফিরে আসতে পারবেন।</div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-ghost" onclick="closeConfirm()" style="flex:1">বাতিল</button>
+        <button class="btn-primary" style="flex:1" onclick="closeConfirm();doLogout()">হ্যাঁ, লগ আউট</button>
+      </div>
+    </div>`;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+
+// Fully resets in-memory app state on logout so a different account
+// logging in afterwards never sees the previous user's leftover data.
+function resetAppState() {
+  document.getElementById('welcomePopup')?.remove();
+  document.getElementById('onboardOverlay')?.remove();
+  document.getElementById('confirmOverlay')?.classList.remove('show');
+  document.getElementById('taskOverlay')?.classList.remove('show');
+
+  S.balance = 0; S.totalEarned = 0; S.totalWithdrawn = 0; S.pendingWithdraw = 0;
+  S.transactions = []; S.completedIds = new Set(); S.visitedLinks = {};
+  S.historyItems = []; S.recentActivity = []; S.pendingJobs = [];
+  S.pendingDeposits = []; S.adminJobFilter = 'all';
+  S.tasks.forEach(t => { if (t.id >= 200) return; });
+
+  window._currentUser = null;
+  window._userData = null;
+  window._userRef = null;
+  _appInitialized = false;
+
+  goTab('home');
 }
 
 async function confirmDeleteAccount() {
@@ -1567,6 +1905,7 @@ async function reallyDeleteAccount() {
   if (!user || !window._fbReady) return;
   try {
     const fb = window._fb;
+    try { localStorage.removeItem('wh_cache_' + user.uid); } catch(e) {}
     await fb.deleteDoc(fb.doc(fb.db, 'users', user.uid)).catch(() => {});
     await fb.deleteUser(user);
   } catch(e) {
@@ -1594,6 +1933,7 @@ function goTab(name, walletSub) {
   if (sc) sc.classList.add('active');
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
   if (name === 'wallet' && walletSub) setWalletTab(walletSub);
+  if (name === 'myjobs') renderMyJobs();
   document.getElementById('mainScroll').scrollTo(0, 0);
 }
 
@@ -1646,24 +1986,30 @@ function closeOnboard() { const el = document.getElementById('onboardOverlay'); 
 
 // ===================== DAILY CHECK-IN =====================
 function checkCheckin() {
+  const btn = document.getElementById('checkinBtn');
+  if (!btn) return;
   const last = localStorage.getItem('wh_checkin');
   const today = new Date().toDateString();
-  const btn = document.getElementById('checkinBtn');
   if (last === today) {
     btn.disabled = true; btn.textContent = '✓ Done';
     document.getElementById('checkinSub').textContent = 'Already checked in today.';
+  } else {
+    btn.disabled = false; btn.textContent = 'Check In';
+    document.getElementById('checkinSub').textContent = 'Check in today and get $0.10!';
   }
 }
 
 function doCheckIn() {
+  const btn = document.getElementById('checkinBtn');
+  if (!btn) return;
   const today = new Date().toDateString();
   localStorage.setItem('wh_checkin', today);
   const streak = (parseInt(localStorage.getItem('wh_streak') || '0')) + 1;
   localStorage.setItem('wh_streak', streak);
   document.getElementById('homeStreak').textContent = '🔥 ' + streak + ' days';
   addEarning(0.10, 'Daily Check-in Bonus', '🎁');
-  document.getElementById('checkinBtn').disabled = true;
-  document.getElementById('checkinBtn').textContent = '✓ Done';
+  btn.disabled = true;
+  btn.textContent = '✓ Done';
   document.getElementById('checkinSub').textContent = '✅ Done! Come back tomorrow!';
   showToast('🎁 Check-in bonus $0.10 received!');
   if (window._userRef && window._fb) {
@@ -1819,6 +2165,7 @@ function finishTask(id) {
   renderAllTasks('All');
   renderHistory();
   renderRecentActivity();
+  renderMyJobs();
   document.getElementById('profileTasks').textContent = tasksCount;
   document.getElementById('homeTasks').textContent = tasksCount;
   showToast('✅ Task done! +' + fmtUSD(t.reward) + ' added');
@@ -1959,10 +2306,16 @@ function drawSpinWheel(angle = 0) {
 function checkSpinUsed() {
   const last = localStorage.getItem('wh_spin');
   const today = new Date().toDateString();
+  const spinBtn = document.getElementById('spinBtn');
+  if (!spinBtn) return;
   if (last === today) {
     S.spinUsedToday = true;
-    document.getElementById('spinBtn').disabled = true;
+    spinBtn.disabled = true;
     document.getElementById('spinInfo').textContent = "Today's spin used. Come back tomorrow!";
+  } else {
+    S.spinUsedToday = false;
+    spinBtn.disabled = false;
+    document.getElementById('spinInfo').textContent = "Today's spin is available 🎉";
   }
   const hist = localStorage.getItem('wh_spin_hist');
   if (hist) { S.spinHistory = JSON.parse(hist); renderSpinHistory(); }
@@ -2016,7 +2369,7 @@ function renderSpinHistory() {
     </div>`).join('');
 }
 
-// ===================== POST / JOB =====================
+// ===================== POST / JOB WIZARD =====================
 function setProofType(type) {
   S.postProofType = type;
   document.getElementById('proofTypeProof').classList.toggle('active', type==='proof');
@@ -2039,19 +2392,107 @@ document.addEventListener('input', e => {
   if(e.target.id === 'pLimit' || e.target.id === 'pBudget') updatePostBudgetPreview();
 });
 
+function renderCategoryPickGrid() {
+  const el = document.getElementById('categoryPickGrid');
+  if (!el) return;
+  el.innerHTML = postCategories.map(c => `
+    <div class="cashback-card ${S.postSelectedCategory===c.name?'selected':''}" onclick="selectPostCategory('${c.name}')">
+      <div class="cashback-logo">${c.emoji}</div>
+      <div class="cashback-name">${c.name}</div>
+    </div>`).join('');
+}
+
+function selectPostCategory(name) {
+  S.postSelectedCategory = name;
+  renderCategoryPickGrid();
+}
+
+function renderPostStepDots() {
+  const el = document.getElementById('postStepDots');
+  if (!el) return;
+  el.innerHTML = [1,2,3,4,5].map(i => `<div class="onboard-dot ${i===S.postStep?'active':''}"></div>`).join('');
+  const labelEl = document.getElementById('postStepLabel');
+  if (labelEl) labelEl.textContent = 'Step ' + S.postStep + ' of 5 — ' + postStepTitles[S.postStep-1];
+}
+
+function showPostStep(step) {
+  S.postStep = step;
+  for (let i=1;i<=5;i++) {
+    const d = document.getElementById('postStep'+i);
+    if (d) d.style.display = i===step ? 'block' : 'none';
+  }
+  const backBtn = document.getElementById('postBackBtn');
+  const nextBtn = document.getElementById('postNextBtn');
+  if (backBtn) backBtn.style.display = step===1 ? 'none' : 'block';
+  if (nextBtn) nextBtn.textContent = step===5 ? '✅ Publish Job' : (step===4 ? 'Confirm & Continue →' : 'Next →');
+  if (step===3) updatePostBudgetPreview();
+  if (step===4) renderJobPreview();
+  renderPostStepDots();
+  const mainEl = document.getElementById('mainScroll');
+  if (mainEl) mainEl.scrollTo(0,0);
+}
+
+function postWizardNext() {
+  if (S.postStep === 1) {
+    if (!S.postSelectedCategory) { showToast('একটি ক্যাটাগরি নির্বাচন করুন', 'error'); return; }
+  }
+  if (S.postStep === 2) {
+    const title = document.getElementById('pTitle').value.trim();
+    const inst = document.getElementById('pInstructions').value.trim();
+    if (!title) { showToast('জব টাইটেল লিখুন', 'error'); return; }
+    if (!inst) { showToast('বিস্তারিত নির্দেশনা লিখুন', 'error'); return; }
+    if (S.postProofType === 'link' && !document.getElementById('pLink').value.trim()) {
+      showToast('ডাইরেক্ট লিঙ্ক দিন', 'error'); return;
+    }
+  }
+  if (S.postStep === 3) {
+    const limit = Number(document.getElementById('pLimit').value);
+    const budget = Number(document.getElementById('pBudget').value);
+    if (!limit || limit < 1) { showToast('সঠিক Worker Limit দিন', 'error'); return; }
+    if (!budget || budget <= 0) { showToast('সঠিক Budget দিন', 'error'); return; }
+  }
+  if (S.postStep === 5) { submitPost(); return; }
+  showPostStep(S.postStep + 1);
+}
+
+function postWizardBack() {
+  if (S.postStep > 1) showPostStep(S.postStep - 1);
+}
+
+function renderJobPreview() {
+  const t = {
+    id: 0,
+    title: document.getElementById('pTitle').value.trim() || 'Untitled Job',
+    category: S.postSelectedCategory || 'Social Media',
+    type: S.postProofType,
+    reward: Number(document.getElementById('pBudget').value) || 0.15,
+    limit: Number(document.getElementById('pLimit').value) || 50,
+    filled: 0,
+    country: document.getElementById('pCountry').value,
+  };
+  const total = t.limit * t.reward, fee = total * 0.05;
+  document.getElementById('jobPreviewCard').innerHTML =
+    '<p style="font-size:12px;color:var(--text2);margin-bottom:10px">কর্মীরা ঠিক এই কার্ডটি দেখবেন:</p>' +
+    taskCardHtml(t).replace('onclick="openTaskModal(0)"','onclick=""') +
+    '<div class="info-block" style="margin-top:14px">' +
+    '<div class="info-row"><span class="l">Total Budget Required</span><span class="v" style="color:var(--orange)">'+fmtUSD(total)+'</span></div>' +
+    '<div class="info-row"><span class="l">Platform Fee (5%)</span><span class="v">'+fmtUSD(fee)+'</span></div>' +
+    '<div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Pending Approval</span></div></div>';
+}
+
 function submitPost() {
   const title = document.getElementById('pTitle').value.trim();
   const inst = document.getElementById('pInstructions').value.trim();
-  if (!title) { showToast('Enter job title', 'error'); return; }
-  if (!inst) { showToast('Enter instructions', 'error'); return; }
+  if (!title) { showToast('Enter job title', 'error'); goTab('post'); showPostStep(2); return; }
+  if (!inst) { showToast('Enter instructions', 'error'); goTab('post'); showPostStep(2); return; }
   if (S.postProofType === 'link' && !document.getElementById('pLink').value.trim()) {
-    showToast('Enter direct link', 'error'); return;
+    showToast('Enter direct link', 'error'); goTab('post'); showPostStep(2); return;
   }
   const job = {
     id: S.nextJobId++,
     title,
     instructions: inst,
-    category: document.getElementById('pCategory').value,
+    category: S.postSelectedCategory || 'Social Media',
     type: S.postProofType,
     link: document.getElementById('pLink').value || '',
     reward: Number(document.getElementById('pBudget').value) || 0.15,
@@ -2065,20 +2506,107 @@ function submitPost() {
   document.getElementById('pTitle').value = '';
   document.getElementById('pInstructions').value = '';
   document.getElementById('pLink').value = '';
+  S.postSelectedCategory = '';
   renderAdminJobList();
   renderHomeTasks();
+  renderMyJobs();
+  renderCategoryPickGrid();
+  showPostStep(1);
   showToast('📤 Job submitted! Awaiting admin approval.');
   addNotification('📤 Job Submitted', '"' + title + '" is pending admin approval.', '⏳');
+  goTab('myjobs');
+}
+
+// ===================== MY JOBS (Employer Tracking) =====================
+function myJobStatus(job) {
+  if (job.status === 'pending') return 'pending';
+  if (job.status === 'rejected') return 'rejected';
+  if (job.status === 'approved') {
+    if (job.paused) return 'paused';
+    const task = S.tasks.find(t => t.id === job.id);
+    const filled = task ? task.filled : 0;
+    if (filled >= job.limit) return 'completed';
+    return 'running';
+  }
+  return job.status;
+}
+
+function myJobCardHtml(job) {
+  const task = S.tasks.find(t => t.id === job.id);
+  const filled = task ? task.filled : 0;
+  const remaining = Math.max(0, job.limit - filled);
+  const pct = Math.min(100, Math.round(filled / job.limit * 100));
+  const st = myJobStatus(job);
+  const badgeMap = {
+    pending: '<span class="pending-badge">⏳ Pending Approval</span>',
+    running: '<span class="approved-badge">🟢 Running</span>',
+    completed: '<span class="approved-badge" style="background:rgba(33,150,243,.15);color:var(--blue2)">✅ Completed</span>',
+    rejected: '<span class="rejected-badge">❌ Rejected</span>',
+    paused: '<span class="pending-badge" style="background:rgba(160,160,160,.15);color:var(--text2)">⏸ Paused</span>',
+  };
+  return `<div class="approval-card">
+    <div class="approval-header">
+      <div class="approval-title">${job.title}</div>
+      <div class="approval-budget">${fmtUSD(job.reward)}/task</div>
+    </div>
+    <div class="approval-meta">
+      📂 ${job.category} &nbsp;·&nbsp; 🌍 ${job.country}<br>
+      📋 Total Required: <b>${job.limit}</b> &nbsp;·&nbsp; ✅ Completed: <b>${filled}</b> &nbsp;·&nbsp; ⏳ Remaining: <b>${remaining}</b>
+    </div>
+    <div class="task-progress" style="margin-bottom:10px"><div class="task-progress-fill" style="width:${pct}%"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      ${badgeMap[st] || ''}
+      ${st==='running' ? `<button class="btn-ghost" style="width:auto;padding:7px 14px;font-size:11.5px" onclick="togglePauseJob(${job.id})">⏸ Pause</button>` : ''}
+      ${st==='paused' ? `<button class="btn-approve" style="width:auto;padding:7px 14px;font-size:11.5px" onclick="togglePauseJob(${job.id})">▶ Resume</button>` : ''}
+    </div>
+    ${st==='rejected' && job.rejectReason ? `<div style="font-size:11.5px;color:var(--coral);background:rgba(244,67,54,0.08);border-radius:8px;padding:8px 10px;margin-top:8px">📝 কারণঃ ${job.rejectReason}</div>` : ''}
+  </div>`;
+}
+
+function filterMyJobs(status, el) {
+  S.myJobsFilter = status;
+  document.querySelectorAll('#myJobsFilterChips .h-chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderMyJobs();
+}
+
+function renderMyJobs() {
+  const el = document.getElementById('myJobsList');
+  if (!el) return;
+  const filter = S.myJobsFilter || 'all';
+  const list = S.pendingJobs.filter(j => filter === 'all' ? true : myJobStatus(j) === filter);
+  const countEl = document.getElementById('myJobsCountBadge');
+  if (countEl) countEl.textContent = S.pendingJobs.length + ' jobs';
+  el.innerHTML = list.length ? list.map(myJobCardHtml).join('') :
+    '<div class="history-empty"><div class="big">💼</div>No jobs found.<br><small>Post a new job to get started!</small></div>';
+}
+
+function togglePauseJob(id) {
+  const job = S.pendingJobs.find(j => j.id === id);
+  if (!job) return;
+  job.paused = !job.paused;
+  renderMyJobs();
+  showToast(job.paused ? '⏸ Job paused' : '▶ Job resumed');
 }
 
 // ===================== ADMIN JOB LIST =====================
+function filterAdminJobs(status, el) {
+  S.adminJobFilter = status;
+  document.querySelectorAll('#adminJobFilterChips .chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderAdminJobList();
+}
+
 function renderAdminJobList() {
   const el = document.getElementById('adminJobList');
-  if (!S.pendingJobs.length) {
-    el.innerHTML = '<div class="history-empty" style="padding:20px 0"><div class="big">📋</div>No jobs pending approval.</div>';
+  if (!el) return;
+  const filter = S.adminJobFilter || 'all';
+  const list = filter === 'all' ? S.pendingJobs : S.pendingJobs.filter(j => j.status === filter);
+  if (!list.length) {
+    el.innerHTML = '<div class="history-empty" style="padding:20px 0"><div class="big">📋</div>No jobs in this list.</div>';
     return;
   }
-  el.innerHTML = S.pendingJobs.map(j => `
+  el.innerHTML = list.map(j => `
     <div class="approval-card">
       <div class="approval-header">
         <div class="approval-title">${j.title}</div>
@@ -2094,9 +2622,10 @@ function renderAdminJobList() {
           ${j.status==='pending'?'⏳ Pending':j.status==='approved'?'✅ Approved':'❌ Rejected'}
         </span>
       </div>
+      ${j.status==='rejected' && j.rejectReason ? `<div style="font-size:11.5px;color:var(--coral);background:rgba(244,67,54,0.08);border-radius:8px;padding:8px 10px;margin-bottom:8px">📝 কারণঃ ${j.rejectReason}</div>` : ''}
       ${j.status==='pending' ? `<div class="approval-actions">
         <button class="btn-approve" onclick="approveJob(${j.id})">✅ Approve</button>
-        <button class="btn-reject" onclick="rejectJob(${j.id})">❌ Reject</button>
+        <button class="btn-reject" onclick="rejectJobPrompt(${j.id})">❌ Reject</button>
       </div>` : ''}
     </div>`).join('');
 }
@@ -2120,18 +2649,42 @@ function approveJob(id) {
   renderAdminJobList();
   renderHomeTasks();
   renderTaskCategories();
+  renderMyJobs();
   setTimeout(() => renderAllTasks('All'), 50);
   showToast('✅ Job approved and now live!');
   addNotification('✅ Job Approved!', '"' + job.title + '" is now live for workers.', '✅');
 }
 
+function rejectJobPrompt(id) {
+  const job = S.pendingJobs.find(j => j.id === id);
+  if (!job) return;
+  document.getElementById('confirmContent').innerHTML = `
+    <div class="modal-handle"></div>
+    <div style="padding:6px 0 10px">
+      <div class="modal-title">❌ জব রিজেক্ট করুন</div>
+      <div class="modal-sub">"${job.title}" — রিজেক্ট করার কারণ লিখুন। এই কারণটি এমপ্লয়ারকে নোটিফিকেশনে জানানো হবে।</div>
+      <div class="field"><textarea id="rejectReasonInput" rows="3" placeholder="যেমনঃ ইনস্ট্রাকশন স্পষ্ট নয়, নিয়ম ভঙ্গ করেছে, ভুল ক্যাটাগরি..."></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:6px">
+        <button class="btn-ghost" style="flex:1" onclick="closeConfirm()">বাতিল</button>
+        <button class="btn-primary" style="flex:1;background:var(--grad-fire)" onclick="rejectJob(${id})">রিজেক্ট নিশ্চিত করুন</button>
+      </div>
+    </div>`;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+
 function rejectJob(id) {
   const job = S.pendingJobs.find(j => j.id === id);
   if (!job) return;
+  const reasonInput = document.getElementById('rejectReasonInput');
+  const reason = reasonInput ? reasonInput.value.trim() : '';
+  if (!reason) { showToast('রিজেক্টের কারণ লিখুন', 'error'); return; }
   job.status = 'rejected';
+  job.rejectReason = reason;
+  closeConfirm();
   renderAdminJobList();
-  showToast('❌ Job rejected.', 'error');
-  addNotification('❌ Job Rejected', '"' + job.title + '" was not approved.', '❌');
+  renderMyJobs();
+  showToast('❌ জব রিজেক্ট করা হয়েছে।', 'error');
+  addNotification('❌ Job Rejected', '"' + job.title + '" was not approved. Reason: ' + reason, '❌');
 }
 
 // ===================== WALLET =====================
@@ -2206,16 +2759,37 @@ function addEarning(amount, label, icon='💰') {
   }
 }
 
+// Deposit is now a VERIFICATION REQUEST, not an instant credit.
+// The user submits amount + transaction ID (+ optional proof screenshot);
+// balance is only credited once an admin approves it below.
 function doDeposit() {
   const amt = Number(document.getElementById('depositAmt').value);
-  if (!amt || amt < 1) { showToast('Minimum deposit $1.00', 'error'); return; }
-  const bonus = S.transactions.filter(t => t.name.includes('Deposit')).length === 0 ? 0.10 : 0;
-  S.balance += amt + bonus;
-  S.totalEarned += bonus;
-  S.transactions.unshift({name:'Deposit — '+S.selectedMethod, date:'now', amt:amt+bonus, dir:'pos', icon:'➕', status:'done'});
+  const txnId = document.getElementById('depositTxnId').value.trim();
+  const proofInput = document.getElementById('depositProofFile');
+  const proofFile = proofInput && proofInput.files[0];
+  if (!amt || amt < 1) { showToast('সর্বনিম্ন জমা $1.00', 'error'); return; }
+  if (!txnId) { showToast('ট্রানজেকশন আইডি লিখুন', 'error'); return; }
+
+  const dep = {
+    id: 'D' + Date.now(),
+    amount: amt,
+    method: S.selectedMethod,
+    txnId,
+    proofName: proofFile ? proofFile.name : '',
+    status: 'pending',
+    date: new Date().toLocaleString('en-US'),
+  };
+  S.pendingDeposits.unshift(dep);
+  S.transactions.unshift({name:'Deposit Request — '+S.selectedMethod+' (Txn: '+txnId+')', date:'now', amt, dir:'pos', icon:'⏳', status:'pending'});
   refreshWalletUI();
+  renderAdminDepositList();
   document.getElementById('depositAmt').value = '';
-  showToast('✅ Deposit successful (demo)' + (bonus ? ' + $0.10 first bonus!' : ''));
+  document.getElementById('depositTxnId').value = '';
+  if (proofInput) proofInput.value = '';
+  const fnEl = document.getElementById('depositProofFileName');
+  if (fnEl) fnEl.textContent = 'Attach screenshot of payment';
+  showToast('📤 জমার অনুরোধ পাঠানো হয়েছে! অ্যাডমিন ভেরিফিকেশনের অপেক্ষায়।');
+  addNotification('⏳ Deposit Pending', fmtUSD(amt) + ' (' + S.selectedMethod + ') ভেরিফিকেশনের অপেক্ষায় আছে।', '⏳');
 }
 
 function doWithdraw() {
@@ -2235,6 +2809,89 @@ function doWithdraw() {
   document.getElementById('withdrawNumber').value = '';
   showToast('📤 Withdrawal request sent!');
   addNotification('📤 Withdrawal Request', fmtUSD(amt-fee) + ' via ' + method + ' is processing.', '↑');
+}
+
+// ===================== ADMIN: DEPOSIT VERIFICATION =====================
+function renderAdminDepositList() {
+  const el = document.getElementById('adminDepositList');
+  if (!el) return;
+  if (!S.pendingDeposits.length) {
+    el.innerHTML = '<div class="history-empty" style="padding:20px 0"><div class="big">💳</div>No deposit requests yet.</div>';
+    return;
+  }
+  el.innerHTML = S.pendingDeposits.map(d => `
+    <div class="approval-card">
+      <div class="approval-header">
+        <div class="approval-title">${d.method} Deposit</div>
+        <div class="approval-budget">${fmtUSD(d.amount)}</div>
+      </div>
+      <div class="approval-meta">
+        🧾 Transaction ID: <b>${d.txnId}</b> &nbsp;·&nbsp; 📎 Proof: ${d.proofName || 'Not attached'}<br>
+        ⏰ Submitted: ${d.date}
+      </div>
+      <div style="margin-bottom:10px">
+        <span class="${d.status==='pending'?'pending-badge':d.status==='approved'?'approved-badge':'rejected-badge'}">
+          ${d.status==='pending'?'⏳ Pending':d.status==='approved'?'✅ Verified':'❌ Rejected'}
+        </span>
+      </div>
+      ${d.status==='rejected' && d.rejectReason ? `<div style="font-size:11.5px;color:var(--coral);background:rgba(244,67,54,0.08);border-radius:8px;padding:8px 10px;margin-bottom:8px">📝 কারণঃ ${d.rejectReason}</div>` : ''}
+      ${d.status==='pending' ? `<div class="approval-actions">
+        <button class="btn-approve" onclick="approveDeposit('${d.id}')">✅ Verify &amp; Credit</button>
+        <button class="btn-reject" onclick="rejectDepositPrompt('${d.id}')">❌ Reject</button>
+      </div>` : ''}
+    </div>`).join('');
+}
+
+function approveDeposit(id) {
+  const d = S.pendingDeposits.find(x => x.id === id);
+  if (!d || d.status !== 'pending') return;
+  d.status = 'approved';
+  const hasPriorDeposit = S.transactions.some(t => t.name.indexOf('Deposit Verified') === 0);
+  const bonus = hasPriorDeposit ? 0 : 0.10;
+  addEarning(d.amount + bonus, 'Deposit Verified — ' + d.method + (bonus ? ' (+ first bonus)' : ''), '✅');
+  const relatedTx = S.transactions.find(t => t.name.indexOf(d.txnId) !== -1 && t.status === 'pending');
+  if (relatedTx) relatedTx.status = 'done';
+  renderAdminDepositList();
+  showToast('✅ ডিপোজিট ভেরিফাই হয়েছে! ব্যালেন্স যুক্ত হয়েছে।');
+  addNotification('✅ Deposit Verified', fmtUSD(d.amount) + ' আপনার ওয়ালেটে যুক্ত হয়েছে।', '✅');
+}
+
+function rejectDepositPrompt(id) {
+  const d = S.pendingDeposits.find(x => x.id === id);
+  if (!d) return;
+  document.getElementById('confirmContent').innerHTML = `
+    <div class="modal-handle"></div>
+    <div style="padding:6px 0 10px">
+      <div class="modal-title">❌ ডিপোজিট রিজেক্ট করুন</div>
+      <div class="modal-sub">Txn: ${d.txnId} — রিজেক্ট করার কারণ লিখুন। ইউজারকে নোটিফিকেশনে জানানো হবে।</div>
+      <div class="field"><textarea id="depRejectReasonInput" rows="3" placeholder="যেমনঃ ভুল ট্রানজেকশন আইডি, প্রুফ মেলেনি, পরিমাণ ভুল..."></textarea></div>
+      <div style="display:flex;gap:10px;margin-top:6px">
+        <button class="btn-ghost" style="flex:1" onclick="closeConfirm()">বাতিল</button>
+        <button class="btn-primary" style="flex:1;background:var(--grad-fire)" onclick="rejectDeposit('${id}')">রিজেক্ট নিশ্চিত করুন</button>
+      </div>
+    </div>`;
+  document.getElementById('confirmOverlay').classList.add('show');
+}
+
+function rejectDeposit(id) {
+  const d = S.pendingDeposits.find(x => x.id === id);
+  if (!d) return;
+  const input = document.getElementById('depRejectReasonInput');
+  const reason = input ? input.value.trim() : '';
+  if (!reason) { showToast('রিজেক্টের কারণ লিখুন', 'error'); return; }
+  d.status = 'rejected';
+  d.rejectReason = reason;
+  const relatedTx = S.transactions.find(t => t.name.indexOf(d.txnId) !== -1 && t.status === 'pending');
+  if (relatedTx) {
+    relatedTx.status = 'done';
+    relatedTx.name = 'Deposit Rejected — ' + d.method + ' (Txn: ' + d.txnId + ')';
+    relatedTx.dir = 'neg';
+  }
+  closeConfirm();
+  renderAdminDepositList();
+  refreshWalletUI();
+  showToast('❌ ডিপোজিট রিজেক্ট করা হয়েছে।', 'error');
+  addNotification('❌ Deposit Rejected', 'কারণঃ ' + reason, '❌');
 }
 
 // ===================== HISTORY =====================
