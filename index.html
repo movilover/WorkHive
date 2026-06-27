@@ -92,23 +92,23 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 @keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* BALANCE CARD */
-.balance-card{border-radius:var(--r-xl);background:var(--bg3);border:1px solid var(--border2);padding:20px;margin:8px 0 16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.balance-card{border-radius:var(--r-xl);background:var(--bg3);border:1px solid var(--border2);padding:20px;margin:8px 0 14px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .balance-card .shimmer{position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.02),transparent);animation:shimmer 4s infinite 1s;pointer-events:none}
 @keyframes shimmer{0%{left:-100%}100%{left:200%}}
-.wallet-section-title{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.wallet-section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.wallet-section-left{display:flex;align-items:center;gap:10px}
 .wallet-section-icon{width:36px;height:36px;background:rgba(29,185,84,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
 .wallet-section-label{font-size:15px;font-weight:800}
+.view-details-btn{font-size:12px;font-weight:700;color:var(--green);background:rgba(29,185,84,0.10);border:1px solid rgba(29,185,84,0.25);border-radius:20px;padding:5px 12px;cursor:pointer;display:flex;align-items:center;gap:4px;transition:background .15s}
+.view-details-btn:active{background:rgba(29,185,84,0.2)}
+
+/* HOME WALLET GRID - 3 cols */
 .wallet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px}
 .wallet-grid-item{background:var(--bg2);padding:16px 8px;text-align:center}
 .wallet-grid-icon{font-size:20px;margin-bottom:6px}
 .wallet-grid-label{font-size:10px;color:var(--text2);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.3px}
 .wallet-grid-value{font-size:16px;font-weight:900;font-variant-numeric:tabular-nums}
-.jobs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:16px}
-.jobs-grid-item{background:var(--bg2);padding:14px 8px;text-align:center}
-.jobs-grid-icon{font-size:22px;margin-bottom:4px}
-.jobs-grid-label{font-size:10px;color:var(--text2);font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.3px}
-.jobs-grid-value{font-size:22px;font-weight:900}
-.bal-actions{display:flex;gap:10px}
+.bal-actions{display:flex;gap:10px;margin-bottom:14px}
 .bal-btn{flex:1;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:18px;cursor:pointer;transition:transform .15s,box-shadow .15s;letter-spacing:.2px}
 .bal-btn:active{transform:scale(.96)}
 .bal-btn.deposit{background:var(--grad-mint);box-shadow:0 8px 22px rgba(29,185,84,0.35)}
@@ -123,24 +123,24 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .bal-btn .bal-txt .t2{font-size:10px;font-weight:600}
 .bal-btn.deposit .bal-txt .t2{color:rgba(255,255,255,0.75)}
 .bal-btn.withdraw .bal-txt .t2{color:var(--text3)}
-.bal-meta{display:flex;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.bal-meta{display:flex;gap:0;margin-bottom:0;padding-top:14px;border-top:1px solid var(--border)}
+.bal-stat{flex:1;text-align:center;padding:4px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bal-meta-icon{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
 .bal-stat .v{font-size:14px;font-weight:800;color:var(--green)}
 .bal-stat .l{font-size:10px;color:var(--text3);font-weight:600;margin-top:1px;text-transform:uppercase;letter-spacing:.3px}
+.bal-stat-divider{width:1px;background:var(--border);align-self:stretch}
 
-/* ACTIVITY CARD */
-.activity-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px}
-.activity-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border)}
-.activity-row:last-child{border-bottom:none}
-.activity-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.activity-icon.approved{background:rgba(29,185,84,0.15)}
-.activity-icon.rejected{background:rgba(244,67,54,0.15)}
-.activity-icon.pending{background:rgba(245,166,35,0.15)}
-.activity-body{flex:1}
-.activity-title{font-size:13px;font-weight:600;line-height:1.4}
-.activity-time{font-size:11px;color:var(--text3);margin-top:2px;font-weight:600}
-.activity-amt{font-size:13px;font-weight:900;color:var(--green);white-space:nowrap}
-.activity-amt.neg{color:var(--red)}
-.activity-amt.pending{color:var(--orange)}
+/* QUICK ACTION CARDS */
+.quick-actions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.quick-action-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 10px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;text-align:center}
+.quick-action-card:active{transform:scale(.95)}
+.quick-action-card:hover{border-color:var(--border2)}
+.qa-icon-wrap{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.qa-icon-wrap.jobs{background:linear-gradient(135deg,rgba(29,185,84,0.18),rgba(29,185,84,0.08));border:1px solid rgba(29,185,84,0.2)}
+.qa-icon-wrap.tasks{background:linear-gradient(135deg,rgba(159,68,211,0.18),rgba(67,97,238,0.08));border:1px solid rgba(159,68,211,0.2)}
+.qa-icon-wrap.wallet{background:linear-gradient(135deg,rgba(33,150,243,0.18),rgba(33,150,243,0.08));border:1px solid rgba(33,150,243,0.2)}
+.qa-label{font-size:12px;font-weight:800;color:var(--text);line-height:1.3}
+.qa-sub{font-size:10px;color:var(--text3);font-weight:600;margin-top:1px}
 
 /* STAT CARDS */
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
@@ -152,6 +152,27 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .sec-title{display:flex;align-items:center;justify-content:space-between;margin:20px 0 10px}
 .sec-title h3{font-size:15px;font-weight:800}
 .sec-title a{font-size:12px;color:var(--green);font-weight:700;cursor:pointer}
+
+/* TWO-COLUMN HOME ROW */
+.two-col-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 10px}
+.two-col{min-width:0}
+.two-col .sec-title{margin:0 0 10px}
+.two-col .sec-title h3{font-size:13px}
+.two-col .sec-title a{font-size:10.5px}
+.two-col .history-empty{padding:22px 8px;font-size:11px}
+.two-col .history-empty .big{font-size:26px;margin-bottom:8px}
+.two-col .task-card{padding:10px;gap:8px;margin-bottom:8px}
+.two-col .task-ico{width:34px;height:34px;border-radius:10px}
+.two-col .task-ico svg{width:15px;height:15px}
+.two-col .task-title{font-size:11px}
+.two-col .task-reward{font-size:11.5px}
+.two-col .task-meta{font-size:9px;gap:4px}
+.two-col .badge{font-size:8px;padding:2px 5px}
+.two-col .activity-row{padding:10px 12px;gap:8px}
+.two-col .activity-icon{width:26px;height:26px;font-size:12px}
+.two-col .activity-title{font-size:10.5px}
+.two-col .activity-time{font-size:9px}
+.two-col .activity-amt{font-size:10.5px}
 
 /* TASK CARDS */
 .task-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:15px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:transform .15s,border-color .15s}
@@ -179,6 +200,21 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .chip{flex-shrink:0;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:700;background:var(--bg3);border:1px solid var(--border);color:var(--text2);cursor:pointer;transition:all .15s}
 .chip.active{background:var(--green);color:#fff;border-color:transparent}
 
+/* ACTIVITY CARD */
+.activity-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px}
+.activity-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.activity-row:last-child{border-bottom:none}
+.activity-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.activity-icon.approved{background:rgba(29,185,84,0.15)}
+.activity-icon.rejected{background:rgba(244,67,54,0.15)}
+.activity-icon.pending{background:rgba(245,166,35,0.15)}
+.activity-body{flex:1}
+.activity-title{font-size:13px;font-weight:600;line-height:1.4}
+.activity-time{font-size:11px;color:var(--text3);margin-top:2px;font-weight:600}
+.activity-amt{font-size:13px;font-weight:900;color:var(--green);white-space:nowrap}
+.activity-amt.neg{color:var(--red)}
+.activity-amt.pending{color:var(--orange)}
+
 /* LEADERBOARD */
 .lb-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px}
 .lb-row{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border)}
@@ -204,33 +240,105 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .spin-hist-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
 .spin-hist-row:last-child{border-bottom:none}
 
-/* WALLET */
+/* WALLET PAGE */
 .wallet-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}
-.wallet-stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px}
-.wallet-stat .wv{font-size:20px;font-weight:900}
-.wallet-stat .wl{font-size:11px;color:var(--text3);font-weight:600;margin-top:2px;text-transform:uppercase;letter-spacing:.3px}
-.tab-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:4px;gap:4px;margin-bottom:16px}
-.tab-opt{flex:1;text-align:center;padding:10px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;color:var(--text2);transition:all .2s}
-.tab-opt.active{background:var(--green);color:#fff}
+.wallet-stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;position:relative;overflow:hidden}
+.wallet-stat .ws-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.wallet-stat .wv{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}
+.wallet-stat .wl{font-size:10.5px;color:var(--text3);font-weight:700;margin-top:3px;text-transform:uppercase;letter-spacing:.4px}
+.ws-avail .ws-icon{background:rgba(29,185,84,0.12);border:1px solid rgba(29,185,84,0.18)}
+.ws-pend .ws-icon{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.18)}
+.ws-earn .ws-icon{background:rgba(33,150,243,0.12);border:1px solid rgba(33,150,243,0.18)}
+.ws-wdraw .ws-icon{background:rgba(206,147,216,0.12);border:1px solid rgba(206,147,216,0.18)}
+
+/* Wallet Deposit/Withdraw action buttons (top of wallet) */
+.wallet-actions-row{display:flex;gap:12px;margin-bottom:20px}
+.wallet-action-btn{flex:1;display:flex;align-items:center;gap:12px;padding:16px;border-radius:18px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.wallet-action-btn:active{transform:scale(.96)}
+.wallet-action-btn.dep{background:var(--grad-mint);box-shadow:0 8px 24px rgba(29,185,84,0.35)}
+.wallet-action-btn.with{background:var(--bg3);border:1px solid var(--border2)}
+.wallet-action-btn .wab-ico{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.wallet-action-btn.dep .wab-ico{background:rgba(255,255,255,0.2)}
+.wallet-action-btn.with .wab-ico{background:rgba(29,185,84,0.12);border:1px solid rgba(29,185,84,0.2)}
+.wallet-action-btn .wab-txt .t1{font-size:14px;font-weight:800}
+.wallet-action-btn.dep .wab-txt .t1{color:#fff}
+.wallet-action-btn.with .wab-txt .t1{color:var(--text)}
+.wallet-action-btn .wab-txt .t2{font-size:10.5px;font-weight:600;margin-top:1px}
+.wallet-action-btn.dep .wab-txt .t2{color:rgba(255,255,255,0.75)}
+.wallet-action-btn.with .wab-txt .t2{color:var(--text3)}
+
+/* Wallet Deposit/Withdraw tab toggle */
+.tab-toggle{display:flex;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:4px;gap:4px;margin-bottom:20px}
+.tab-opt{flex:1;text-align:center;padding:11px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;color:var(--text2);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab-opt.active{background:var(--grad-mint);color:#fff;box-shadow:0 4px 16px rgba(29,185,84,0.3)}
+
+/* Payment method cards */
+.pm-section-title{font-size:11px;color:var(--text3);font-weight:800;text-transform:uppercase;letter-spacing:.6px;margin-bottom:12px}
+.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+.method-card{border-radius:var(--r-md);padding:12px 4px 10px;text-align:center;cursor:pointer;background:var(--bg3);border:1.5px solid var(--border);font-size:10.5px;font-weight:700;color:var(--text2);transition:all .2s;position:relative}
+.method-card.active{border-color:var(--green);box-shadow:0 0 0 2px rgba(29,185,84,0.2);color:var(--green);background:rgba(29,185,84,0.04)}
+.method-card.active::after{content:'✓';position:absolute;bottom:4px;right:4px;width:14px;height:14px;background:var(--green);border-radius:50%;font-size:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;line-height:14px;text-align:center}
+.method-emoji{font-size:22px;display:block;margin-bottom:5px;line-height:1}
+
+/* Deposit info box */
+.deposit-info-box{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-lg);padding:0;margin-bottom:16px;overflow:hidden}
+.deposit-info-row{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border)}
+.deposit-info-row:last-child{border-bottom:none}
+.deposit-info-row .dil{font-size:13px;color:var(--text2);font-weight:600}
+.deposit-info-row .div{font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px}
+.copy-btn{width:28px;height:28px;border-radius:8px;background:rgba(29,185,84,0.12);border:1px solid rgba(29,185,84,0.2);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:background .15s}
+.copy-btn:active{background:rgba(29,185,84,0.25)}
+
+/* 2-column input grid */
+.input-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .field{margin-bottom:14px}
-.field label{font-size:12px;font-weight:700;color:var(--text2);display:block;margin-bottom:6px}
-.field input,.field textarea,.field select{width:100%;padding:13px 14px;border-radius:var(--r-md);border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-family:inherit;font-size:13.5px;font-weight:600;outline:none;transition:border-color .15s,box-shadow .15s}
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(29,185,84,0.15)}
+.field label{font-size:11.5px;font-weight:700;color:var(--text2);display:block;margin-bottom:7px}
+.field input,.field textarea,.field select{width:100%;padding:13px 14px;border-radius:var(--r-md);border:1.5px solid var(--border2);background:var(--bg3);color:var(--text);font-family:inherit;font-size:13.5px;font-weight:600;outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(29,185,84,0.12)}
 .field textarea{resize:vertical;min-height:70px}
 .field select option{background:var(--bg3);color:var(--text)}
-.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:14px}
-.method-card{border-radius:var(--r-md);padding:10px 4px;text-align:center;cursor:pointer;background:var(--bg3);border:1px solid var(--border);font-size:10px;font-weight:700;color:var(--text2);transition:all .15s}
-.method-card.active{border-color:var(--green);box-shadow:0 0 0 2px rgba(29,185,84,0.2);color:var(--green)}
-.method-emoji{font-size:20px;display:block;margin-bottom:4px}
-.btn-primary{width:100%;padding:14px;border-radius:var(--r-md);border:none;background:var(--green);color:#fff;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(29,185,84,0.25);transition:transform .15s,opacity .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.2px}
+.input-with-icon{position:relative}
+.input-with-icon input{padding-right:44px}
+.input-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none}
+
+/* Attach area */
+.attach-area{width:100%;padding:13px 16px;border-radius:var(--r-md);border:1.5px dashed var(--border2);background:var(--bg3);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:border-color .2s,background .15s;min-height:50px}
+.attach-area:hover{border-color:var(--green);background:rgba(29,185,84,0.04)}
+.attach-area-text{font-size:13px;font-weight:700;color:var(--green)}
+.attach-area-icon{font-size:18px}
+
+/* Credit preview box */
+.credit-preview-box{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r-lg);overflow:hidden;margin-bottom:18px}
+.credit-preview-cell{padding:16px 18px}
+.credit-preview-cell:first-child{border-right:1px solid var(--border)}
+.credit-preview-label{font-size:11px;color:var(--text2);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.credit-preview-value{font-size:18px;font-weight:900}
+.awaiting-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.25);color:var(--orange);font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:8px;margin-top:4px}
+
+/* Submit buttons */
+.btn-primary{width:100%;padding:15px;border-radius:var(--r-md);border:none;background:var(--grad-mint);color:#fff;font-weight:800;font-size:14.5px;cursor:pointer;font-family:inherit;box-shadow:0 8px 24px rgba(29,185,84,0.3);transition:transform .15s,opacity .2s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.2px}
 .btn-primary:disabled{opacity:.6;cursor:not-allowed}
-.btn-primary:active:not(:disabled){transform:scale(.98)}
-.btn-ghost{width:100%;padding:13px;border-radius:var(--r-md);border:1px solid var(--border2);background:transparent;color:var(--text2);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:border-color .15s}
-.btn-ghost:hover{border-color:var(--green)}
-.tx-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.btn-primary:active:not(:disabled){transform:scale(.98);box-shadow:0 4px 12px rgba(29,185,84,0.2)}
+.btn-ghost{width:100%;padding:13px;border-radius:var(--r-md);border:1px solid var(--border2);background:transparent;color:var(--text2);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s}
+.btn-ghost:hover{border-color:var(--green);color:var(--text)}
+
+/* Withdrawal */
+.withdraw-info-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:16px}
+.withdraw-info-row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)}
+.withdraw-info-row:last-child{border-bottom:none}
+.withdraw-info-row .wir-l{font-size:12.5px;color:var(--text2);font-weight:600}
+.withdraw-info-row .wir-v{font-size:13px;font-weight:800}
+
+/* Transaction history */
+.tx-section-header{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}
+.tx-section-header h3{font-size:15px;font-weight:800}
+.tx-filter-btns{display:flex;gap:6px}
+.tx-filter-btn{padding:5px 12px;border-radius:20px;font-size:11.5px;font-weight:700;cursor:pointer;background:var(--bg3);border:1px solid var(--border);color:var(--text3);transition:all .15s}
+.tx-filter-btn.active{background:var(--green);color:#fff;border-color:transparent}
+.tx-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border)}
 .tx-row:last-child{border-bottom:none}
 .tx-left{display:flex;gap:10px;align-items:center}
-.tx-ico{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.tx-ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px}
 .tx-name{font-size:13px;font-weight:700}
 .tx-date{font-size:11px;color:var(--text3)}
 .tx-amt{font-size:13px;font-weight:900;font-variant-numeric:tabular-nums}
@@ -277,12 +385,14 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .notif-msg{font-size:12px;color:var(--text2);line-height:1.5}
 .notif-time{font-size:10.5px;color:var(--text3);margin-top:4px;font-weight:600}
 
-/* PROFILE */
+/* ═══════════════════════════════
+   PROFILE PAGE — Screenshot 1
+═══════════════════════════════ */
 .profile-hero{border-radius:var(--r-xl);background:var(--bg3);border:1px solid var(--border2);padding:28px 20px 22px;display:flex;flex-direction:column;align-items:center;margin-bottom:14px;position:relative;overflow:hidden}
 .profile-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(29,185,84,0.1) 0%,transparent 70%)}
 .profile-avatar-big{width:82px;height:82px;border-radius:24px;background:var(--grad-mint);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:34px;color:#fff;margin-bottom:12px;box-shadow:0 8px 32px rgba(29,185,84,0.3);border:3px solid rgba(255,255,255,0.1);position:relative;z-index:1;overflow:hidden;cursor:pointer}
 .avatar-edit-btn{position:absolute;bottom:0;right:0;background:var(--green);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid var(--bg2);cursor:pointer}
-.profile-name-big{font-size:20px;font-weight:900;margin-bottom:2px}
+.profile-name-big{font-size:20px;font-weight:900;margin-bottom:2px;text-align:center}
 .profile-username{font-size:13px;color:var(--green);font-weight:700;margin-bottom:2px}
 .profile-email{font-size:12px;color:var(--text3);margin-bottom:14px}
 .profile-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
@@ -290,24 +400,57 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .p-badge.worker{background:rgba(29,185,84,0.15);color:var(--green)}
 .p-badge.kyc{background:rgba(33,150,243,0.15);color:var(--blue2)}
 .p-badge.unverified{background:rgba(244,67,54,0.15);color:var(--coral)}
-.level-bar-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;margin-bottom:10px}
+
+/* Worker level bar */
+.level-bar-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;margin-bottom:14px}
 .level-top{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:8px}
 .prog-track{height:6px;border-radius:6px;background:var(--border);overflow:hidden}
 .prog-fill{height:100%;border-radius:4px}
-.info-block{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px}
-.info-row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border);font-size:13px}
-.info-row:last-child{border-bottom:none}
-.info-row .l{color:var(--text2);font-weight:600}
-.info-row .v{font-weight:700}
+
+/* Profile Stats Grid (6 items, 3 cols) */
+.profile-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px}
+.profile-stat-cell{background:var(--bg3);padding:16px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.psc-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.psc-icon.tasks{background:rgba(29,185,84,0.12)}
+.psc-icon.earned{background:rgba(33,150,243,0.12)}
+.psc-icon.withdrawn{background:rgba(245,166,35,0.12)}
+.psc-icon.referrals{background:rgba(206,147,216,0.12)}
+.psc-icon.country{background:rgba(100,181,246,0.12)}
+.psc-icon.phone{background:rgba(0,188,212,0.12)}
+.psc-label{font-size:9.5px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.psc-value{font-size:14px;font-weight:900}
+
+/* Joined row */
+.joined-row{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:14px 16px;display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:13px}
+.joined-row .jr-icon{font-size:16px;opacity:.6}
+.joined-row .jr-label{color:var(--text2);font-weight:600;flex:1}
+.joined-row .jr-val{font-weight:700}
+
+/* Referral box */
 .ref-box{display:flex;justify-content:space-between;align-items:center;background:rgba(29,185,84,0.06);border:1px dashed rgba(29,185,84,0.4);border-radius:var(--r-md);padding:14px;margin-bottom:14px}
 .ref-code{font-weight:900;letter-spacing:2px;font-size:15px;color:var(--green)}
 .ref-copy{font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:8px 14px;border-radius:10px;cursor:pointer;transition:transform .15s}
 .ref-copy:active{transform:scale(.95)}
-.edit-profile-btn{width:100%;padding:12px;border-radius:var(--r-md);border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:10px;transition:border-color .15s;display:flex;align-items:center;justify-content:center;gap:8px}
-.edit-profile-btn:hover{border-color:var(--green)}
+
+/* Account & Settings Section */
+.account-settings-title{font-size:15px;font-weight:800;margin-bottom:12px;margin-top:4px}
+.account-settings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.account-setting-btn{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 12px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:transform .15s,border-color .15s}
+.account-setting-btn:active{transform:scale(.95)}
+.account-setting-btn:hover{border-color:var(--border2)}
+.asb-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.asb-icon.edit-p{background:rgba(29,185,84,0.12);border:1px solid rgba(29,185,84,0.2)}
+.asb-icon.change-pw{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.2)}
+.asb-icon.kyc-ic{background:rgba(33,150,243,0.12);border:1px solid rgba(33,150,243,0.2)}
+.asb-icon.ref-ic{background:rgba(206,147,216,0.12);border:1px solid rgba(206,147,216,0.2)}
+.asb-icon.hist-ic{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.2)}
+.asb-icon.sup-ic{background:rgba(0,188,212,0.12);border:1px solid rgba(0,188,212,0.2)}
+.asb-label{font-size:11.5px;font-weight:700;text-align:center;line-height:1.3}
+
+/* Danger zone */
 .danger-zone{background:rgba(244,67,54,0.05);border:1px solid rgba(244,67,54,0.35);border-radius:var(--r-lg);padding:14px;margin-bottom:14px}
 .danger-zone h4{font-size:12px;font-weight:800;color:var(--coral);margin-bottom:10px;text-transform:uppercase}
-.btn-danger{width:100%;padding:11px;border-radius:var(--r-md);border:1px solid rgba(244,67,54,0.3);background:rgba(244,67,54,0.1);color:var(--coral);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s}
+.btn-danger{width:100%;padding:11px;border-radius:var(--r-md);border:1px solid rgba(244,67,54,0.3);background:rgba(244,67,54,0.1);color:var(--coral);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn-danger:hover{background:rgba(244,67,54,0.15)}
 
 /* KYC */
@@ -319,10 +462,8 @@ main{flex:1;overflow-y:auto;padding:4px 18px 110px;scroll-behavior:smooth}
 .upload-area .ua-icon{font-size:28px;margin-bottom:6px}
 .upload-area .ua-text{font-size:12px;color:var(--text2);font-weight:600}
 
-/* DEMO BANNER */
+/* INFO/DEMO BANNERS */
 .demo-banner{display:flex;gap:10px;align-items:flex-start;background:rgba(33,150,243,0.08);border:1px solid rgba(33,150,243,0.15);border-radius:var(--r-md);padding:11px 13px;margin-bottom:14px;font-size:11.5px;color:var(--blue2);font-weight:600;line-height:1.5}
-
-/* INFO BANNER (orange warning) */
 .info-banner{display:flex;gap:10px;align-items:flex-start;background:rgba(245,166,35,0.08);border:1px solid rgba(245,166,35,0.2);border-radius:var(--r-md);padding:11px 13px;margin-bottom:14px;font-size:11.5px;color:var(--orange);font-weight:600;line-height:1.5}
 
 /* REFERRAL */
@@ -371,6 +512,21 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 .onboard-dot.active{width:20px;background:var(--green)}
 .onboard-dot-row{display:flex;gap:6px;justify-content:flex-start;margin-bottom:16px}
 
+/* MY TASKS screen */
+.mytask-filter{display:flex;gap:8px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px}
+.mytask-filter::-webkit-scrollbar{display:none}
+
+/* EDIT PROFILE */
+.edit-profile-btn{width:100%;padding:12px;border-radius:var(--r-md);border:1px solid var(--border2);background:var(--bg3);color:var(--text);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:10px;transition:border-color .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.edit-profile-btn:hover{border-color:var(--green)}
+
+/* SUPPORT */
+.info-block{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border);font-size:13px}
+.info-row:last-child{border-bottom:none}
+.info-row .l{color:var(--text2);font-weight:600}
+.info-row .v{font-weight:700}
+
 @media(max-width:380px){#appShell{border-radius:28px}#authScreen{border-radius:24px;padding:32px 22px}}
 @media(max-width:480px){
   body{padding:0;align-items:stretch;justify-content:stretch}
@@ -401,7 +557,6 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
     <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</div>
     <div class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</div>
   </div>
-  <!-- LOGIN -->
   <div id="loginPane" style="width:100%">
     <div class="auth-field"><label>Email Address</label><input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="email"></div>
     <div class="auth-field"><label>Password</label><div class="pass-toggle"><input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password"><span class="pass-eye" onclick="togglePass('loginPass',this)">👁</span></div></div>
@@ -417,7 +572,6 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       Sign in with Google
     </button>
   </div>
-  <!-- REGISTER -->
   <div id="registerPane" style="width:100%;display:none">
     <div class="auth-field"><label>Full Name</label><input type="text" id="regName" placeholder="Enter full name" autocomplete="name"></div>
     <div class="auth-field"><label>Username</label><input type="text" id="regUsername" placeholder="@username" autocomplete="username" style="text-transform:lowercase"></div>
@@ -468,11 +622,29 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
     <section class="screen active" id="screen-home">
       <div class="balance-card">
         <div class="shimmer"></div>
-        <div class="wallet-section-title"><div class="wallet-section-icon">💰</div><div class="wallet-section-label">Wallet Overview</div></div>
+        <div class="wallet-section-title">
+          <div class="wallet-section-left">
+            <div class="wallet-section-icon">💰</div>
+            <div class="wallet-section-label">Wallet Overview</div>
+          </div>
+          <div class="view-details-btn" onclick="goTab('wallet')">View Details ›</div>
+        </div>
         <div class="wallet-grid">
-          <div class="wallet-grid-item"><div class="wallet-grid-icon">💳</div><div class="wallet-grid-label">Available</div><div class="wallet-grid-value" id="homeBalance" style="color:var(--green)">$0.00</div></div>
-          <div class="wallet-grid-item"><div class="wallet-grid-icon">⏳</div><div class="wallet-grid-label">Pending</div><div class="wallet-grid-value" id="homePending" style="color:var(--orange)">$0.00</div></div>
-          <div class="wallet-grid-item"><div class="wallet-grid-icon">📊</div><div class="wallet-grid-label">Total Earned</div><div class="wallet-grid-value" id="homeEarned" style="color:var(--blue2)">$0.00</div></div>
+          <div class="wallet-grid-item">
+            <div class="wallet-grid-icon">💳</div>
+            <div class="wallet-grid-label">Available</div>
+            <div class="wallet-grid-value" id="homeBalance" style="color:var(--green)">$0.00</div>
+          </div>
+          <div class="wallet-grid-item">
+            <div class="wallet-grid-icon">⏳</div>
+            <div class="wallet-grid-label">Pending</div>
+            <div class="wallet-grid-value" id="homePending" style="color:var(--orange)">$0.00</div>
+          </div>
+          <div class="wallet-grid-item">
+            <div class="wallet-grid-icon">📊</div>
+            <div class="wallet-grid-label">Total Earned</div>
+            <div class="wallet-grid-value" id="homeEarned" style="color:var(--blue2)">$0.00</div>
+          </div>
         </div>
         <div class="bal-actions">
           <div class="bal-btn deposit" onclick="goTab('wallet','deposit')">
@@ -485,25 +657,62 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           </div>
         </div>
         <div class="bal-meta">
-          <div class="bal-stat"><div class="v" id="homeStreak">🔥 0 days</div><div class="l">Streak</div></div>
-          <div class="bal-stat"><div class="v" id="homeTasks">0</div><div class="l">Completed</div></div>
-          <div class="bal-stat"><div class="v" id="homeAccuracy">—</div><div class="l">Accuracy</div></div>
+          <div class="bal-stat">
+            <div class="bal-meta-icon" style="background:rgba(245,166,35,0.12)">🔥</div>
+            <div class="v" id="homeStreak">0 days</div>
+            <div class="l">Streak</div>
+          </div>
+          <div class="bal-stat">
+            <div class="bal-meta-icon" style="background:rgba(29,185,84,0.15)">✅</div>
+            <div class="v" id="homeTasks">0</div>
+            <div class="l">Completed</div>
+          </div>
+          <div class="bal-stat">
+            <div class="bal-meta-icon" style="background:rgba(244,67,54,0.12)">🎯</div>
+            <div class="v" id="homeAccuracy" style="color:var(--green)">0%</div>
+            <div class="l">Accuracy</div>
+          </div>
         </div>
       </div>
+
+      <div class="sec-title" style="margin-top:18px"><h3>Quick Access</h3><a onclick="showToast('🚧 Customize Quick Access — coming soon!','info')">Edit ›</a></div>
+      <div class="quick-actions-grid">
+        <div class="quick-action-card" onclick="goTab('tasks')">
+          <div class="qa-icon-wrap jobs">💼</div>
+          <div><div class="qa-label">Find Jobs</div><div class="qa-sub">Browse available work</div></div>
+        </div>
+        <div class="quick-action-card" onclick="goTab('mytasks')">
+          <div class="qa-icon-wrap tasks">📋</div>
+          <div><div class="qa-label">My Tasks</div><div class="qa-sub">View your tasks</div></div>
+        </div>
+        <div class="quick-action-card" onclick="goTab('wallet')">
+          <div class="qa-icon-wrap wallet">👛</div>
+          <div><div class="qa-label">Transactions</div><div class="qa-sub">See all activity</div></div>
+        </div>
+      </div>
+
       <div class="stat-row">
         <div class="stat-card"><div class="sv" id="homeWorkerLv" style="color:var(--green)">L1</div><div class="sl">Worker Lv</div></div>
         <div class="stat-card"><div class="sv" id="homeKycStatus" style="color:var(--orange)">⚠</div><div class="sl">KYC</div></div>
         <div class="stat-card"><div class="sv" id="homeJobsPosted" style="color:var(--blue2)">0</div><div class="sl">Jobs Posted</div></div>
       </div>
-      <div class="sec-title"><h3>🔥 Featured Tasks</h3><a onclick="goTab('tasks')">See all →</a></div>
-      <div id="homeTaskList"></div>
-      <div class="sec-title"><h3>🔄 Recent Activity</h3><a onclick="goTab('history')">See all →</a></div>
-      <div id="recentActivityHome"></div>
-      <div class="sec-title"><h3>🏆 Top Earners</h3></div>
+
+      <div class="two-col-row">
+        <div class="two-col">
+          <div class="sec-title"><h3>🔥 Featured Tasks</h3></div>
+          <div id="homeTaskList"></div>
+        </div>
+        <div class="two-col">
+          <div class="sec-title"><h3>🔄 Recent Activity</h3><a onclick="goTab('history')">See all →</a></div>
+          <div id="recentActivityHome"></div>
+        </div>
+      </div>
+
+      <div class="sec-title"><h3>🏆 Top Earners</h3><a onclick="showToast('🏆 Full leaderboard coming soon!','info')">See all →</a></div>
       <div id="homeLBPreview"></div>
     </section>
 
-    <!-- TASKS (worker view — only admin-approved jobs) -->
+    <!-- TASKS -->
     <section class="screen" id="screen-tasks">
       <div class="sec-title" style="margin-top:14px"><h3>Micro Tasks</h3><span id="taskCountBadge" style="font-size:12px;color:var(--text3);font-weight:700"></span></div>
       <div class="demo-banner">📌 Only admin-approved tasks are shown here. Complete tasks and submit proof — admin will verify and credit your balance.</div>
@@ -511,7 +720,20 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div id="taskListFull"></div>
     </section>
 
-    <!-- MY JOBS (employer tracking) -->
+    <!-- MY TASKS -->
+    <section class="screen" id="screen-mytasks">
+      <div class="sec-title" style="margin-top:14px"><h3>📋 My Tasks</h3></div>
+      <div class="mytask-filter history-filter">
+        <div class="h-chip active" onclick="filterMyTasks('all',this)">All</div>
+        <div class="h-chip" onclick="filterMyTasks('pending',this)">⏳ Pending</div>
+        <div class="h-chip" onclick="filterMyTasks('completed',this)">✅ Approved</div>
+        <div class="h-chip" onclick="filterMyTasks('rejected',this)">❌ Rejected</div>
+        <div class="h-chip" onclick="filterMyTasks('spin',this)">🎡 Spin</div>
+      </div>
+      <div id="myTasksList"></div>
+    </section>
+
+    <!-- MY JOBS -->
     <section class="screen" id="screen-myjobs">
       <div class="sec-title" style="margin-top:14px"><h3>💼 My Posted Jobs</h3><span id="myJobsCountBadge" style="font-size:12px;color:var(--text3);font-weight:700"></span></div>
       <div class="info-banner">⚠️ আপনার পোস্ট করা জব এডমিন রিভিউর পর লাইভ হবে। পেন্ডিং জবে কোনো কন্ট্রোল নেই।</div>
@@ -530,13 +752,10 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div class="sec-title" style="margin-top:14px"><h3>Post New Job</h3><span id="postStepLabel" style="font-size:11px;color:var(--text3);font-weight:700">Step 1 of 4</span></div>
       <div class="onboard-dot-row" id="postStepDots"></div>
       <div class="info-banner">⚠️ জব পোস্ট করার পর এডমিন রিভিউ করবেন। Approved হলেই সকল worker দেখতে পাবেন।</div>
-
-      <!-- Step 1: Category -->
       <div class="post-step" id="postStep1">
         <p style="font-size:13px;color:var(--text2);margin-bottom:14px">একটি ক্যাটাগরি নির্বাচন করুন</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="categoryPickGrid"></div>
       </div>
-      <!-- Step 2: Details -->
       <div class="post-step" id="postStep2" style="display:none">
         <div class="field"><label>Job Title *</label><input type="text" id="pTitle" placeholder="e.g. Like our Facebook page" maxlength="100"></div>
         <div class="field"><label>Detailed Instructions *</label><textarea id="pInstructions" placeholder="Step-by-step instructions..." rows="4"></textarea></div>
@@ -549,7 +768,6 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         <div class="field" id="linkUrlField" style="display:none"><label>Direct Link *</label><input type="url" id="pLink" placeholder="https://example.com"></div>
         <div class="field"><label>Target Country</label><select id="pCountry"><option>All Countries</option><option>Bangladesh</option><option>India</option><option>Pakistan</option><option>Philippines</option><option>Global</option></select></div>
       </div>
-      <!-- Step 3: Budget -->
       <div class="post-step" id="postStep3" style="display:none">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
           <div class="field"><label>Worker Limit</label><input type="number" id="pLimit" value="50" min="1" max="10000"></div>
@@ -561,38 +779,79 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Pending Admin Approval</span></div>
         </div>
       </div>
-      <!-- Step 4: Preview & Submit -->
       <div class="post-step" id="postStep4" style="display:none">
         <div id="jobPreviewCard"></div>
         <div style="text-align:center;padding:12px 0">
           <div style="font-size:13px;color:var(--text2);line-height:1.7">পাবলিশ করলে এডমিন রিভিউ করবেন। অনুমোদনের পরেই জবটি লাইভ হবে।</div>
         </div>
       </div>
-
       <div style="display:flex;gap:10px;margin-top:16px;margin-bottom:24px">
         <button class="btn-ghost" id="postBackBtn" style="flex:1;display:none" onclick="postWizardBack()">← Back</button>
         <button class="btn-primary" id="postNextBtn" style="flex:1" onclick="postWizardNext()">Next →</button>
       </div>
     </section>
 
-    <!-- WALLET -->
+    <!-- WALLET — Screenshot 3 design -->
     <section class="screen" id="screen-wallet">
       <div class="sec-title" style="margin-top:14px"><h3>Wallet</h3></div>
-      <div class="info-banner">⚠️ Deposits & withdrawals require admin approval. Balance only updates after admin confirms.</div>
-      <div class="wallet-stat-grid">
-        <div class="wallet-stat"><div class="wv" id="walletBalance" style="color:var(--green)">$0.00</div><div class="wl">Available Balance</div></div>
-        <div class="wallet-stat"><div class="wv" id="walletPending" style="color:var(--orange)">$0.00</div><div class="wl">Pending</div></div>
-        <div class="wallet-stat"><div class="wv" id="walletTotalEarned" style="color:var(--green)">$0.00</div><div class="wl">Total Earned</div></div>
-        <div class="wallet-stat"><div class="wv" id="walletWithdrawn" style="color:var(--orange)">$0.00</div><div class="wl">Withdrawn</div></div>
-      </div>
-      <div class="tab-toggle">
-        <div class="tab-opt active" id="walletTabDeposit" onclick="setWalletTab('deposit')">Deposit</div>
-        <div class="tab-opt" id="walletTabWithdraw" onclick="setWalletTab('withdraw')">Withdraw</div>
+
+      <!-- Wallet Overview card -->
+      <div class="balance-card" style="margin-bottom:14px">
+        <div class="shimmer"></div>
+        <div class="wallet-section-title">
+          <div class="wallet-section-left">
+            <div class="wallet-section-icon">👛</div>
+            <div class="wallet-section-label">Wallet Overview</div>
+          </div>
+        </div>
+
+        <!-- 4-stat grid inside card -->
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:14px">
+          <div style="background:var(--bg2);padding:14px 10px;text-align:center">
+            <div style="font-size:18px;margin-bottom:4px">💳</div>
+            <div style="font-size:9.5px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">Available Balance</div>
+            <div id="walletBalance" style="font-size:17px;font-weight:900;color:var(--green)">$0.00</div>
+          </div>
+          <div style="background:var(--bg2);padding:14px 10px;text-align:center">
+            <div style="font-size:18px;margin-bottom:4px">⏳</div>
+            <div style="font-size:9.5px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">Pending</div>
+            <div id="walletPending" style="font-size:17px;font-weight:900;color:var(--orange)">$0.00</div>
+          </div>
+          <div style="background:var(--bg2);padding:14px 10px;text-align:center">
+            <div style="font-size:18px;margin-bottom:4px">📈</div>
+            <div style="font-size:9.5px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">Total Earned</div>
+            <div id="walletTotalEarned" style="font-size:17px;font-weight:900;color:var(--blue2)">$0.00</div>
+          </div>
+          <div style="background:var(--bg2);padding:14px 10px;text-align:center">
+            <div style="font-size:18px;margin-bottom:4px">⬆️</div>
+            <div style="font-size:9.5px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px">Withdrawn</div>
+            <div id="walletWithdrawn" style="font-size:17px;font-weight:900;color:var(--purple2)">$0.00</div>
+          </div>
+        </div>
+
+        <!-- Deposit / Withdraw action buttons -->
+        <div class="wallet-actions-row">
+          <div class="wallet-action-btn dep" onclick="setWalletTab('deposit')">
+            <div class="wab-ico">⬇️</div>
+            <div class="wab-txt"><div class="t1">Deposit</div><div class="t2">Add balance</div></div>
+          </div>
+          <div class="wallet-action-btn with" onclick="setWalletTab('withdraw')">
+            <div class="wab-ico" style="background:rgba(29,185,84,0.12);border:1px solid rgba(29,185,84,0.2)">⬆️</div>
+            <div class="wab-txt"><div class="t1">Withdraw</div><div class="t2">Request payout</div></div>
+          </div>
+        </div>
       </div>
 
-      <!-- DEPOSIT -->
+      <!-- Deposit / Withdraw toggle -->
+      <div class="tab-toggle">
+        <div class="tab-opt active" id="walletTabDeposit" onclick="setWalletTab('deposit')">⬇️ Deposit</div>
+        <div class="tab-opt" id="walletTabWithdraw" onclick="setWalletTab('withdraw')">⬆️ Withdraw</div>
+      </div>
+
+      <!-- DEPOSIT PANE -->
       <div id="depositPane">
-        <p style="font-size:12px;color:var(--text3);font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">Select Payment Method</p>
+        <div class="info-banner">⚠️ Deposits require admin approval. Balance updates after admin confirms.</div>
+        <p class="pm-section-title">Select Payment Method</p>
         <div class="method-grid" id="depositMethodGrid">
           <div class="method-card active" data-method="bKash" onclick="selectMethod(this,'deposit')"><span class="method-emoji">📱</span>bKash</div>
           <div class="method-card" data-method="Nagad" onclick="selectMethod(this,'deposit')"><span class="method-emoji">💳</span>Nagad</div>
@@ -600,30 +859,69 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           <div class="method-card" data-method="USDT" onclick="selectMethod(this,'deposit')"><span class="method-emoji">₮</span>USDT</div>
           <div class="method-card" data-method="Bank" onclick="selectMethod(this,'deposit')"><span class="method-emoji">🏦</span>Bank</div>
         </div>
-        <div class="info-block" id="depositAccountInfo" style="margin-bottom:14px">
-          <div class="info-row"><span class="l">Send payment to</span><span class="v" id="depositAccountNumber" style="color:var(--orange);letter-spacing:.5px">—</span></div>
-          <div class="info-row"><span class="l">Method</span><span class="v" id="depositMethodLabel">bKash</span></div>
-        </div>
-        <div class="field"><label>Amount ($) — Minimum $1.00</label><input type="number" id="depositAmt" placeholder="10.00" min="1" step="0.01" oninput="updateDepositPreview()"></div>
-        <div class="field"><label>Transaction ID *</label><input type="text" id="depositTxnId" placeholder="e.g. 8N7K2X9PQR"></div>
-        <div class="field"><label>Your Payment Number (Sender)</label><input type="text" id="depositSenderNum" placeholder="The number you sent from"></div>
-        <div class="field"><label>Payment Proof Screenshot (Optional)</label>
-          <div class="upload-area" onclick="document.getElementById('depositProofFile').click()">
-            <div class="ua-icon">📎</div><div class="ua-text" id="depositProofFileName">Attach screenshot of payment</div>
+        <div class="deposit-info-box">
+          <div class="deposit-info-row">
+            <span class="dil">Send payment to</span>
+            <span class="div" id="depositAccountNumber" style="color:var(--orange)">
+              Loading...
+              <span class="copy-btn" onclick="copyDepositNumber()">📋</span>
+            </span>
           </div>
-          <input type="file" id="depositProofFile" accept="image/*" style="display:none" onchange="document.getElementById('depositProofFileName').textContent=this.files[0]?.name||'Attach screenshot'">
+          <div class="deposit-info-row">
+            <span class="dil">Method</span>
+            <span class="div" id="depositMethodLabel" style="color:var(--text)">bKash</span>
+          </div>
         </div>
-        <div class="info-block" style="margin-bottom:14px">
-          <div class="info-row"><span class="l">Amount to be credited</span><span class="v" id="depositCreditPreview" style="color:var(--green)">—</span></div>
-          <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Awaiting Admin Verification</span></div>
+        <div class="input-grid-2">
+          <div class="field" style="margin-bottom:0">
+            <label>Amount ($) — Min $1.00</label>
+            <div class="input-with-icon">
+              <input type="number" id="depositAmt" placeholder="10.00" min="1" step="0.01" oninput="updateDepositPreview()">
+              <span class="input-icon">💵</span>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label>Transaction ID *</label>
+            <div class="input-with-icon">
+              <input type="text" id="depositTxnId" placeholder="e.g. 8N7K2X9PQR">
+              <span class="input-icon">🔖</span>
+            </div>
+          </div>
+        </div>
+        <div class="input-grid-2" style="margin-bottom:14px">
+          <div class="field" style="margin-bottom:0">
+            <label>Your Payment Number</label>
+            <div class="input-with-icon">
+              <input type="text" id="depositSenderNum" placeholder="The number you sent from">
+              <span class="input-icon">👤</span>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label>Payment Proof Screenshot</label>
+            <div class="attach-area" onclick="document.getElementById('depositProofFile').click()">
+              <span class="attach-area-icon">🔗</span>
+              <span class="attach-area-text" id="depositProofFileName">Attach screenshot</span>
+            </div>
+            <input type="file" id="depositProofFile" accept="image/*" style="display:none" onchange="document.getElementById('depositProofFileName').textContent=this.files[0]?.name||'Attach screenshot'">
+          </div>
+        </div>
+        <div class="credit-preview-box">
+          <div class="credit-preview-cell">
+            <div class="credit-preview-label">Amount to be credited</div>
+            <div class="credit-preview-value" id="depositCreditPreview" style="color:var(--green)">$0.00</div>
+          </div>
+          <div class="credit-preview-cell">
+            <div class="credit-preview-label">Status after submit</div>
+            <div class="awaiting-badge">⏳ Awaiting Admin Verification</div>
+          </div>
         </div>
         <button class="btn-primary" onclick="doDeposit()">📤 Submit Deposit Request</button>
       </div>
 
-      <!-- WITHDRAW -->
+      <!-- WITHDRAW PANE -->
       <div id="withdrawPane" style="display:none">
         <div class="info-banner">⚠️ Withdrawal requests are reviewed by admin. Processing time: 24–48 hours.</div>
-        <p style="font-size:12px;color:var(--text3);font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">Select Withdrawal Method</p>
+        <p class="pm-section-title">Select Withdrawal Method</p>
         <div class="method-grid">
           <div class="method-card active" data-method="bKash" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">📱</span>bKash</div>
           <div class="method-card" data-method="Nagad" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">💳</span>Nagad</div>
@@ -631,23 +929,42 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
           <div class="method-card" data-method="USDT" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">₮</span>USDT</div>
           <div class="method-card" data-method="Bank" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">🏦</span>Bank</div>
         </div>
-        <div class="field"><label>Amount ($) — Minimum $5.00</label><input type="number" id="withdrawAmt" placeholder="5.00" min="5" step="0.01" oninput="updateWithdrawPreview()"></div>
-        <div class="field"><label>Your Account Number / Wallet Address *</label><input type="text" id="withdrawNumber" placeholder="bKash/Nagad number or USDT address"></div>
-        <div class="field"><label>Additional Notes (Optional)</label><input type="text" id="withdrawNotes" placeholder="Any notes for admin..."></div>
-        <div class="info-block" style="margin-bottom:14px">
-          <div class="info-row"><span class="l">Withdrawal Fee</span><span class="v" id="withdrawFeeDisplay">5%</span></div>
-          <div class="info-row"><span class="l">You will receive</span><span class="v" id="withdrawNetDisplay" style="color:var(--green)">—</span></div>
-          <div class="info-row"><span class="l">Method</span><span class="v" id="withdrawMethodLabel" style="color:var(--orange)">bKash</span></div>
-          <div class="info-row"><span class="l">Status after submit</span><span class="v pending-badge">⏳ Awaiting Admin Approval</span></div>
+        <div class="input-grid-2" style="margin-bottom:14px">
+          <div class="field" style="margin-bottom:0">
+            <label>Amount ($) — Min $5.00</label>
+            <div class="input-with-icon">
+              <input type="number" id="withdrawAmt" placeholder="5.00" min="5" step="0.01" oninput="updateWithdrawPreview()">
+              <span class="input-icon">💵</span>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0">
+            <label>Account / Wallet Address *</label>
+            <div class="input-with-icon">
+              <input type="text" id="withdrawNumber" placeholder="bKash/Nagad number or USDT">
+              <span class="input-icon">📲</span>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Additional Notes (Optional)</label>
+          <input type="text" id="withdrawNotes" placeholder="Any notes for admin...">
+        </div>
+        <div class="withdraw-info-card">
+          <div class="withdraw-info-row"><span class="wir-l">Withdrawal Fee</span><span class="wir-v" id="withdrawFeeDisplay" style="color:var(--coral)">5%</span></div>
+          <div class="withdraw-info-row"><span class="wir-l">You will receive</span><span class="wir-v" id="withdrawNetDisplay" style="color:var(--green)">—</span></div>
+          <div class="withdraw-info-row"><span class="wir-l">Method</span><span class="wir-v" id="withdrawMethodLabel" style="color:var(--orange)">bKash</span></div>
+          <div class="withdraw-info-row"><span class="wir-l">Status after submit</span><span class="awaiting-badge" style="font-size:10.5px">⏳ Awaiting Admin Approval</span></div>
         </div>
         <button class="btn-primary" onclick="doWithdraw()">📤 Submit Withdrawal Request</button>
       </div>
 
-      <div class="sec-title"><h3>Transaction History</h3>
-        <div style="display:flex;gap:8px">
-          <span style="font-size:11px;color:var(--green);font-weight:700;cursor:pointer" onclick="filterTx('all')">All</span>
-          <span style="font-size:11px;color:var(--text3);font-weight:700;cursor:pointer" onclick="filterTx('pos')">Income</span>
-          <span style="font-size:11px;color:var(--text3);font-weight:700;cursor:pointer" onclick="filterTx('neg')">Expense</span>
+      <!-- TRANSACTION HISTORY -->
+      <div class="tx-section-header">
+        <h3>Transaction History</h3>
+        <div class="tx-filter-btns">
+          <div class="tx-filter-btn active" onclick="filterTx('all',this)">All</div>
+          <div class="tx-filter-btn" onclick="filterTx('pos',this)">Income</div>
+          <div class="tx-filter-btn" onclick="filterTx('neg',this)">Expense</div>
         </div>
       </div>
       <div id="txList" style="padding:0 4px"></div>
@@ -713,7 +1030,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div class="info-block">
         <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">টাকা তুলতে কত সময় লাগে?</span><span style="font-size:12px;color:var(--text2)">এডমিন অনুমোদনের পর ২৪–৪৮ ঘণ্টা।</span></div>
         <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">ডিপোজিট কখন ক্রেডিট হয়?</span><span style="font-size:12px;color:var(--text2)">এডমিন ভেরিফাই করলেই তাৎক্ষণিক ব্যালেন্স আপডেট হয়।</span></div>
-        <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">Task complete করলে কি সাথে সাথে টাকা পাই?</span><span style="font-size:12px;color:var(--text2)">না। Proof Submit করার পর এডমিন বা জব পোস্টার approve করলে balance আসে।</span></div>
+        <div class="info-row" style="flex-direction:column;align-items:flex-start;gap:4px"><span class="l">Task complete করলে কি সাথে সাথে টাকা পাই?</span><span style="font-size:12px;color:var(--text2)">না। Proof Submit করার পর এডমিন approve করলে balance আসে।</span></div>
       </div>
     </section>
 
@@ -735,8 +1052,9 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <button class="btn-primary" onclick="saveProfile()">✅ Save Changes</button>
     </section>
 
-    <!-- PROFILE -->
+    <!-- PROFILE — Screenshot 1 design -->
     <section class="screen" id="screen-profile">
+      <!-- Hero card -->
       <div class="profile-hero">
         <div style="position:relative;margin-bottom:12px">
           <div class="profile-avatar-big" id="profileAvatarBig">?</div>
@@ -747,43 +1065,102 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
         <div style="font-size:11px;color:var(--text3);font-weight:600;margin-bottom:2px">Member ID: <span id="profileMemberId">WH000000</span></div>
         <div class="profile-email" id="profileEmail">—</div>
         <div id="profileBio" style="font-size:12px;color:var(--text2);margin-bottom:10px;text-align:center;display:none"></div>
-        <div class="profile-badges" id="profileBadges"><span class="p-badge worker">🐝 Worker L1</span><span class="p-badge unverified">⚠ KYC Pending</span></div>
+        <div class="profile-badges" id="profileBadges">
+          <span class="p-badge worker">🐝 Worker L1</span>
+          <span class="p-badge unverified">⚠ KYC Pending</span>
+        </div>
       </div>
 
+      <!-- Worker Level bar -->
       <div class="level-bar-card">
         <div class="level-top"><span>Worker Level</span><span style="color:var(--green);font-weight:900" id="workerLevelLabel">Level 1 / 5</span></div>
         <div class="prog-track"><div class="prog-fill" id="workerLevelFill" style="width:10%;background:var(--grad-mint)"></div></div>
         <div style="font-size:11px;color:var(--text3);margin-top:6px" id="workerLevelHint">Complete 50 more tasks to reach Level 2</div>
       </div>
 
-      <div class="info-block">
-        <div class="info-row"><span class="l">KYC Status</span><span class="v" id="kycStatusDisplay" style="color:var(--coral)">⚠ Pending</span></div>
-        <div class="info-row"><span class="l">Tasks Completed</span><span class="v" id="profileTasks">0</span></div>
-        <div class="info-row"><span class="l">Total Earned</span><span class="v" id="profileEarned">$0.00</span></div>
-        <div class="info-row"><span class="l">Total Withdrawn</span><span class="v" id="profileWithdrawn">$0.00</span></div>
-        <div class="info-row"><span class="l">Total Referrals</span><span class="v" id="profileReferrals" style="color:var(--orange)">0</span></div>
-        <div class="info-row"><span class="l">Country</span><span class="v" id="profileCountry">—</span></div>
-        <div class="info-row"><span class="l">Phone</span><span class="v" id="profilePhone">—</span></div>
-        <div class="info-row"><span class="l">Joined</span><span class="v" id="profileJoined">—</span></div>
+      <!-- 6-stat grid (3 cols × 2 rows) -->
+      <div class="profile-stats-grid">
+        <div class="profile-stat-cell">
+          <div class="psc-icon tasks">✅</div>
+          <div class="psc-label">Tasks Completed</div>
+          <div class="psc-value" id="profileTasks">0</div>
+        </div>
+        <div class="profile-stat-cell">
+          <div class="psc-icon earned">💵</div>
+          <div class="psc-label">Total Earned</div>
+          <div class="psc-value" id="profileEarned" style="color:var(--blue2)">$0.00</div>
+        </div>
+        <div class="profile-stat-cell">
+          <div class="psc-icon withdrawn">💸</div>
+          <div class="psc-label">Total Withdrawn</div>
+          <div class="psc-value" id="profileWithdrawn" style="color:var(--orange)">$0.00</div>
+        </div>
+        <div class="profile-stat-cell">
+          <div class="psc-icon referrals">👥</div>
+          <div class="psc-label">Total Referrals</div>
+          <div class="psc-value" id="profileReferrals" style="color:var(--purple2)">0</div>
+        </div>
+        <div class="profile-stat-cell">
+          <div class="psc-icon country">🌍</div>
+          <div class="psc-label">Country</div>
+          <div class="psc-value" id="profileCountry" style="font-size:12px">—</div>
+        </div>
+        <div class="profile-stat-cell">
+          <div class="psc-icon phone">📞</div>
+          <div class="psc-label">Phone</div>
+          <div class="psc-value" id="profilePhone" style="font-size:12px">—</div>
+        </div>
       </div>
 
+      <!-- Joined row -->
+      <div class="joined-row">
+        <span class="jr-icon">📅</span>
+        <span class="jr-label">Joined</span>
+        <span class="jr-val" id="profileJoined">—</span>
+      </div>
+
+      <!-- Referral code box -->
       <div class="ref-box">
-        <div><div style="font-size:11px;color:var(--text3);font-weight:700;margin-bottom:4px">Referral Code</div><div class="ref-code" id="refCode">WH000000</div></div>
+        <div>
+          <div style="font-size:11px;color:var(--text3);font-weight:700;margin-bottom:4px">Referral Code</div>
+          <div class="ref-code" id="refCode">WH000000</div>
+        </div>
         <div style="display:flex;gap:6px">
           <div class="ref-copy" onclick="copyRef()">Copy</div>
           <div class="ref-copy" style="background:var(--bg3);color:var(--text2);border:1px solid var(--border2)" onclick="goTab('referral')">→</div>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-        <button class="edit-profile-btn" onclick="goTab('editprofile')">✏️ Edit Profile</button>
-        <button class="edit-profile-btn" onclick="openChangePassword()">🔒 Change Password</button>
-        <button class="edit-profile-btn" onclick="goTab('kyc')">🪪 KYC</button>
-        <button class="edit-profile-btn" onclick="goTab('referral')">👥 Referral</button>
-        <button class="edit-profile-btn" onclick="goTab('history')">📜 Task History</button>
-        <button class="edit-profile-btn" onclick="goTab('support')">🎧 Support</button>
+      <!-- Account & Settings -->
+      <div class="account-settings-title">Account &amp; Settings</div>
+      <div class="account-settings-grid">
+        <div class="account-setting-btn" onclick="goTab('editprofile')">
+          <div class="asb-icon edit-p">✏️</div>
+          <div class="asb-label">Edit Profile</div>
+        </div>
+        <div class="account-setting-btn" onclick="openChangePassword()">
+          <div class="asb-icon change-pw">🔒</div>
+          <div class="asb-label">Change Password</div>
+        </div>
+        <div class="account-setting-btn" onclick="goTab('kyc')">
+          <div class="asb-icon kyc-ic">🪪</div>
+          <div class="asb-label">KYC</div>
+        </div>
+        <div class="account-setting-btn" onclick="goTab('referral')">
+          <div class="asb-icon ref-ic">👥</div>
+          <div class="asb-label">Referral</div>
+        </div>
+        <div class="account-setting-btn" onclick="goTab('history')">
+          <div class="asb-icon hist-ic">📋</div>
+          <div class="asb-label">Task History</div>
+        </div>
+        <div class="account-setting-btn" onclick="goTab('support')">
+          <div class="asb-icon sup-ic">🎧</div>
+          <div class="asb-label">Support</div>
+        </div>
       </div>
 
+      <!-- Danger Zone -->
       <div class="danger-zone">
         <h4>⚠ Danger Zone</h4>
         <button class="btn-danger" style="margin-bottom:8px" onclick="doLogoutConfirm()">🚪 Log Out</button>
@@ -815,7 +1192,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
   <!-- BOTTOM NAV -->
   <nav class="tabbar">
     <div class="tab active" data-tab="home" onclick="goTab('home')">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Home</span>
     </div>
     <div class="tab" data-tab="tasks" onclick="goTab('tasks')">
@@ -853,7 +1230,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
   <div class="toast" id="toast"></div>
 </div>
 
-<!-- ============ FIREBASE ============ -->
+<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
@@ -924,7 +1301,6 @@ onAuthStateChanged(auth, async (user) => {
       window._userRef = ref;
       try { localStorage.setItem('wh_cache_' + user.uid, JSON.stringify(data)); } catch(e) {}
       showApp(user, data);
-      // Listen for real-time user data changes (balance updates from admin)
       window._userUnsub = onSnapshot(ref, snap2 => {
         if (snap2.exists()) {
           window._userData = snap2.data();
@@ -933,14 +1309,11 @@ onAuthStateChanged(auth, async (user) => {
           updateProfileUI(window._userData);
         }
       });
-      // Listen for notifications from admin
       listenAdminNotifications(user.uid);
-      // Listen for approved jobs (tasks for workers)
       listenApprovedJobs();
-      // Listen for payment methods
       listenPaymentMethods();
-      // Listen for user's own jobs
       listenMyJobs(user.uid);
+      listenMyTaskSubmissions(user.uid);
     } catch(e) {
       console.error('Firestore error:', e);
       if (!cached) showApp(user, {});
@@ -953,12 +1326,10 @@ onAuthStateChanged(auth, async (user) => {
 });
 </script>
 
-<!-- ============ MAIN SCRIPT ============ -->
 <script>
 window._fbReadyPromise = new Promise(resolve => { window._resolveFbReady = resolve; });
 if (window._fbReady) window._resolveFbReady();
 
-// Pre-fill remembered email
 (function(){
   try {
     const saved = localStorage.getItem('wh_remember_email');
@@ -966,17 +1337,17 @@ if (window._fbReady) window._resolveFbReady();
   } catch(e) {}
 })();
 
-// ============ STATE ============
 const S = {
   walletTab: 'deposit', selectedDepositMethod: 'bKash', selectedWithdrawMethod: 'bKash',
   postProofType: 'proof', postStep: 1, postSelectedCategory: '',
-  myJobsFilter: 'all', txFilter: 'all', historyFilter: 'all',
+  myJobsFilter: 'all', myTasksFilter: 'all', txFilter: 'all', historyFilter: 'all',
   balance: 0, totalEarned: 0, totalWithdrawn: 0, pendingAmount: 0,
   transactions: [], historyItems: [], recentActivity: [],
   notifications: [{id:1,title:'Welcome to WorkHive!',msg:'Start earning by completing tasks!',icon:'🎉',time:'now',unread:true}],
-  approvedJobs: [], // Jobs approved by admin — worker task list
-  myJobs: [],       // This user's posted jobs (all statuses)
-  paymentMethods: [], // Methods from admin Firestore
+  approvedJobs: [],
+  myJobs: [],
+  myTaskSubmissions: [],
+  paymentMethods: [],
   isSpinning: false, spinUsedToday: false, spinAngle: 0,
   spinHistory: [],
   spinPrizes: [
@@ -1015,7 +1386,6 @@ const catSvg = {
 const fmtUSD = n => '$' + Math.abs(n).toFixed(2);
 const fmtShort = n => n >= 1000 ? '$' + (n/1000).toFixed(1) + 'K' : '$' + n.toFixed(2);
 
-// ============ LOADING ============
 let _loadFallback = setTimeout(() => { if(document.getElementById('loadingScreen').style.display !== 'none') showAuthScreen(); }, 6000);
 
 function showAuthScreen() {
@@ -1056,6 +1426,7 @@ function showApp(user, data) {
   showPostStep(1);
   renderMyJobs();
   renderHistory();
+  renderMyTasks();
   renderNotifications();
   renderLeaderboard();
   renderRecentActivity();
@@ -1071,7 +1442,6 @@ function showApp(user, data) {
       if (el) el.textContent = new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
     }, 10000);
     if (data?.isNewUser) setTimeout(() => showOnboarding(), 1500);
-    // Welcome popup
     setTimeout(() => {
       const firstName = (data?.name || user.displayName || 'Friend').split(' ')[0];
       const pop = document.createElement('div');
@@ -1102,32 +1472,33 @@ function updateProfileUI(data, user) {
   document.getElementById('profileReferrals').textContent = data.referralCount || 0;
   if (data.referralCode) { document.getElementById('refCode').textContent = refCode; document.getElementById('refCodePage').textContent = refCode; }
   const kyc = data.kyc;
-  document.getElementById('kycStatusDisplay').textContent = kyc ? '✓ Verified' : '⚠ Pending';
-  document.getElementById('kycStatusDisplay').style.color = kyc ? 'var(--green)' : 'var(--coral)';
   document.getElementById('homeKycStatus').textContent = kyc ? '✓' : '⚠';
   const wLv = data.workerLevel || 1;
   document.getElementById('workerLevelLabel').textContent = 'Level ' + wLv + ' / 5';
   document.getElementById('workerLevelFill').style.width = ((wLv-1)/4*100+10) + '%';
   document.getElementById('homeWorkerLv').textContent = 'L' + wLv;
-  document.getElementById('homeStreak').textContent = '🔥 ' + (data.streak||0) + ' days';
+  document.getElementById('homeStreak').textContent = (data.streak||0) + ' days';
   document.getElementById('homeTasks').textContent = data.tasksCompleted || 0;
-  document.getElementById('homeAccuracy').textContent = (data.tasksCompleted ? Math.round(((data.approvedTasks||data.tasksCompleted) / data.tasksCompleted) * 100) : 0) + '%';
+  const acc = data.tasksCompleted ? Math.round(((data.approvedTasks||data.tasksCompleted) / data.tasksCompleted) * 100) : 0;
+  document.getElementById('homeAccuracy').textContent = acc + '%';
   if (data.createdAt) {
     const d = data.createdAt.toDate ? data.createdAt.toDate() : new Date(data.createdAt);
     if (!isNaN(d)) document.getElementById('profileJoined').textContent = d.toLocaleDateString('en-US');
   }
   if (data.bio) { const b=document.getElementById('profileBio'); b.textContent=data.bio; b.style.display='block'; }
-  // Jobs posted count
   document.getElementById('homeJobsPosted').textContent = S.myJobs.length;
-  // referral page
   if(document.getElementById('refTotalCount')) document.getElementById('refTotalCount').textContent = data.referralCount||0;
   if(document.getElementById('refActiveCount')) document.getElementById('refActiveCount').textContent = data.referralCount||0;
   if(document.getElementById('refEarnedTotal')) document.getElementById('refEarnedTotal').textContent = fmtUSD(data.referralEarned||0);
+
+  // Update profile badges
+  const badgesEl = document.getElementById('profileBadges');
+  if (badgesEl) {
+    badgesEl.innerHTML = `<span class="p-badge worker">🐝 Worker L${wLv}</span><span class="p-badge ${kyc?'kyc':'unverified'}">${kyc?'✓ KYC Verified':'⚠ KYC Pending'}</span>`;
+  }
 }
 
 // ============ FIRESTORE LISTENERS ============
-
-// Real-time: approved jobs from admin → task list for workers
 function listenApprovedJobs() {
   const fb = window._fb;
   fb.onSnapshot(
@@ -1142,7 +1513,6 @@ function listenApprovedJobs() {
   );
 }
 
-// Real-time: user's own posted jobs
 function listenMyJobs(uid) {
   const fb = window._fb;
   fb.onSnapshot(
@@ -1157,7 +1527,31 @@ function listenMyJobs(uid) {
   );
 }
 
-// Real-time: notifications pushed to user by admin
+function listenMyTaskSubmissions(uid) {
+  const fb = window._fb;
+  fb.onSnapshot(
+    fb.query(fb.collection(fb.db,'taskSubmissions'), fb.where('workerId','==',uid)),
+    snap => {
+      S.myTaskSubmissions = [];
+      snap.forEach(d => S.myTaskSubmissions.push({id:d.id, ...d.data()}));
+      S.myTaskSubmissions.sort((a,b)=>(b._ts||0)-(a._ts||0));
+      S.historyItems = S.myTaskSubmissions.map(s => ({
+        jobId: s.jobId, type: s.jobId==='spin'?'spin':'task',
+        title: s.jobTitle||s.title||'Task',
+        reward: s.reward||0,
+        date: s.date||'',
+        status: s.status||'pending',
+        category: s.category||'Social Media'
+      }));
+      renderHistory();
+      renderMyTasks();
+      renderRecentActivity();
+      renderHomeTasks();
+      renderAllTasks('All');
+    }, e => console.warn('listenMyTaskSubmissions:', e)
+  );
+}
+
 function listenAdminNotifications(uid) {
   const fb = window._fb;
   fb.onSnapshot(
@@ -1178,7 +1572,6 @@ function listenAdminNotifications(uid) {
   );
 }
 
-// Real-time: payment methods from admin config
 function listenPaymentMethods() {
   const fb = window._fb;
   fb.onSnapshot(fb.collection(fb.db,'paymentMethods'), snap => {
@@ -1191,11 +1584,20 @@ function listenPaymentMethods() {
 
 function updateDepositAccountDisplay() {
   const m = S.paymentMethods.find(x => x.name === S.selectedDepositMethod || x.name.startsWith(S.selectedDepositMethod));
-  if (m) {
-    document.getElementById('depositAccountNumber').textContent = m.number || '—';
+  const numEl = document.getElementById('depositAccountNumber');
+  if (m && numEl) {
+    numEl.innerHTML = `<span style="color:var(--orange);letter-spacing:.5px">${m.number || '—'}</span><span class="copy-btn" onclick="copyDepositNumber()">📋</span>`;
     document.getElementById('depositMethodLabel').textContent = m.name;
-  } else {
-    document.getElementById('depositAccountNumber').textContent = 'Loading...';
+  } else if (numEl) {
+    numEl.innerHTML = `<span style="color:var(--text3)">Loading...</span>`;
+  }
+}
+
+function copyDepositNumber() {
+  const m = S.paymentMethods.find(x => x.name === S.selectedDepositMethod);
+  const num = m?.number || document.getElementById('depositAccountNumber')?.querySelector('span')?.textContent;
+  if (num && num !== 'Loading...') {
+    navigator.clipboard.writeText(num).then(()=>showToast('✅ Number copied!')).catch(()=>showToast('Number: '+num));
   }
 }
 
@@ -1208,7 +1610,6 @@ function renderPaymentMethodGrid() {
         <span class="method-emoji">${m.emoji||'💳'}</span>${m.name}
        </div>`).join('');
   }
-  // withdraw method grid
   const wdPanes = document.querySelectorAll('#withdrawPane .method-grid');
   wdPanes.forEach(grid => {
     grid.innerHTML = S.paymentMethods.map(m =>
@@ -1250,12 +1651,10 @@ function switchAuthTab(tab) {
   document.getElementById('loginErr').textContent='';
   document.getElementById('regErr').textContent='';
 }
-
 function togglePass(id,el){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';el.textContent=i.type==='password'?'👁':'🙈';}
 function checkStrength(val){const el=document.getElementById('strengthFill');let s=0;if(val.length>=6)s++;if(val.length>=10)s++;if(/[A-Z]/.test(val))s++;if(/[0-9]/.test(val))s++;if(/[^A-Za-z0-9]/.test(val))s++;const c=['#F44336','#F5A623','#F5A623','#1DB954','#2196F3'],w=['20%','40%','60%','80%','100%'];el.style.width=s>0?w[s-1]:'0';el.style.background=s>0?c[s-1]:'transparent';}
 
 async function waitForFirebase(t=4000){if(window._fbReady)return true;await Promise.race([window._fbReadyPromise,new Promise(r=>setTimeout(r,t))]);return!!window._fbReady;}
-
 function setAuthLoading(type,loading){const btn=document.getElementById(type==='login'?'loginBtn':'regBtn');const txt=document.getElementById(type==='login'?'loginBtnText':'regBtnText');btn.disabled=loading;txt.textContent=loading?(type==='login'?'Logging in...':'Creating...'):(type==='login'?'Login':'Create Account');}
 
 async function doLogin() {
@@ -1322,14 +1721,25 @@ async function submitChangePassword(){const old=document.getElementById('cpOld')
 
 async function doLogout(){if(!window._fbReady)return;try{if(window._userUnsub)window._userUnsub();await window._fb.signOut(window._fb.auth);resetAppState();}catch(e){showToast('Logout failed','error');}}
 function doLogoutConfirm(){document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 20px"><div style="font-size:40px;margin-bottom:12px">🚪</div><div class="modal-title">Log out?</div><div class="modal-sub" style="margin-bottom:20px">You can log back in anytime.</div><div style="display:flex;gap:10px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" style="flex:1" onclick="closeConfirm();doLogout()">Yes, Logout</button></div></div>`;document.getElementById('confirmOverlay').classList.add('show');}
-function resetAppState(){document.querySelectorAll('#appShell > div:not(.status-bar):not(.topbar):not(main):not(.tabbar):not(.overlay):not(.toast)').forEach(e=>e.remove());S.balance=0;S.totalEarned=0;S.totalWithdrawn=0;S.pendingAmount=0;S.transactions=[];S.historyItems=[];S.recentActivity=[];S.approvedJobs=[];S.myJobs=[];window._currentUser=null;window._userData=null;window._userRef=null;_appInitialized=false;closeConfirm();goTab('home');}
+function resetAppState(){document.querySelectorAll('#appShell > div:not(.status-bar):not(.topbar):not(main):not(.tabbar):not(.overlay):not(.toast)').forEach(e=>e.remove());S.balance=0;S.totalEarned=0;S.totalWithdrawn=0;S.pendingAmount=0;S.transactions=[];S.historyItems=[];S.recentActivity=[];S.approvedJobs=[];S.myJobs=[];S.myTaskSubmissions=[];window._currentUser=null;window._userData=null;window._userRef=null;_appInitialized=false;closeConfirm();goTab('home');}
 async function confirmDeleteAccount(){document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 20px"><div style="font-size:40px;margin-bottom:12px">⚠️</div><div class="modal-title">Delete Account?</div><div class="modal-sub" style="margin-bottom:20px">All data will be permanently lost.</div><div style="display:flex;gap:10px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" style="flex:1;background:var(--grad-fire)" onclick="reallyDeleteAccount()">Delete</button></div></div>`;document.getElementById('confirmOverlay').classList.add('show');}
 async function reallyDeleteAccount(){closeConfirm();const user=window._currentUser;if(!user||!window._fbReady)return;try{const fb=window._fb;try{localStorage.removeItem('wh_cache_'+user.uid);}catch(e){}await fb.deleteDoc(fb.doc(fb.db,'users',user.uid)).catch(()=>{});await fb.deleteUser(user);}catch(e){showToast('Delete failed — re-login and try','error');}}
 function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('show');}
 
 // ============ UI HELPERS ============
 function updateGreeting(){const h=new Date().getHours();let g='Good Morning ☀️';if(h>=12&&h<16)g='Good Afternoon 🌤️';else if(h>=16&&h<19)g='Good Evening 🌅';else if(h>=19||h<5)g='Good Night 🌙';document.getElementById('greetHello').textContent=g;document.getElementById('clockTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
-function goTab(name,walletSub){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const sc=document.getElementById('screen-'+name);if(sc)sc.classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));if(name==='wallet'&&walletSub)setWalletTab(walletSub);document.getElementById('mainScroll').scrollTo(0,0);}
+
+function goTab(name,walletSub){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const sc=document.getElementById('screen-'+name);
+  if(sc)sc.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));
+  if(name==='wallet'&&walletSub)setWalletTab(walletSub);
+  if(name==='mytasks')renderMyTasks();
+  if(name==='myjobs')renderMyJobs();
+  document.getElementById('mainScroll').scrollTo(0,0);
+}
+
 let _toastTimer;
 function showToast(msg,type=''){const el=document.getElementById('toast');el.textContent=msg;el.className='toast show'+(type?' '+type:'');clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>el.classList.remove('show'),2800);}
 
@@ -1340,10 +1750,10 @@ function buildOnboard(idx){const s=onboardSteps[idx];const dots=onboardSteps.map
 function nextOnboard(c){if(c>=onboardSteps.length-1){closeOnboard();return;}document.getElementById('onboardOverlay').innerHTML=buildOnboard(c+1);}
 function closeOnboard(){const el=document.getElementById('onboardOverlay');if(el)el.remove();}
 
-// ============ TASK RENDERING (Worker View) ============
+// ============ TASK RENDERING ============
 function taskCardHtml(t) {
-  const submitted = S.historyItems.some(h => h.jobId === t.id && (h.status==='pending'||h.status==='completed'));
-  const approved = S.historyItems.some(h => h.jobId === t.id && h.status==='completed');
+  const submitted = S.myTaskSubmissions.some(h => h.jobId === t.id && (h.status==='pending'||h.status==='completed'||h.status==='approved'));
+  const approved = S.myTaskSubmissions.some(h => h.jobId === t.id && (h.status==='completed'||h.status==='approved'));
   const bg = catColors[t.category] || catColors['Social Media'];
   const ico = catSvg[t.category] || catSvg['Social Media'];
   const filled = t.filled || 0;
@@ -1376,6 +1786,44 @@ function renderTaskCategories(){
 }
 function filterTaskCategory(el,cat){document.querySelectorAll('#categoryChips .chip').forEach(c=>c.classList.remove('active'));if(el&&el.classList)el.classList.add('active');renderAllTasks(cat);}
 function renderAllTasks(cat){cat=cat||'All';const list=cat==='All'?S.approvedJobs:S.approvedJobs.filter(t=>t.category===cat);document.getElementById('taskCountBadge').textContent=list.length+' tasks';document.getElementById('taskListFull').innerHTML=list.length?list.map(taskCardHtml).join(''):'<div class="history-empty"><div class="big">🔍</div>No tasks in this category.</div>';}
+
+// ============ MY TASKS ============
+function renderMyTasks() {
+  const el = document.getElementById('myTasksList');
+  if (!el) return;
+  const filter = S.myTasksFilter || 'all';
+  let list = S.myTaskSubmissions;
+  if (filter === 'pending') list = list.filter(t => t.status === 'pending');
+  else if (filter === 'completed') list = list.filter(t => t.status === 'completed' || t.status === 'approved');
+  else if (filter === 'rejected') list = list.filter(t => t.status === 'rejected');
+  else if (filter === 'spin') list = list.filter(t => t.jobId === 'spin');
+
+  if (!list.length) {
+    el.innerHTML = '<div class="history-empty"><div class="big">📋</div>No tasks yet.<br><small>Start completing tasks to see them here!</small></div>';
+    return;
+  }
+  el.innerHTML = list.map(h => {
+    const bg = h.jobId === 'spin' ? 'linear-gradient(135deg,#F5A623,#E8951A)' : catColors[h.category] || catColors['Social Media'];
+    const ico = h.jobId === 'spin' ? '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>' : catSvg[h.category] || catSvg['Social Media'];
+    const st = h.status;
+    const stLabel = st === 'completed' || st === 'approved' ? '✓ Approved' : st === 'rejected' ? '❌ Rejected' : '⏳ Pending';
+    const stColor = st === 'completed' || st === 'approved' ? 'type-done' : st === 'rejected' ? 'type-link' : 'type-pending';
+    return `<div class="task-card" style="cursor:default">
+      <div class="task-ico" style="background:${bg}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${ico}</svg></div>
+      <div class="task-body">
+        <div class="task-top"><div class="task-title">${h.jobTitle||h.title||'Task'}</div><div class="task-reward" style="color:${st==='pending'?'var(--orange)':'var(--green)'}">+${fmtUSD(h.reward||0)}</div></div>
+        <div class="task-meta"><span class="badge ${stColor}">${stLabel}</span><span>${h.category||''}</span><span>${h.date||''}</span></div>
+        ${h.proofText?`<div style="font-size:11px;color:var(--text3);margin-top:4px;font-style:italic">"${h.proofText.substring(0,60)}${h.proofText.length>60?'...':''}"</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+function filterMyTasks(status, el) {
+  S.myTasksFilter = status;
+  document.querySelectorAll('.mytask-filter .h-chip').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderMyTasks();
+}
 
 // ============ TASK MODAL ============
 function openTaskModal(jobId) {
@@ -1420,11 +1868,8 @@ function openTaskModal(jobId) {
   document.getElementById('taskOverlay').classList.add('show');
 }
 function closeTaskModal(){document.getElementById('taskOverlay').classList.remove('show');}
-
 function visitLink(jobId,url){if(url)window.open(url,'_blank');if(!S._visitedLinks)S._visitedLinks={};S._visitedLinks[jobId]=true;setTimeout(()=>openTaskModal(jobId),300);}
 
-// KEY CHANGE: Task proof goes to Firestore as PENDING — no balance credit here.
-// Admin or job poster reviews and approves/rejects from their panel.
 async function submitTaskProof(jobId, proofText, proofFile) {
   const t = S.approvedJobs.find(x => x.id === jobId);
   if (!t) return;
@@ -1434,8 +1879,6 @@ async function submitTaskProof(jobId, proofText, proofFile) {
   if (!user || !window._fbReady) { showToast('Please login again','error'); return; }
   closeTaskModal();
   showToast('📤 Proof submitted! Awaiting review...', 'info');
-
-  // Add to Firestore taskSubmissions — admin reviews from panel
   const fb = window._fb;
   try {
     await fb.addDoc(fb.collection(fb.db,'taskSubmissions'),{
@@ -1448,28 +1891,29 @@ async function submitTaskProof(jobId, proofText, proofFile) {
       date: new Date().toLocaleString('en-US'), _ts: Date.now()
     });
   } catch(e) { console.error('submitTaskProof:', e); }
-
-  // Local history — shown as pending until admin approves
-  S.historyItems.unshift({
-    jobId, type:'task', title:t.title, reward:t.reward||0, date:'just now', status:'pending', category:t.category
-  });
   S.recentActivity.unshift({type:'pending',title:'Proof submitted for "'+t.title+'"',amt:t.reward||0,time:'just now'});
-  renderHistory();
   renderRecentActivity();
-  renderHomeTasks();
-  renderAllTasks('All');
   addNotification('📤 Proof Submitted',`"${t.title}" — Awaiting admin verification. Reward: +${fmtUSD(t.reward||0)}`,'⏳');
 }
 
 // ============ RECENT ACTIVITY ============
 function renderRecentActivity(){
-  const list=S.recentActivity.slice(0,5);const el=document.getElementById('recentActivityHome');
-  if(!list.length){el.innerHTML='<div class="history-empty" style="padding:20px 0"><div class="big">🔄</div>No recent activity yet.</div>';return;}
-  el.innerHTML='<div class="activity-card">'+list.map(a=>`<div class="activity-row"><div class="activity-icon ${a.type}">
-    ${a.type==='approved'?'✅':a.type==='rejected'?'❌':'⏳'}
-  </div><div class="activity-body"><div class="activity-title">${a.title}</div><div class="activity-time">${a.time}</div></div>
-  ${a.amt?`<div class="activity-amt ${a.type==='rejected'?'neg':a.type==='pending'?'pending':''}">${a.type==='pending'?'⏳ ':'+'} ${fmtUSD(Math.abs(a.amt))}</div>`:''}
-  </div>`).join('')+'</div>';
+  const recentSubs = S.myTaskSubmissions.slice(0,5);
+  const el = document.getElementById('recentActivityHome');
+  if (!recentSubs.length && !S.recentActivity.length) {
+    el.innerHTML='<div class="history-empty" style="padding:20px 0"><div class="big">🔄</div>No recent activity yet.<br>You\'ll see updates here.</div>';
+    return;
+  }
+  const items = recentSubs.length ? recentSubs : S.recentActivity.slice(0,5);
+  el.innerHTML='<div class="activity-card">'+items.map(a=>{
+    const st = a.status || a.type || 'pending';
+    const icon = st==='completed'||st==='approved'?'✅':st==='rejected'?'❌':'⏳';
+    const cls = st==='completed'||st==='approved'?'approved':st==='rejected'?'rejected':'pending';
+    return `<div class="activity-row"><div class="activity-icon ${cls}">${icon}</div>
+    <div class="activity-body"><div class="activity-title">${a.jobTitle||a.title||'Task'}</div><div class="activity-time">${a.date||a.time||''}</div></div>
+    <div class="activity-amt ${cls==='rejected'?'neg':cls==='pending'?'pending':''}">${cls==='pending'?'⏳ ':'+'}${fmtUSD(Math.abs(a.reward||a.amt||0))}</div>
+    </div>`;
+  }).join('')+'</div>';
 }
 
 // ============ LEADERBOARD ============
@@ -1479,7 +1923,7 @@ function renderLeaderboard(){
     <div class="lb-row"><div class="lb-rank r${i+1}">${medals[i]}</div><div class="lb-avatar" style="background:${u.color}22;color:${u.color}">${u.name.charAt(0)}</div><div class="lb-name">${u.name}</div><div class="lb-amt">${fmtShort(u.amt)}</div></div>`).join('')+'</div>';
 }
 
-// ============ MY JOBS (Employer Tracking) ============
+// ============ MY JOBS ============
 function renderMyJobs(){
   const el=document.getElementById('myJobsList');if(!el)return;
   const filter=S.myJobsFilter||'all';
@@ -1494,11 +1938,11 @@ function renderMyJobs(){
   el.innerHTML=list.length?list.map(j=>{
     const filled=j.filled||0,lim=j.limit||1;
     const pct=Math.min(100,Math.round(filled/lim*100));
-    let st,badge;
-    if(j.status==='pending'){st='pending';badge='<span class="pending-badge">⏳ Pending Approval</span>';}
-    else if(j.status==='rejected'){st='rejected';badge='<span class="rejected-badge">❌ Rejected</span>';}
-    else if(j.status==='approved'&&filled>=lim){st='completed';badge='<span class="approved-badge" style="background:rgba(33,150,243,.15);color:var(--blue2)">🏁 Completed</span>';}
-    else{st='running';badge='<span class="approved-badge">🟢 Live</span>';}
+    let badge;
+    if(j.status==='pending')badge='<span class="pending-badge">⏳ Pending Approval</span>';
+    else if(j.status==='rejected')badge='<span class="rejected-badge">❌ Rejected</span>';
+    else if(j.status==='approved'&&filled>=lim)badge='<span class="approved-badge" style="background:rgba(33,150,243,.15);color:var(--blue2)">🏁 Completed</span>';
+    else badge='<span class="approved-badge">🟢 Live</span>';
     return`<div class="approval-card">
       <div class="approval-header"><div class="approval-title">${j.title}</div><div class="approval-budget">${fmtUSD(j.reward||0)}/task</div></div>
       <div class="approval-meta">📂 ${j.category||'—'} · 🌍 ${j.country||'—'}<br>
@@ -1551,7 +1995,6 @@ function renderJobPreview(){
   document.getElementById('jobPreviewCard').innerHTML='<p style="font-size:12px;color:var(--text2);margin-bottom:10px">Workers will see this card:</p>'+taskCardHtml(t).replace(`onclick="openTaskModal('0')"`,'')+`<div class="info-block" style="margin-top:14px"><div class="info-row"><span class="l">Total Budget</span><span class="v" style="color:var(--orange)">${fmtUSD(total)}</span></div><div class="info-row"><span class="l">Platform Fee (5%)</span><span class="v">${fmtUSD(fee)}</span></div><div class="info-row"><span class="l">Status</span><span class="v pending-badge">⏳ Pending Admin Review</span></div></div>`;
 }
 
-// KEY CHANGE: Job goes to Firestore as PENDING — admin must approve before workers see it.
 async function submitPost(){
   const title=document.getElementById('pTitle').value.trim(),inst=document.getElementById('pInstructions').value.trim();
   if(!title||!inst){showToast('Fill in all fields','error');return;}
@@ -1570,7 +2013,6 @@ async function submitPost(){
       postedByEmail:user.email||'',
       submittedAt:new Date().toLocaleString('en-US'), _ts:Date.now()
     });
-    // Reset form
     document.getElementById('pTitle').value='';document.getElementById('pInstructions').value='';document.getElementById('pLink').value='';
     S.postSelectedCategory='';renderCategoryPickGrid();showPostStep(1);
     showToast('📤 Job submitted! Awaiting admin approval.','info');
@@ -1580,23 +2022,39 @@ async function submitPost(){
 }
 
 // ============ WALLET ============
-function setWalletTab(tab){S.walletTab=tab;document.getElementById('walletTabDeposit').classList.toggle('active',tab==='deposit');document.getElementById('walletTabWithdraw').classList.toggle('active',tab==='withdraw');document.getElementById('depositPane').style.display=tab==='deposit'?'block':'none';document.getElementById('withdrawPane').style.display=tab==='withdraw'?'block':'none';}
+function setWalletTab(tab){
+  S.walletTab=tab;
+  document.getElementById('walletTabDeposit').classList.toggle('active',tab==='deposit');
+  document.getElementById('walletTabWithdraw').classList.toggle('active',tab==='withdraw');
+  document.getElementById('depositPane').style.display=tab==='deposit'?'block':'none';
+  document.getElementById('withdrawPane').style.display=tab==='withdraw'?'block':'none';
+}
+
 function selectMethod(el,type){
   const container=type==='deposit'?'#depositPane':'#withdrawPane';
   document.querySelectorAll(container+' .method-card').forEach(m=>m.classList.remove('active'));
   el.classList.add('active');
   if(type==='deposit'){S.selectedDepositMethod=el.dataset.method;updateDepositAccountDisplay();}
-  else{S.selectedWithdrawMethod=el.dataset.method;document.getElementById('withdrawMethodLabel').textContent=el.dataset.method;updateWithdrawPreview();}
+  else{S.selectedWithdrawMethod=el.dataset.method;const wml=document.getElementById('withdrawMethodLabel');if(wml)wml.textContent=el.dataset.method;updateWithdrawPreview();}
 }
-function updateDepositPreview(){const amt=Number(document.getElementById('depositAmt').value);if(amt>=1)document.getElementById('depositCreditPreview').textContent=fmtUSD(amt);}
+
+function updateDepositPreview(){
+  const amt=Number(document.getElementById('depositAmt').value);
+  const el=document.getElementById('depositCreditPreview');
+  if(el)el.textContent=amt>=1?fmtUSD(amt):'$0.00';
+}
+
 function updateWithdrawPreview(){
   const amt=Number(document.getElementById('withdrawAmt')?.value)||0;
   const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);
   const feeP=(method?.withdrawFee??5)/100;
   const fee=amt*feeP,net=amt-fee;
-  if(document.getElementById('withdrawFeeDisplay'))document.getElementById('withdrawFeeDisplay').textContent=(feeP*100).toFixed(1)+'%';
-  if(document.getElementById('withdrawNetDisplay'))document.getElementById('withdrawNetDisplay').textContent=amt?fmtUSD(net):'—';
+  const fdEl=document.getElementById('withdrawFeeDisplay');
+  const ndEl=document.getElementById('withdrawNetDisplay');
+  if(fdEl)fdEl.textContent=(feeP*100).toFixed(1)+'%';
+  if(ndEl)ndEl.textContent=amt?fmtUSD(net):'—';
 }
+
 function refreshWalletUI(){
   const data=window._userData||{};
   S.balance=data.balance||0;S.totalEarned=data.totalEarned||0;S.totalWithdrawn=data.totalWithdrawn||0;S.pendingAmount=data.pendingAmount||0;
@@ -1609,6 +2067,7 @@ function refreshWalletUI(){
   document.getElementById('homeEarned').textContent=fmtUSD(S.totalEarned);
   renderTxList();
 }
+
 function renderTxList(){
   const filtered=S.txFilter==='all'?S.transactions:S.transactions.filter(t=>t.dir===S.txFilter);
   document.getElementById('txList').innerHTML=filtered.slice(0,20).map(tx=>`<div class="tx-row">
@@ -1617,9 +2076,14 @@ function renderTxList(){
     <div class="tx-amt ${tx.dir==='pos'?'pos':tx.dir==='neg'?'neg':'pend'}">${tx.dir==='pos'?'+':tx.dir==='neg'?'-':'⏳ '}${fmtUSD(tx.amt)}</div>
   </div>`).join('')||'<div class="history-empty"><div class="big">📭</div>No transactions yet.</div>';
 }
-function filterTx(type){S.txFilter=type;renderTxList();}
 
-// KEY CHANGE: Deposit → goes to Firestore as PENDING. Admin confirms → balance updated.
+function filterTx(type,el){
+  S.txFilter=type;
+  document.querySelectorAll('.tx-filter-btn').forEach(b=>b.classList.remove('active'));
+  if(el&&el.classList)el.classList.add('active');
+  renderTxList();
+}
+
 async function doDeposit(){
   const amt=Number(document.getElementById('depositAmt').value);
   const txnId=document.getElementById('depositTxnId').value.trim();
@@ -1637,18 +2101,18 @@ async function doDeposit(){
       txnId, txId:txnId, senderNumber:senderNum,
       status:'pending', date:new Date().toLocaleString('en-US'), _ts:Date.now()
     });
-    // Track pending in user profile
     if(window._userRef){await fb.updateDoc(window._userRef,{pendingAmount:fb.increment(amt)}).catch(()=>{});}
     S.transactions.unshift({name:'Deposit Request — '+S.selectedDepositMethod,date:'now',amt,dir:'pend',icon:'⏳',status:'pending'});
     renderTxList();
-    document.getElementById('depositAmt').value='';document.getElementById('depositTxnId').value='';document.getElementById('depositSenderNum').value='';
-    document.getElementById('depositCreditPreview').textContent='—';
+    document.getElementById('depositAmt').value='';
+    document.getElementById('depositTxnId').value='';
+    document.getElementById('depositSenderNum').value='';
+    document.getElementById('depositCreditPreview').textContent='$0.00';
     showToast('📤 Deposit submitted! Awaiting admin verification.','info');
     addNotification('⏳ Deposit Pending',`$${amt.toFixed(2)} via ${S.selectedDepositMethod} — admin verifying.`,'⏳');
   } catch(e){showToast('Submission failed. Try again.','error');console.error(e);}
 }
 
-// KEY CHANGE: Withdraw → goes to Firestore as PENDING. Admin sends and marks complete.
 async function doWithdraw(){
   const amt=Number(document.getElementById('withdrawAmt').value);
   const num=document.getElementById('withdrawNumber').value.trim();
@@ -1671,11 +2135,11 @@ async function doWithdraw(){
       account:num, notes,
       status:'pending', date:new Date().toLocaleString('en-US'), _ts:Date.now()
     });
-    // Deduct from balance immediately, track as pending
     if(window._userRef){await fb.updateDoc(window._userRef,{balance:fb.increment(-amt),pendingAmount:fb.increment(net)}).catch(()=>{});}
     S.transactions.unshift({name:'Withdrawal — '+S.selectedWithdrawMethod,date:'now',amt,dir:'neg',icon:'↑',status:'pending'});
     renderTxList();
-    document.getElementById('withdrawAmt').value='';document.getElementById('withdrawNumber').value='';
+    document.getElementById('withdrawAmt').value='';
+    document.getElementById('withdrawNumber').value='';
     showToast('📤 Withdrawal request sent! Admin will process within 24–48h.','info');
     addNotification('📤 Withdrawal Requested',`$${net.toFixed(2)} via ${S.selectedWithdrawMethod} (${num}) — pending admin approval.`,'📤');
   } catch(e){showToast('Submission failed. Try again.','error');console.error(e);}
@@ -1684,16 +2148,16 @@ async function doWithdraw(){
 // ============ HISTORY ============
 function renderHistory(){
   const filter=S.historyFilter;
-  const list=filter==='all'?S.historyItems:filter==='completed'?S.historyItems.filter(h=>h.status==='completed'&&h.type==='task'):filter==='pending'?S.historyItems.filter(h=>h.status==='pending'):S.historyItems.filter(h=>h.type===filter);
+  const list=filter==='all'?S.historyItems:filter==='completed'?S.historyItems.filter(h=>(h.status==='completed'||h.status==='approved')&&h.type==='task'):filter==='pending'?S.historyItems.filter(h=>h.status==='pending'):S.historyItems.filter(h=>h.type===filter);
   if(!list.length){document.getElementById('historyList').innerHTML='<div class="history-empty"><div class="big">📜</div>No history yet.<br><small>Start completing tasks!</small></div>';return;}
   document.getElementById('historyList').innerHTML=list.map(h=>`<div class="task-card" style="cursor:default">
     <div class="task-ico" style="background:${h.type==='task'?catColors[h.category]||catColors['Social Media']:h.type==='spin'?'linear-gradient(135deg,#F5A623,#E8951A)':'linear-gradient(135deg,#CE93D8,#2196F3)'}">
       <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${h.type==='spin'?'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>':catSvg[h.category]||catSvg['Social Media']}</svg>
     </div>
     <div class="task-body">
-      <div class="task-top"><div class="task-title">${h.title}</div><div class="task-reward" style="color:${h.status==='pending'?'var(--orange)':'var(--green)'}">+${fmtUSD(h.reward)}</div></div>
+      <div class="task-top"><div class="task-title">${h.title||h.jobTitle||'Task'}</div><div class="task-reward" style="color:${h.status==='pending'?'var(--orange)':'var(--green)'}">+${fmtUSD(h.reward)}</div></div>
       <div class="task-meta">
-        <span class="badge ${h.status==='completed'?'type-done':'type-pending'}">${h.status==='completed'?'✓ Approved':'⏳ Pending Review'}</span>
+        <span class="badge ${h.status==='completed'||h.status==='approved'?'type-done':h.status==='rejected'?'type-link':'type-pending'}">${h.status==='completed'||h.status==='approved'?'✓ Approved':h.status==='rejected'?'❌ Rejected':'⏳ Pending Review'}</span>
         <span>${h.category||''}</span><span>${h.date}</span>
       </div>
     </div>
@@ -1743,9 +2207,7 @@ function doSpin(){
     S.spinAngle=angle%(2*Math.PI);S.isSpinning=false;S.spinUsedToday=true;localStorage.setItem('wh_spin',new Date().toDateString());
     const prize=S.spinPrizes[prizeIdx];const histEntry={label:prize.label,value:prize.value,date:new Date().toLocaleDateString('en-US')};S.spinHistory.unshift(histEntry);if(S.spinHistory.length>7)S.spinHistory.pop();localStorage.setItem('wh_spin_hist',JSON.stringify(S.spinHistory));
     if(prize.value>0){
-      // Spin rewards also go through admin — add as pending task submission
       if(window._fb&&window._currentUser){const fb=window._fb;fb.addDoc(fb.collection(fb.db,'taskSubmissions'),{jobId:'spin',jobTitle:'Lucky Spin Reward',reward:prize.value,workerId:window._currentUser.uid,workerName:window._userData?.name||'Unknown',workerEmail:window._currentUser.email||'',proofText:'Daily spin won: '+prize.label,proofType:'auto',status:'approved',category:'Spin',date:new Date().toLocaleString('en-US'),_ts:Date.now()}).then(()=>{if(window._userRef)fb.updateDoc(window._userRef,{balance:fb.increment(prize.value),totalEarned:fb.increment(prize.value)}).catch(()=>{});}).catch(()=>{});}
-      S.historyItems.unshift({type:'spin',title:'Lucky Spin',reward:prize.value,date:'now',status:'completed',category:'Spin'});
       showToast('🎉 Won '+fmtUSD(prize.value)+'! Added to balance.');
       addNotification('🎉 Lucky Spin!','You won '+prize.label+'!','🎡');
     } else {showToast('😅 Try again tomorrow!','error');}
@@ -1755,7 +2217,6 @@ function doSpin(){
 }
 function renderSpinHistory(){const el=document.getElementById('spinHistoryList');if(!S.spinHistory.length){el.innerHTML='<p style="color:var(--text3);font-size:12px;text-align:center;padding:16px 0">No spins yet.</p>';return;}el.innerHTML=S.spinHistory.map(h=>`<div class="spin-hist-row"><span>${h.date}</span><span style="font-weight:800;color:${h.value>0?'var(--orange)':'var(--text3)'}">${h.label}</span><span style="color:${h.value>0?'var(--green)':'var(--text3)'};">${h.value>0?'+'+fmtUSD(h.value):'—'}</span></div>`).join('');}
 
-// ============ KEYBOARD SHORTCUT ============
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.getElementById('loginPane').style.display!=='none')doLogin();else if(e.key==='Enter'&&document.getElementById('registerPane').style.display!=='none')doRegister();});
 </script>
 </body>
