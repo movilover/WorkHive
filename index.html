@@ -319,6 +319,8 @@ main{flex:1;overflow-y:auto;padding:4px 16px 110px;scroll-behavior:smooth}
 .withdraw-info-row:last-child{border-bottom:none}
 .withdraw-info-row .wir-l{font-size:12px;color:var(--text2);font-weight:600}
 .withdraw-info-row .wir-v{font-size:12.5px;font-weight:800}
+.wir-input{background:none;border:none;color:var(--text);font-family:inherit;font-size:12.5px;font-weight:800;text-align:right;outline:none;padding:0;width:100%}
+.wir-input::placeholder{color:var(--text3);font-weight:600}
 
 /* ── TRANSACTIONS ── */
 .tx-section-header{display:flex;justify-content:space-between;align-items:center;margin:20px 0 11px}
@@ -818,24 +820,28 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div id="withdrawPane" style="display:none">
         <div class="info-banner">⚠️ Withdrawal requests reviewed by admin. Processing: 24–48 hours.</div>
         <p class="pm-section-title">Select Withdrawal Method</p>
-        <div class="method-grid">
-          <div class="method-card active" data-method="bKash" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">📱</span>bKash</div>
-          <div class="method-card" data-method="Nagad" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">💳</span>Nagad</div>
-          <div class="method-card" data-method="Rocket" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">🚀</span>Rocket</div>
-          <div class="method-card" data-method="USDT" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">₮</span>USDT</div>
-          <div class="method-card" data-method="Bank" onclick="selectMethod(this,'withdraw')"><span class="method-emoji">🏦</span>Bank</div>
+        <div class="chip-row" id="withdrawMethodChips">
+          <div class="chip active" data-method="bKash" onclick="selectMethod(this,'withdraw')">📱 bKash</div>
+          <div class="chip" data-method="Nagad" onclick="selectMethod(this,'withdraw')">💳 Nagad</div>
+          <div class="chip" data-method="Rocket" onclick="selectMethod(this,'withdraw')">🚀 Rocket</div>
+          <div class="chip" data-method="USDT" onclick="selectMethod(this,'withdraw')">₮ USDT</div>
+          <div class="chip" data-method="Bank" onclick="selectMethod(this,'withdraw')">🏦 Bank</div>
         </div>
-        <div class="input-grid-2" style="margin-bottom:12px">
-          <div class="field" style="margin-bottom:0"><label>Amount ($) — Min $5.00</label><div class="input-with-icon"><input type="number" id="withdrawAmt" placeholder="5.00" min="5" step="0.01" oninput="updateWithdrawPreview()"><span class="input-icon">💵</span></div></div>
-          <div class="field" style="margin-bottom:0"><label>Account / Wallet Address *</label><div class="input-with-icon"><input type="text" id="withdrawNumber" placeholder="bKash/Nagad/USDT address"><span class="input-icon">📲</span></div></div>
-        </div>
-        <div class="field"><label>Additional Notes (Optional)</label><input type="text" id="withdrawNotes" placeholder="Any notes for admin..."></div>
         <div class="withdraw-info-card">
-          <div class="withdraw-info-row"><span class="wir-l">Withdrawal Fee</span><span class="wir-v" id="withdrawFeeDisplay" style="color:var(--red)">5%</span></div>
-          <div class="withdraw-info-row"><span class="wir-l">You will receive</span><span class="wir-v" id="withdrawNetDisplay" style="color:var(--green)">—</span></div>
-          <div class="withdraw-info-row"><span class="wir-l">Method</span><span class="wir-v" id="withdrawMethodLabel" style="color:var(--gold)">bKash</span></div>
-          <div class="withdraw-info-row"><span class="wir-l">Status after submit</span><span class="awaiting-badge" style="font-size:10px">⏳ Awaiting Admin</span></div>
+          <div class="withdraw-info-row">
+            <span class="wir-l">💵 Amount <span style="color:var(--text3);font-weight:600">(min $5)</span></span>
+            <input type="number" id="withdrawAmt" class="wir-input" placeholder="5.00" min="5" step="0.01" oninput="updateWithdrawPreview()" style="max-width:90px">
+          </div>
+          <div class="withdraw-info-row">
+            <span class="wir-l">👤 Receiving Number</span>
+            <input type="text" id="withdrawNumber" class="wir-input" placeholder="01XXXXXXXXX" style="max-width:140px">
+          </div>
+          <div class="withdraw-info-row">
+            <span class="wir-l">You'll get <span style="color:var(--text3);font-weight:600">(after <span id="withdrawFeeDisplay">5%</span> fee)</span></span>
+            <span class="wir-v" id="withdrawNetDisplay" style="color:var(--green);font-size:14.5px">—</span>
+          </div>
         </div>
+        <div class="field"><label>Note (Optional)</label><input type="text" id="withdrawNotes" placeholder="Any notes for admin..."></div>
         <button class="btn-primary" onclick="doWithdraw()">📤 Submit Withdrawal Request</button>
       </div>
       <div class="tx-section-header">
@@ -1480,11 +1486,16 @@ function renderPaymentMethodGrids() {
       `<div class="method-card ${S.selectedDepositMethod===m.name?'active':''}" data-method="${escHtml(m.name)}" onclick="selectMethod(this,'deposit')">
         <span class="method-emoji">${m.emoji||'💳'}</span>${escHtml(m.name)}</div>`).join('');
   }
-  const wdGrid = document.querySelector('#withdrawPane .method-grid');
-  if (wdGrid) {
-    wdGrid.innerHTML = S.paymentMethods.map(m =>
-      `<div class="method-card ${S.selectedWithdrawMethod===m.name?'active':''}" data-method="${escHtml(m.name)}" onclick="selectMethod(this,'withdraw')">
-        <span class="method-emoji">${m.emoji||'💳'}</span>${escHtml(m.name)}</div>`).join('');
+  const wdChips = document.getElementById('withdrawMethodChips');
+  if (wdChips) {
+    wdChips.innerHTML = S.paymentMethods.map(m =>
+      `<div class="chip ${S.selectedWithdrawMethod===m.name?'active':''}" data-method="${escHtml(m.name)}" onclick="selectMethod(this,'withdraw')">
+        ${m.emoji||'💳'} ${escHtml(m.name)}</div>`).join('');
+    if (!S.paymentMethods.some(m=>m.name===S.selectedWithdrawMethod)) {
+      S.selectedWithdrawMethod = S.paymentMethods[0].name;
+      wdChips.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active', c.dataset.method===S.selectedWithdrawMethod));
+      updateWithdrawPreview();
+    }
   }
 }
 
@@ -1496,10 +1507,11 @@ function copyDepositNumber() {
 
 function selectMethod(el, type) {
   const container = type==='deposit' ? '#depositPane' : '#withdrawPane';
-  document.querySelectorAll(container+' .method-card').forEach(m=>m.classList.remove('active'));
+  const selector = type==='deposit' ? '.method-card' : '.chip';
+  document.querySelectorAll(container+' '+selector).forEach(m=>m.classList.remove('active'));
   el.classList.add('active');
   if(type==='deposit'){S.selectedDepositMethod=el.dataset.method;updateDepositAccountDisplay();}
-  else{S.selectedWithdrawMethod=el.dataset.method;const wml=document.getElementById('withdrawMethodLabel');if(wml)wml.textContent=el.dataset.method;updateWithdrawPreview();}
+  else{S.selectedWithdrawMethod=el.dataset.method;updateWithdrawPreview();}
 }
 
 // AUTH
@@ -1636,13 +1648,13 @@ function renderRecentActivity(){const items=S.myTaskSubmissions.slice(0,5);const
 function renderLeaderboard(){const medals=['🥇','🥈','🥉'];const lbData=[{name:'Arafat Hossain',amt:48.50,color:'#00E676'},{name:'Sumaiya Begum',amt:42.00,color:'#448AFF'},{name:'Tanvir Ahmed',amt:39.00,color:'#E040FB'}];document.getElementById('homeLBPreview').innerHTML='<div class="lb-card">'+lbData.map((u,i)=>`<div class="lb-row"><div class="lb-rank r${i+1}">${medals[i]}</div><div class="lb-avatar" style="background:${u.color}18;color:${u.color}">${u.name.charAt(0)}</div><div class="lb-name">${u.name}</div><div class="lb-amt">${fmtUSD(u.amt)}</div></div>`).join('')+'</div>';}
 
 // WALLET
-function setWalletTab(tab){S.walletTab=tab;document.getElementById('walletTabDeposit').classList.toggle('active',tab==='deposit');document.getElementById('walletTabWithdraw').classList.toggle('active',tab==='withdraw');document.getElementById('depositPane').style.display=tab==='deposit'?'block':'none';document.getElementById('withdrawPane').style.display=tab==='withdraw'?'block':'none';}
+function setWalletTab(tab){S.walletTab=tab;document.getElementById('walletTabDeposit').classList.toggle('active',tab==='deposit');document.getElementById('walletTabWithdraw').classList.toggle('active',tab==='withdraw');document.getElementById('depositPane').style.display=tab==='deposit'?'block':'none';document.getElementById('withdrawPane').style.display=tab==='withdraw'?'block':'none';if(tab==='withdraw')updateWithdrawPreview();}
 function updateDepositPreview(){const amt=Number(document.getElementById('depositAmt').value);const el=document.getElementById('depositCreditPreview');if(el)el.textContent=amt>=1?fmtUSD(amt):'$0.00';}
 function updateWithdrawPreview(){const amt=Number(document.getElementById('withdrawAmt')?.value)||0;const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);const feeP=(method?.withdrawFee??5)/100;const fee=amt*feeP,net=amt-fee;const fdEl=document.getElementById('withdrawFeeDisplay'),ndEl=document.getElementById('withdrawNetDisplay');if(fdEl)fdEl.textContent=(feeP*100).toFixed(1)+'%';if(ndEl)ndEl.textContent=amt?fmtUSD(net):'—';}
 function renderTxList(){const filtered=S.txFilter==='all'?S.transactions:S.txFilter==='pos'?S.transactions.filter(t=>t.dir==='pos'):S.transactions.filter(t=>t.dir==='neg');document.getElementById('txList').innerHTML=filtered.slice(0,30).map(tx=>`<div class="tx-row"><div class="tx-left"><div class="tx-ico" style="background:${tx.dir==='pos'?'var(--green-dim)':tx.dir==='neg'?'var(--red-dim)':'var(--gold-dim)'}">${tx.icon||'💰'}</div><div><div class="tx-name">${escHtml(tx.name)}</div><div class="tx-date">${tx.date}</div>${tx.status?`<span class="tx-status ${tx.status}">${tx.status==='pending'?'Pending':tx.status==='rejected'?'Rejected':'Done'}</span>`:''}</div></div><div class="tx-amt ${tx.dir==='pos'?'pos':tx.dir==='neg'?'neg':'pend'}">${tx.dir==='pos'?'+':tx.dir==='neg'?'-':'⏳ '}${fmtUSD(tx.amt)}</div></div>`).join('')||'<div class="history-empty"><div class="big">📭</div>No transactions yet.</div>';}
 function filterTx(type,el){S.txFilter=type;document.querySelectorAll('.tx-filter-btn').forEach(b=>b.classList.remove('active'));if(el&&el.classList)el.classList.add('active');renderTxList();}
 async function doDeposit(){const amt=Number(document.getElementById('depositAmt').value),txnId=document.getElementById('depositTxnId').value.trim(),senderNum=document.getElementById('depositSenderNum').value.trim();if(!amt||amt<1){showToast('Minimum deposit $1.00','error');return;}if(!txnId){showToast('Enter transaction ID','error');return;}const user=window._currentUser,data=window._userData;if(!user||!window._fbReady){showToast('Please login','error');return;}const fb=window._fb;try{await fb.addDoc(fb.collection(fb.db,'deposits'),{userId:user.uid,userName:data?.name||user.displayName||'Unknown',userEmail:user.email||'',amount:amt,method:S.selectedDepositMethod,txnId,txId:txnId,senderNumber:senderNum,status:'pending',date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()});if(window._userRef)await fb.updateDoc(window._userRef,{pendingAmount:fb.increment(amt)}).catch(()=>{});document.getElementById('depositAmt').value='';document.getElementById('depositTxnId').value='';document.getElementById('depositSenderNum').value='';document.getElementById('depositCreditPreview').textContent='$0.00';showToast('📤 Deposit submitted! Awaiting admin.','info');}catch(e){showToast('Submission failed. Try again.','error');console.error(e);}}
-async function doWithdraw(){const amt=Number(document.getElementById('withdrawAmt').value),num=document.getElementById('withdrawNumber').value.trim(),notes=document.getElementById('withdrawNotes')?.value.trim()||'';if(!amt||amt<5){showToast('Minimum withdrawal $5.00','error');return;}const currentBal=window._userData?.balance||0;if(amt>currentBal){showToast('Insufficient balance','error');return;}if(!num){showToast('Enter account number/address','error');return;}const user=window._currentUser,data=window._userData;if(!user||!window._fbReady){showToast('Please login','error');return;}const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);const feeP=(method?.withdrawFee??5)/100,fee=amt*feeP,net=parseFloat((amt-fee).toFixed(2));const fb=window._fb;try{await fb.addDoc(fb.collection(fb.db,'withdrawals'),{userId:user.uid,userName:data?.name||user.displayName||'Unknown',userEmail:user.email||'',amount:amt,net,fee:parseFloat(fee.toFixed(2)),method:S.selectedWithdrawMethod,account:num,notes,status:'pending',date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()});if(window._userRef)await fb.updateDoc(window._userRef,{balance:fb.increment(-amt),pendingAmount:fb.increment(net)}).catch(()=>{});document.getElementById('withdrawAmt').value='';document.getElementById('withdrawNumber').value='';showToast('📤 Withdrawal request sent!','info');}catch(e){showToast('Submission failed. Try again.','error');console.error(e);}}
+async function doWithdraw(){const amt=Number(document.getElementById('withdrawAmt').value),num=document.getElementById('withdrawNumber').value.trim(),notes=document.getElementById('withdrawNotes')?.value.trim()||'';if(!amt||amt<5){showToast('Minimum withdrawal $5.00','error');return;}const currentBal=window._userData?.balance||0;if(amt>currentBal){showToast('Insufficient balance','error');return;}if(!num){showToast('Enter account number/address','error');return;}const user=window._currentUser,data=window._userData;if(!user||!window._fbReady){showToast('Please login','error');return;}const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);const feeP=(method?.withdrawFee??5)/100,fee=amt*feeP,net=parseFloat((amt-fee).toFixed(2));const fb=window._fb;try{await fb.addDoc(fb.collection(fb.db,'withdrawals'),{userId:user.uid,userName:data?.name||user.displayName||'Unknown',userEmail:user.email||'',amount:amt,net,fee:parseFloat(fee.toFixed(2)),method:S.selectedWithdrawMethod,account:num,notes,status:'pending',date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()});if(window._userRef)await fb.updateDoc(window._userRef,{balance:fb.increment(-amt),pendingAmount:fb.increment(net)}).catch(()=>{});document.getElementById('withdrawAmt').value='';document.getElementById('withdrawNumber').value='';if(document.getElementById('withdrawNotes'))document.getElementById('withdrawNotes').value='';updateWithdrawPreview();showToast('📤 Withdrawal request sent!','info');}catch(e){showToast('Submission failed. Try again.','error');console.error(e);}}
 
 // HISTORY
 function renderHistory(){const filter=S.historyFilter,all=S.myTaskSubmissions;const list=filter==='all'?all:filter==='completed'?all.filter(h=>h.status==='completed'||h.status==='approved'):filter==='pending'?all.filter(h=>h.status==='pending'):all.filter(h=>h.jobId==='spin');if(!list.length){document.getElementById('historyList').innerHTML='<div class="history-empty"><div class="big">📜</div>No history yet.<br><small>Start completing tasks!</small></div>';return;}document.getElementById('historyList').innerHTML=list.map(h=>`<div class="task-card" style="cursor:default"><div class="task-ico" style="background:${h.jobId==='spin'?catColors['Review/Rating']:catColors[h.category]||catColors['Social Media']}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${h.jobId==='spin'?'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>':catSvg[h.category]||catSvg['Social Media']}</svg></div><div class="task-body"><div class="task-top"><div class="task-title">${escHtml(h.jobTitle||h.title||'Task')}</div><div class="task-reward" style="color:${h.status==='pending'?'var(--gold)':'var(--green)'}">+${fmtUSD(h.reward||0)}</div></div><div class="task-meta"><span class="badge ${h.status==='completed'||h.status==='approved'?'type-done':h.status==='rejected'?'type-link':'type-pending'}">${h.status==='completed'||h.status==='approved'?'✓ Approved':h.status==='rejected'?'❌ Rejected':'⏳ Pending'}</span><span>${escHtml(h.category||'')}</span><span>${h.date||''}</span></div></div></div>`).join('');}
