@@ -144,25 +144,33 @@ main{flex:1;overflow-y:auto;padding:4px 16px 110px;scroll-behavior:smooth}
 .two-col .activity-time{font-size:8.5px}
 .two-col .activity-amt{font-size:10px}
 
-/* TASK CARD */
-.task-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:13px;margin-bottom:9px;display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:transform .15s,border-color .2s}
-.task-card:hover{border-color:var(--border2);transform:translateY(-1px)}
+/* ═══ IMPROVED TASK CARD ═══ */
+.task-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:0;margin-bottom:10px;cursor:pointer;transition:transform .15s,border-color .2s,box-shadow .2s;overflow:hidden;position:relative}
+.task-card:hover{border-color:var(--border2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.5)}
 .task-card:active{transform:scale(.985)}
+.task-card-accent{height:3px;width:100%;border-radius:0}
+.task-card-inner{padding:13px}
 .task-ico{width:44px;height:44px;border-radius:13px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .task-ico svg{width:19px;height:19px;stroke:#fff}
 .task-body{flex:1;min-width:0}
 .task-top{display:flex;justify-content:space-between;gap:7px;align-items:flex-start}
 .task-title{font-size:13px;font-weight:700;line-height:1.4}
-.task-reward{font-size:13.5px;font-weight:900;color:var(--green);white-space:nowrap}
-.task-meta{font-size:10.5px;color:var(--text3);margin-top:5px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.task-reward-pill{display:inline-flex;align-items:center;gap:4px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);border-radius:20px;padding:4px 10px;white-space:nowrap}
+.task-reward-pill span{font-size:13.5px;font-weight:900;color:var(--green)}
+.task-meta{font-size:10.5px;color:var(--text3);margin-top:7px;display:flex;gap:5px;flex-wrap:wrap;align-items:center}
 .badge{font-size:9.5px;font-weight:700;padding:2.5px 7px;border-radius:6px}
 .badge.type-proof{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(68,138,255,.15)}
 .badge.type-link{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,82,82,.15)}
 .badge.type-done{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border)}
 .badge.type-pending{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,179,0,.2)}
+.badge.type-rejected{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,82,82,.2)}
 .badge.type-survey{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(224,64,251,.15)}
-.task-progress{height:2px;border-radius:3px;background:var(--border);margin-top:8px;overflow:hidden}
-.task-progress-fill{height:100%;border-radius:3px}
+.task-bottom-row{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.task-slots{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text3);font-weight:600}
+.task-slots-bar{flex:1;height:4px;border-radius:4px;background:var(--bg3);overflow:hidden;max-width:80px}
+.task-slots-fill{height:100%;border-radius:4px}
+.task-cta{font-size:10.5px;font-weight:800;color:var(--green);display:flex;align-items:center;gap:4px}
+.task-cta.disabled-cta{color:var(--text3)}
 
 /* CHIPS */
 .chip-row{display:flex;gap:7px;overflow-x:auto;padding-bottom:3px;margin-bottom:11px}
@@ -344,21 +352,6 @@ main{flex:1;overflow-y:auto;padding:4px 16px 110px;scroll-behavior:smooth}
 .howto-step:nth-child(4) .howto-num{background:var(--purple);color:#fff}
 .howto-body{font-size:12px;color:var(--text2);line-height:1.6;font-weight:600}
 .howto-body b{color:var(--text);font-weight:800}
-.ref-user-profile{padding:6px 0}
-.rup-header{display:flex;flex-direction:column;align-items:center;padding:8px 0 18px}
-.rup-avatar{width:72px;height:72px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;margin-bottom:11px}
-.rup-name{font-size:18px;font-weight:900;margin-bottom:2px;text-align:center}
-.rup-username{font-size:12.5px;font-weight:700;margin-bottom:4px}
-.rup-since{font-size:11px;color:var(--text3);font-weight:600}
-.rup-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px}
-.rup-stat{background:var(--bg3);padding:13px 8px;text-align:center}
-.rup-stat .v{font-size:15px;font-weight:900}
-.rup-stat .l{font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:3px}
-.gen-badge-row{display:flex;justify-content:center;gap:6px;margin-bottom:4px}
-.gen-badge{font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px}
-.gen-badge.g1{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border)}
-.gen-badge.g2{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(68,138,255,.15)}
-.gen-badge.g3{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,179,0,.2)}
 
 /* PROFILE */
 .profile-hero{border-radius:var(--r-xl);background:var(--card);border:1px solid var(--border2);padding:26px 18px 20px;display:flex;flex-direction:column;align-items:center;margin-bottom:12px;position:relative;overflow:hidden}
@@ -414,7 +407,6 @@ main{flex:1;overflow-y:auto;padding:4px 16px 110px;scroll-behavior:smooth}
 /* BANNERS */
 .info-banner{display:flex;gap:9px;align-items:flex-start;background:var(--gold-dim);border:1px solid rgba(255,179,0,.2);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px;font-size:11px;color:var(--gold);font-weight:600;line-height:1.5}
 .demo-banner{display:flex;gap:9px;align-items:flex-start;background:var(--blue-dim);border:1px solid rgba(68,138,255,.2);border-radius:var(--r-md);padding:10px 12px;margin-bottom:12px;font-size:11px;color:var(--blue);font-weight:600;line-height:1.5}
-/* Dynamic site banner from admin */
 #siteBanner{display:none}
 #siteBanner.active{display:flex}
 
@@ -428,6 +420,29 @@ main{flex:1;overflow-y:auto;padding:4px 16px 110px;scroll-behavior:smooth}
 /* MYTASK FILTER */
 .mytask-filter{display:flex;gap:7px;margin-bottom:12px;overflow-x:auto;padding-bottom:3px}
 .mytask-filter::-webkit-scrollbar{display:none}
+
+/* ═══ TASK MODAL IMPROVED ═══ */
+.modal-task-header{border-radius:var(--r-lg);padding:14px;margin-bottom:14px;display:flex;align-items:center;gap:11px}
+.modal-task-header .mth-ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mth-ico svg{width:20px;height:20px;stroke:#fff}
+.mth-title{font-size:14px;font-weight:800;line-height:1.3}
+.mth-cat{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:2px}
+.modal-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.msr-cell{background:var(--bg3);border:1px solid var(--border);border-radius:11px;padding:11px 8px;text-align:center}
+.msr-val{font-size:16px;font-weight:900}
+.msr-lbl{font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.modal-instructions{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-md);padding:13px;font-size:12.5px;color:var(--text2);line-height:1.7;margin-bottom:13px}
+.modal-instructions strong{color:var(--text);font-weight:700}
+.step-list{list-style:none;padding:0;margin:8px 0 0}
+.step-list li{display:flex;gap:9px;padding:6px 0;font-size:12px;color:var(--text2);line-height:1.5}
+.step-num{width:20px;height:20px;border-radius:50%;background:var(--green-dim);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--green);flex-shrink:0;margin-top:1px}
+.proof-upload-area{border:1.5px dashed rgba(0,230,118,.25);border-radius:var(--r-md);padding:16px;text-align:center;margin-bottom:12px;background:rgba(0,230,118,.02);cursor:pointer;transition:background .2s,border-color .2s}
+.proof-upload-area:hover{background:rgba(0,230,118,.05);border-color:rgba(0,230,118,.4)}
+.pua-icon{font-size:28px;margin-bottom:6px}
+.pua-text{font-size:12px;color:var(--text3);font-weight:600}
+.pua-sub{font-size:10.5px;color:var(--text3);margin-top:3px}
+.link-visit-btn{width:100%;padding:12px;border-radius:var(--r-md);border:1.5px solid var(--border2);background:var(--bg3);color:var(--text2);font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;transition:border-color .2s,background .2s}
+.link-visit-btn.visited{border-color:var(--green);background:var(--green-dim);color:var(--green)}
 
 /* NAV TAB BAR */
 nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgba(8,8,8,0.97);backdrop-filter:blur(28px);border-top:1px solid rgba(255,255,255,0.05);padding:10px 4px 20px;gap:0;align-items:center}
@@ -446,7 +461,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 /* MODAL */
 .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);display:none;align-items:flex-end;z-index:50;border-radius:38px}
 .overlay.show{display:flex}
-.modal-sheet{width:100%;max-height:85%;overflow-y:auto;background:var(--card);border-radius:24px 24px 0 0;padding:16px 18px 32px;box-shadow:0 -20px 60px rgba(0,0,0,0.7);animation:slideUp .3s ease;position:relative}
+.modal-sheet{width:100%;max-height:88%;overflow-y:auto;background:var(--card);border-radius:24px 24px 0 0;padding:16px 18px 32px;box-shadow:0 -20px 60px rgba(0,0,0,0.7);animation:slideUp .3s ease;position:relative}
 @keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 .modal-handle{width:38px;height:3.5px;background:rgba(255,255,255,0.1);border-radius:4px;margin:0 auto 13px}
 .modal-title{font-size:16px;font-weight:900;margin-bottom:3px}
@@ -562,9 +577,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
 
     <!-- HOME -->
     <section class="screen active" id="screen-home">
-      <!-- Dynamic Admin Banner -->
       <div id="siteBanner" class="demo-banner" style="margin-top:6px"></div>
-
       <div class="balance-card green-accent">
         <div class="shimmer"></div>
         <div class="wallet-top-row">
@@ -689,7 +702,7 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
       <div id="myTasksList"></div>
     </section>
 
-    <!-- POST - Coming Soon -->
+    <!-- POST -->
     <section class="screen" id="screen-post">
       <div class="coming-soon-wrap">
         <div class="coming-soon-icon-box">🚀</div>
@@ -1012,7 +1025,8 @@ import {
   getAuth, signInWithPopup, GoogleAuthProvider,
   onAuthStateChanged, signOut, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail,
-  deleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword
+  deleteUser, EmailAuthProvider, reauthenticateWithCredential, updatePassword,
+  signInAnonymously
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
   getFirestore, doc, setDoc, getDoc, updateDoc, increment,
@@ -1040,6 +1054,7 @@ window._fb = {
   createUserWithEmailAndPassword, signInWithEmailAndPassword,
   updateProfile, sendPasswordResetEmail, deleteUser,
   EmailAuthProvider, reauthenticateWithCredential, updatePassword,
+  signInAnonymously,
   doc, setDoc, getDoc, updateDoc, increment,
   collection, addDoc, getDocs, query, orderBy, where,
   serverTimestamp, deleteDoc, onSnapshot, limit, writeBatch
@@ -1048,7 +1063,7 @@ window._fbReady = true;
 if (window._resolveFbReady) window._resolveFbReady();
 
 onAuthStateChanged(auth, async (user) => {
-  if (user) {
+  if (user && !user.isAnonymous) {
     window._currentUser = user;
     try {
       const ref = doc(db, 'users', user.uid);
@@ -1067,26 +1082,18 @@ onAuthStateChanged(auth, async (user) => {
           gen2Count: 0, gen3Count: 0, gen2Earned: 0, gen3Earned: 0,
           spinLastUsed: null, isNewUser: true, status: 'active', role: 'user',
           createdAt: serverTimestamp(), lastActive: serverTimestamp(),
-          // Extra fields for admin visibility
-          registrationIP: '', deviceInfo: navigator.userAgent || '',
-          loginCount: 1, lastLoginAt: serverTimestamp()
+          deviceInfo: navigator.userAgent || '', loginCount: 1, lastLoginAt: serverTimestamp()
         };
         await setDoc(ref, data);
         data.createdAt = new Date();
       } else {
         data = snap.data();
-        // Update login count and last login
-        updateDoc(ref, {
-          lastActive: serverTimestamp(),
-          lastLoginAt: serverTimestamp(),
-          loginCount: increment(1)
-        }).catch(() => {});
+        updateDoc(ref, { lastActive: serverTimestamp(), lastLoginAt: serverTimestamp(), loginCount: increment(1) }).catch(() => {});
       }
       window._userData = data;
       window._userRef = ref;
       showApp(user, data);
 
-      // Real-time listener for user data changes (admin can update from console)
       window._userUnsub = onSnapshot(ref, snap2 => {
         if (snap2.exists()) {
           const newData = snap2.data();
@@ -1115,7 +1122,7 @@ onAuthStateChanged(auth, async (user) => {
       console.error('Firebase error:', e);
       showApp(user, {});
     }
-  } else {
+  } else if (!user) {
     if (window._userUnsub) window._userUnsub();
     if (window._notifsUnsub) window._notifsUnsub();
     if (window._settingsUnsub) window._settingsUnsub();
@@ -1130,20 +1137,14 @@ onAuthStateChanged(auth, async (user) => {
 window._fbReadyPromise = new Promise(resolve => { window._resolveFbReady = resolve; });
 if (window._fbReady) window._resolveFbReady();
 
-// ── SITE SETTINGS (admin-controlled) ──
+// ── SITE SETTINGS ──────────────────────────────────────────────
 const SITE = {
-  minWithdraw: 5,
-  withdrawFee: 5,
-  refGen1: 0.50,
-  refGen2: 0.25,
-  refGen3: 0.10,
+  minWithdraw: 5, withdrawFee: 5,
+  refGen1: 0.50, refGen2: 0.25, refGen3: 0.10,
   supportEmail: 'support@workhive.app',
   supportHours: '9 AM – 11 PM',
   supportResponse: 'Within 12 hours',
-  banner: '',
-  bannerType: 'info', // 'info' | 'warn' | 'success'
-  spinEnabled: true,
-  postFeatureDesc: '',
+  banner: '', bannerType: 'info', spinEnabled: true, postFeatureDesc: '',
 };
 
 function listenSiteSettings() {
@@ -1172,112 +1173,108 @@ function listenSiteSettings() {
 }
 
 function applySiteSettings() {
-  // Withdraw min label
   const wMinL = document.getElementById('withdrawMinLabel');
   if (wMinL) wMinL.textContent = `Min $${SITE.minWithdraw.toFixed(2)} · bKash / Nagad / USDT`;
   const wAmtL = document.getElementById('withdrawAmtLabel');
   if (wAmtL) wAmtL.textContent = `Amount ($) — Min $${SITE.minWithdraw.toFixed(2)}`;
   const wInput = document.getElementById('withdrawAmt');
   if (wInput) wInput.min = SITE.minWithdraw;
-
-  // Referral amounts
   const r1 = document.getElementById('refGen1Amount'), r2 = document.getElementById('refGen2Amount'), r3 = document.getElementById('refGen3Amount');
   if (r1) r1.textContent = '$' + SITE.refGen1.toFixed(2);
   if (r2) r2.textContent = '$' + SITE.refGen2.toFixed(2);
   if (r3) r3.textContent = '$' + SITE.refGen3.toFixed(2);
-
-  // Howto steps
   const h2 = document.getElementById('howtoStep2'), h3 = document.getElementById('howtoStep3'), h4 = document.getElementById('howtoStep4');
   if (h2) h2.innerHTML = `<b>Gen 1 earns $${SITE.refGen1.toFixed(2)}</b> — When your direct referral joins.`;
   if (h3) h3.innerHTML = `<b>Gen 2 earns $${SITE.refGen2.toFixed(2)}</b> — When your referral's referral joins.`;
   if (h4) h4.innerHTML = `<b>Gen 3 earns $${SITE.refGen3.toFixed(2)}</b> — Three levels deep — passive income!`;
-
-  // FAQ referral text
   const faqRef = document.getElementById('faqRefText');
   if (faqRef) faqRef.textContent = `Gen 1: $${SITE.refGen1.toFixed(2)}, Gen 2: $${SITE.refGen2.toFixed(2)}, Gen 3: $${SITE.refGen3.toFixed(2)} প্রতি সফল রেফারেলে।`;
-
-  // Support info
   const sEmail = document.getElementById('supportEmail'), sHours = document.getElementById('supportHours'), sResp = document.getElementById('supportResponse');
   if (sEmail) sEmail.textContent = SITE.supportEmail;
   if (sHours) sHours.textContent = SITE.supportHours;
   if (sResp) sResp.textContent = SITE.supportResponse;
   const sBtn = document.getElementById('supportEmailBtn');
   if (sBtn) sBtn.onclick = () => window.open('mailto:' + SITE.supportEmail);
-
-  // Site banner
   const banner = document.getElementById('siteBanner');
   if (banner) {
     if (SITE.banner) {
       banner.textContent = SITE.banner;
-      banner.className = (SITE.bannerType === 'warn' ? 'info-banner' : SITE.bannerType === 'success' ? 'demo-banner' : 'demo-banner') + ' active';
-    } else {
-      banner.className = 'demo-banner';
-      banner.style.display = 'none';
-    }
+      banner.className = (SITE.bannerType === 'warn' ? 'info-banner' : 'demo-banner') + ' active';
+      banner.style.display = '';
+    } else { banner.className = 'demo-banner'; banner.style.display = 'none'; }
   }
-
-  // Spin enabled/disabled
   const spinBtn = document.getElementById('spinBtn');
   const spinBanner = document.getElementById('spinBannerMsg');
   if (!SITE.spinEnabled) {
-    if (spinBtn) { spinBtn.disabled = true; }
+    if (spinBtn) spinBtn.disabled = true;
     if (spinBanner) spinBanner.textContent = '⛔ Daily spin is temporarily disabled by admin.';
   }
-
-  // Post coming soon desc
   const postDesc = document.getElementById('postComingSoonDesc');
   if (postDesc && SITE.postFeatureDesc) postDesc.textContent = SITE.postFeatureDesc;
-
   updateWithdrawPreview();
 }
 
-const S = {
-  selectedWithdrawMethod: 'bKash',
-  approvedJobs: [],
-  myTaskSubmissions: [],
-  transactions: [],
-  notifications: [],
-  paymentMethods: [],
-  spinHistory: [],
-  spinPrizes: [
-    {label:'$0.05',value:0.05,color:'#00E676'},
-    {label:'$0.10',value:0.10,color:'#448AFF'},
-    {label:'$0.02',value:0.02,color:'#E040FB'},
-    {label:'$0.20',value:0.20,color:'#FFB300'},
-    {label:'$0.01',value:0.01,color:'#FF5252'},
-    {label:'$0.50',value:0.50,color:'#FFB300'},
-    {label:'Try Again',value:0,color:'#333333'},
-    {label:'$0.15',value:0.15,color:'#00BCD4'},
-  ],
-  isSpinning: false,
-  spinUsedToday: false,
-  spinAngle: 0,
-  myTasksFilter: 'all',
-  txFilter: 'all',
-  historyFilter: 'all',
-  _visitedLinks: {},
-  gen1Users: [], gen2Users: [], gen3Users: [],
-  currentGenTab: 1,
+// ── CATEGORY COLORS & ICONS ─────────────────────────────────────
+const catGradients = {
+  'Social Media':    'linear-gradient(135deg,#448AFF,#2962FF)',
+  'App Download':    'linear-gradient(135deg,#00E676,#00C853)',
+  'Website Visit':   'linear-gradient(135deg,#FF5252,#D50000)',
+  'Review/Rating':   'linear-gradient(135deg,#FFB300,#FF6F00)',
+  'Watch Video':     'linear-gradient(135deg,#E040FB,#AA00FF)',
+  'Survey':          'linear-gradient(135deg,#00BCD4,#006064)',
+  'Other':           'linear-gradient(135deg,#78909C,#37474F)',
+};
+const catAccent = {
+  'Social Media':'#448AFF','App Download':'#00E676','Website Visit':'#FF5252',
+  'Review/Rating':'#FFB300','Watch Video':'#E040FB','Survey':'#00BCD4','Other':'#78909C'
+};
+const catSvg = {
+  'Social Media':'<circle cx="12" cy="12" r="4"/><path d="M3 12s0-9 9-9 9 9 9 9-9 9-9 9-9-9-9-9"/>',
+  'App Download':'<path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M5 19h14"/>',
+  'Website Visit':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/>',
+  'Review/Rating':'<path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18.1 5.8 21.5 7 14.5l-5-5 7-1z"/>',
+  'Watch Video':'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="white" stroke="none"/>',
+  'Survey':'<path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+  'Other':'<circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/>',
 };
 
-const catColors = {'Social Media':'linear-gradient(135deg,#448AFF,#2962FF)','App Download':'linear-gradient(135deg,#00E676,#00C853)','Website Visit':'linear-gradient(135deg,#FF5252,#D50000)','Review/Rating':'linear-gradient(135deg,#FFB300,#FF6F00)','Watch Video':'linear-gradient(135deg,#E040FB,#AA00FF)'};
-const catSvg = {'Social Media':'<circle cx="12" cy="12" r="4"/><path d="M3 12s0-9 9-9 9 9 9 9-9 9-9 9-9-9-9-9"/>','App Download':'<path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M5 19h14"/>','Website Visit':'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/>','Review/Rating':'<path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18.1 5.8 21.5 7 14.5l-5-5 7-1z"/>','Watch Video':'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="white" stroke="none"/>'};
-const avatarColors=['#00E676','#448AFF','#E040FB','#FFB300','#FF5252','#00BCD4'];
+const avatarColors = ['#00E676','#448AFF','#E040FB','#FFB300','#FF5252','#00BCD4'];
 const fmtUSD = n => '$' + Math.abs(n).toFixed(2);
 const escHtml = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const nameColor = name => avatarColors[(name||'A').charCodeAt(0) % avatarColors.length];
+
+const S = {
+  selectedWithdrawMethod: 'bKash',
+  approvedJobs: [], myTaskSubmissions: [], transactions: [], notifications: [],
+  paymentMethods: [], spinHistory: [],
+  spinPrizes: [
+    {label:'$0.05',value:0.05,color:'#00E676'},{label:'$0.10',value:0.10,color:'#448AFF'},
+    {label:'$0.02',value:0.02,color:'#E040FB'},{label:'$0.20',value:0.20,color:'#FFB300'},
+    {label:'$0.01',value:0.01,color:'#FF5252'},{label:'$0.50',value:0.50,color:'#FFB300'},
+    {label:'Try Again',value:0,color:'#333333'},{label:'$0.15',value:0.15,color:'#00BCD4'},
+  ],
+  isSpinning: false, spinUsedToday: false, spinAngle: 0,
+  myTasksFilter: 'all', txFilter: 'all', historyFilter: 'all',
+  _visitedLinks: {}, gen1Users: [], gen2Users: [], gen3Users: [], currentGenTab: 1,
+};
 
 // ── FIREBASE LISTENERS ──────────────────────────────────────────
 function listenApprovedJobs() {
   const fb = window._fb; if (!fb) return;
   if (window._jobsUnsub) window._jobsUnsub();
+  // Listen to ALL approved jobs — works because user is authenticated (logged in)
   window._jobsUnsub = fb.onSnapshot(
-    fb.query(fb.collection(fb.db,'jobs'), fb.where('status','==','approved')),
+    fb.query(fb.collection(fb.db, 'jobs'), fb.where('status', '==', 'approved')),
     snap => {
       S.approvedJobs = [];
-      snap.forEach(d => S.approvedJobs.push({id:d.id, ...d.data()}));
-      renderHomeTasks(); renderAllTasks('All'); renderTaskCategories();
-    }, e => console.warn('listenJobs:', e)
+      snap.forEach(d => S.approvedJobs.push({ id: d.id, ...d.data() }));
+      // Sort by newest first
+      S.approvedJobs.sort((a, b) => (b._ts || 0) - (a._ts || 0));
+      renderHomeTasks();
+      renderAllTasks('__current__');
+      renderTaskCategories();
+    },
+    e => console.warn('listenJobs error:', e)
   );
 }
 
@@ -1285,10 +1282,10 @@ function listenMyTaskSubmissions(uid) {
   const fb = window._fb; if (!fb || !uid) return;
   if (window._submissionsUnsub) window._submissionsUnsub();
   window._submissionsUnsub = fb.onSnapshot(
-    fb.query(fb.collection(fb.db,'taskSubmissions'), fb.where('workerId','==',uid), fb.orderBy('_ts','desc')),
+    fb.query(fb.collection(fb.db, 'taskSubmissions'), fb.where('workerId', '==', uid), fb.orderBy('_ts', 'desc')),
     snap => {
       S.myTaskSubmissions = [];
-      snap.forEach(d => S.myTaskSubmissions.push({id:d.id, ...d.data()}));
+      snap.forEach(d => S.myTaskSubmissions.push({ id: d.id, ...d.data() }));
       renderMyTasks(); renderHistory(); renderRecentActivity(); renderHomeTasks();
       buildTransactionList();
     }, e => console.warn('listenSubmissions:', e)
@@ -1299,10 +1296,10 @@ function listenUserTransactions(uid) {
   const fb = window._fb; if (!fb || !uid) return;
   if (window._withdrawalsUnsub) window._withdrawalsUnsub();
   window._withdrawalsUnsub = fb.onSnapshot(
-    fb.query(fb.collection(fb.db,'withdrawals'), fb.where('userId','==',uid), fb.orderBy('_ts','desc')),
+    fb.query(fb.collection(fb.db, 'withdrawals'), fb.where('userId', '==', uid), fb.orderBy('_ts', 'desc')),
     snap => {
       const wds = [];
-      snap.forEach(d => wds.push({id:d.id, ...d.data(), _type:'withdrawal'}));
+      snap.forEach(d => wds.push({ id: d.id, ...d.data(), _type: 'withdrawal' }));
       window._userWithdrawals = wds;
       buildTransactionList();
     }, e => console.warn('listenWithdrawals:', e)
@@ -1310,16 +1307,16 @@ function listenUserTransactions(uid) {
 }
 
 function buildTransactionList() {
-  const wds = (window._userWithdrawals||[]).map(w => ({
-    name: 'Withdrawal — ' + (w.method||''), date: w.date||'', amt: w.amount||0,
-    dir: w.status==='completed'?'neg':'pend', icon: '⬆️',
-    status: w.status==='completed'?'done':w.status==='rejected'?'rejected':'pending', _ts: w._ts||0
+  const wds = (window._userWithdrawals || []).map(w => ({
+    name: 'Withdrawal — ' + (w.method || ''), date: w.date || '', amt: w.amount || 0,
+    dir: w.status === 'completed' ? 'neg' : 'pend', icon: '⬆️',
+    status: w.status === 'completed' ? 'done' : w.status === 'rejected' ? 'rejected' : 'pending', _ts: w._ts || 0
   }));
-  const tasks = S.myTaskSubmissions.filter(h=>h.status==='completed'||h.status==='approved').map(h=>({
-    name: h.jobTitle||'Task Reward', date: h.date||'', amt: h.reward||0,
-    dir:'pos', icon:'✅', status:'done', _ts: h._ts||0
+  const tasks = S.myTaskSubmissions.filter(h => h.status === 'completed' || h.status === 'approved').map(h => ({
+    name: h.jobTitle || 'Task Reward', date: h.date || '', amt: h.reward || 0,
+    dir: 'pos', icon: '✅', status: 'done', _ts: h._ts || 0
   }));
-  S.transactions = [...tasks,...wds].sort((a,b) => b._ts - a._ts);
+  S.transactions = [...tasks, ...wds].sort((a, b) => b._ts - a._ts);
   renderTxList();
 }
 
@@ -1327,12 +1324,12 @@ function listenUserNotifications(uid) {
   const fb = window._fb; if (!fb || !uid) return;
   if (window._notifsUnsub) window._notifsUnsub();
   window._notifsUnsub = fb.onSnapshot(
-    fb.query(fb.collection(fb.db,'users',uid,'notifications'), fb.orderBy('createdAt','desc'), fb.limit(50)),
+    fb.query(fb.collection(fb.db, 'users', uid, 'notifications'), fb.orderBy('createdAt', 'desc'), fb.limit(50)),
     snap => {
       const firestoreNotifs = [];
       snap.forEach(d => firestoreNotifs.push({
-        id: d.id, title: d.data().title||'', msg: d.data().msg||'',
-        icon: d.data().icon||'🔔',
+        id: d.id, title: d.data().title || '', msg: d.data().msg || '',
+        icon: d.data().icon || '🔔',
         time: d.data().createdAt?.toDate ? d.data().createdAt.toDate().toLocaleString() : 'recently',
         unread: d.data().unread !== false
       }));
@@ -1346,53 +1343,47 @@ function listenPaymentMethods() {
   const fb = window._fb; if (!fb) return;
   if (window._pmUnsub) window._pmUnsub();
   window._pmUnsub = fb.onSnapshot(
-    fb.query(fb.collection(fb.db,'paymentMethods'), fb.where('enabled','==',true)),
+    fb.query(fb.collection(fb.db, 'paymentMethods'), fb.where('enabled', '==', true)),
     snap => {
       S.paymentMethods = [];
-      snap.forEach(d => S.paymentMethods.push({id:d.id,...d.data()}));
+      snap.forEach(d => S.paymentMethods.push({ id: d.id, ...d.data() }));
       if (S.paymentMethods.length) renderWithdrawMethodGrid();
     }, e => console.warn('listenPaymentMethods:', e)
   );
 }
 
-// Real-time leaderboard from Firestore
 async function loadLeaderboard() {
   const fb = window._fb; if (!fb) return;
   try {
-    const snap = await fb.getDocs(fb.query(fb.collection(fb.db,'users'), fb.orderBy('totalEarned','desc'), fb.limit(10)));
+    const snap = await fb.getDocs(fb.query(fb.collection(fb.db, 'users'), fb.orderBy('totalEarned', 'desc'), fb.limit(10)));
     const lbData = [];
-    snap.forEach(d => {
-      const u = d.data();
-      lbData.push({name: u.name||'User', amt: u.totalEarned||0, color: nameColor(u.name||'A')});
-    });
+    snap.forEach(d => { const u = d.data(); lbData.push({ name: u.name || 'User', amt: u.totalEarned || 0, color: nameColor(u.name || 'A') }); });
     renderLeaderboard(lbData);
   } catch(e) { console.warn('leaderboard:', e); }
 }
 
-// ── 3-GEN REFERRAL TREE ──────────────────────────────────────────
+// ── 3-GEN REFERRAL TREE ─────────────────────────────────────────
 async function loadReferralTree(uid) {
   const fb = window._fb; if (!fb) return;
   try {
     const data = window._userData;
     const myCode = data?.referralCode;
     if (!myCode) return;
-    const g1Snap = await fb.getDocs(fb.query(fb.collection(fb.db,'users'), fb.where('referredBy','==',myCode)));
-    S.gen1Users = [];
-    const g1Codes = [];
-    g1Snap.forEach(d => { const u={id:d.id,...d.data()}; S.gen1Users.push(u); if(u.referralCode)g1Codes.push(u.referralCode); });
-    S.gen2Users = [];
-    const g2Codes = [];
+    const g1Snap = await fb.getDocs(fb.query(fb.collection(fb.db, 'users'), fb.where('referredBy', '==', myCode)));
+    S.gen1Users = []; const g1Codes = [];
+    g1Snap.forEach(d => { const u = { id: d.id, ...d.data() }; S.gen1Users.push(u); if (u.referralCode) g1Codes.push(u.referralCode); });
+    S.gen2Users = []; const g2Codes = [];
     if (g1Codes.length) {
-      for (let i=0;i<g1Codes.length;i+=10) {
-        const g2Snap = await fb.getDocs(fb.query(fb.collection(fb.db,'users'), fb.where('referredBy','in',g1Codes.slice(i,i+10))));
-        g2Snap.forEach(d => { const u={id:d.id,...d.data()}; S.gen2Users.push(u); if(u.referralCode)g2Codes.push(u.referralCode); });
+      for (let i = 0; i < g1Codes.length; i += 10) {
+        const g2Snap = await fb.getDocs(fb.query(fb.collection(fb.db, 'users'), fb.where('referredBy', 'in', g1Codes.slice(i, i + 10))));
+        g2Snap.forEach(d => { const u = { id: d.id, ...d.data() }; S.gen2Users.push(u); if (u.referralCode) g2Codes.push(u.referralCode); });
       }
     }
     S.gen3Users = [];
     if (g2Codes.length) {
-      for (let i=0;i<g2Codes.length;i+=10) {
-        const g3Snap = await fb.getDocs(fb.query(fb.collection(fb.db,'users'), fb.where('referredBy','in',g2Codes.slice(i,i+10))));
-        g3Snap.forEach(d => S.gen3Users.push({id:d.id,...d.data()}));
+      for (let i = 0; i < g2Codes.length; i += 10) {
+        const g3Snap = await fb.getDocs(fb.query(fb.collection(fb.db, 'users'), fb.where('referredBy', 'in', g2Codes.slice(i, i + 10))));
+        g3Snap.forEach(d => S.gen3Users.push({ id: d.id, ...d.data() }));
       }
     }
     updateGenCounts(); renderGenTree(1);
@@ -1400,623 +1391,774 @@ async function loadReferralTree(uid) {
 }
 
 function updateGenCounts() {
-  const el1=document.getElementById('g1Count'),el2=document.getElementById('g2Count'),el3=document.getElementById('g3Count');
-  if(el1)el1.textContent=S.gen1Users.length?'('+S.gen1Users.length+')':'';
-  if(el2)el2.textContent=S.gen2Users.length?'('+S.gen2Users.length+')':'';
-  if(el3)el3.textContent=S.gen3Users.length?'('+S.gen3Users.length+')':'';
+  const el1 = document.getElementById('g1Count'), el2 = document.getElementById('g2Count'), el3 = document.getElementById('g3Count');
+  if (el1) el1.textContent = S.gen1Users.length ? '(' + S.gen1Users.length + ')' : '';
+  if (el2) el2.textContent = S.gen2Users.length ? '(' + S.gen2Users.length + ')' : '';
+  if (el3) el3.textContent = S.gen3Users.length ? '(' + S.gen3Users.length + ')' : '';
 }
 
-function switchGenTab(gen,el){S.currentGenTab=gen;document.querySelectorAll('.gen-tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');renderGenTree(gen);}
+function switchGenTab(gen, el) {
+  S.currentGenTab = gen;
+  document.querySelectorAll('.gen-tab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderGenTree(gen);
+}
 
-function renderGenTree(gen){
-  const list=gen===1?S.gen1Users:gen===2?S.gen2Users:S.gen3Users;
-  const el=document.getElementById('genTreeList');
-  if(!list.length){el.innerHTML=`<div class="history-empty"><div class="big">${gen===1?'🌱':gen===2?'🌿':'🌳'}</div>No Gen ${gen} referrals yet.</div>`;return;}
-  el.innerHTML=list.map(u=>{
-    const nameL=(u.name||'?').charAt(0).toUpperCase(),color=nameColor(u.name||'A');
-    const joined=u.createdAt?.toDate?u.createdAt.toDate().toLocaleDateString('en-US'):'—';
-    return`<div class="referral-user-row" onclick="showRefUserProfile(${JSON.stringify({name:u.name||'User',username:u.username||'',email:u.email||'',country:u.country||'—',tasks:u.tasksCompleted||0,earned:u.totalEarned||0,joined,refCode:u.referralCode||'',gen}).replace(/"/g,'&quot;')})">
+function renderGenTree(gen) {
+  const list = gen === 1 ? S.gen1Users : gen === 2 ? S.gen2Users : S.gen3Users;
+  const el = document.getElementById('genTreeList');
+  if (!list.length) { el.innerHTML = `<div class="history-empty"><div class="big">${gen === 1 ? '🌱' : gen === 2 ? '🌿' : '🌳'}</div>No Gen ${gen} referrals yet.</div>`; return; }
+  el.innerHTML = list.map(u => {
+    const nameL = (u.name || '?').charAt(0).toUpperCase(), color = nameColor(u.name || 'A');
+    const joined = u.createdAt?.toDate ? u.createdAt.toDate().toLocaleDateString('en-US') : '—';
+    return `<div class="referral-user-row" onclick="showRefUserProfile(${JSON.stringify({ name: u.name || 'User', username: u.username || '', email: u.email || '', country: u.country || '—', tasks: u.tasksCompleted || 0, earned: u.totalEarned || 0, joined, refCode: u.referralCode || '', gen }).replace(/"/g, '&quot;')})">
       <div class="ru-avatar" style="background:${color}18;color:${color}">${nameL}</div>
-      <div class="ru-info"><div class="ru-name">${escHtml(u.name||'WorkHive User')}</div><div class="ru-meta">${u.username?'@'+u.username+' · ':''}${escHtml(u.country||'')}</div></div>
-      <div style="text-align:right;flex-shrink:0"><div class="ru-earned" style="color:var(--green)">${fmtUSD(u.totalEarned||0)}</div><div class="ru-join">${joined}</div></div>
+      <div class="ru-info"><div class="ru-name">${escHtml(u.name || 'WorkHive User')}</div><div class="ru-meta">${u.username ? '@' + u.username + ' · ' : ''}${escHtml(u.country || '')}</div></div>
+      <div style="text-align:right;flex-shrink:0"><div class="ru-earned" style="color:var(--green)">${fmtUSD(u.totalEarned || 0)}</div><div class="ru-join">${joined}</div></div>
       <div class="ru-arrow">›</div>
     </div>`;
   }).join('');
 }
 
-function showRefUserProfile(data){
-  if(typeof data==='string'){try{data=JSON.parse(data);}catch(e){return;}}
-  const color=nameColor(data.name),genClass='g'+data.gen;
-  document.getElementById('refUserContent').innerHTML=`<div class="ref-user-profile"><div class="rup-header"><div class="rup-avatar" style="background:${color}18;color:${color};border:2px solid ${color}33">${(data.name||'?').charAt(0).toUpperCase()}</div><div class="rup-name">${escHtml(data.name)}</div><div class="rup-username" style="color:${color}">${data.username?'@'+data.username:''}</div><div class="rup-since">Member since ${data.joined}</div><div class="gen-badge-row" style="margin-top:9px"><span class="gen-badge ${genClass}">Gen ${data.gen} Referral</span><span class="gen-badge" style="background:rgba(255,255,255,.05);color:var(--text3);border:1px solid var(--border)">🌍 ${escHtml(data.country)}</span></div></div><div class="rup-stats"><div class="rup-stat"><div class="v">${data.tasks}</div><div class="l">Tasks Done</div></div><div class="rup-stat"><div class="v" style="color:var(--green)">${fmtUSD(data.earned)}</div><div class="l">Total Earned</div></div><div class="rup-stat"><div class="v" style="color:var(--purple)">${escHtml(data.refCode||'—')}</div><div class="l">Ref Code</div></div></div><button class="btn-ghost" onclick="closeRefUserModal()" style="margin-top:4px">Close</button></div>`;
+function showRefUserProfile(data) {
+  if (typeof data === 'string') { try { data = JSON.parse(data); } catch(e) { return; } }
+  const color = nameColor(data.name), genClass = 'g' + data.gen;
+  document.getElementById('refUserContent').innerHTML = `<div style="padding:6px 0"><div style="display:flex;flex-direction:column;align-items:center;padding:8px 0 18px">
+    <div style="width:72px;height:72px;border-radius:22px;background:${color}18;border:2px solid ${color}33;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:28px;margin-bottom:11px;color:${color}">${(data.name||'?').charAt(0).toUpperCase()}</div>
+    <div style="font-size:18px;font-weight:900;margin-bottom:2px;text-align:center">${escHtml(data.name)}</div>
+    <div style="font-size:12.5px;font-weight:700;margin-bottom:4px;color:${color}">${data.username ? '@' + data.username : ''}</div>
+    <div style="font-size:11px;color:var(--text3);font-weight:600">Member since ${data.joined}</div>
+    <div style="display:flex;gap:6px;margin-top:9px"><span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-border)">Gen ${data.gen} Referral</span><span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.05);color:var(--text3);border:1px solid var(--border)">🌍 ${escHtml(data.country)}</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px">
+    <div style="background:var(--bg3);padding:13px 8px;text-align:center"><div style="font-size:15px;font-weight:900">${data.tasks}</div><div style="font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:3px">Tasks Done</div></div>
+    <div style="background:var(--bg3);padding:13px 8px;text-align:center"><div style="font-size:15px;font-weight:900;color:var(--green)">${fmtUSD(data.earned)}</div><div style="font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:3px">Total Earned</div></div>
+    <div style="background:var(--bg3);padding:13px 8px;text-align:center"><div style="font-size:13px;font-weight:900;color:var(--purple)">${escHtml(data.refCode || '—')}</div><div style="font-size:9px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-top:3px">Ref Code</div></div>
+  </div>
+  <button class="btn-ghost" onclick="closeRefUserModal()" style="margin-top:4px">Close</button></div>`;
   document.getElementById('refUserOverlay').classList.add('show');
 }
-function closeRefUserModal(){document.getElementById('refUserOverlay').classList.remove('show');}
+function closeRefUserModal() { document.getElementById('refUserOverlay').classList.remove('show'); }
 
 // ── APP INIT ────────────────────────────────────────────────────
 let _appInitialized = false;
-let _loadFallback = setTimeout(() => { if(document.getElementById('loadingScreen').style.display!=='none')showAuthScreen(); }, 7000);
+let _loadFallback = setTimeout(() => { if (document.getElementById('loadingScreen').style.display !== 'none') showAuthScreen(); }, 7000);
 
 function showAuthScreen() {
   clearTimeout(_loadFallback);
-  const ls=document.getElementById('loadingScreen');
-  ls.style.opacity='0';ls.style.transition='opacity .4s';
-  setTimeout(()=>ls.style.display='none',400);
-  document.getElementById('authScreen').style.display='flex';
-  document.getElementById('appShell').style.display='none';
+  const ls = document.getElementById('loadingScreen');
+  ls.style.opacity = '0'; ls.style.transition = 'opacity .4s';
+  setTimeout(() => ls.style.display = 'none', 400);
+  document.getElementById('authScreen').style.display = 'flex';
+  document.getElementById('appShell').style.display = 'none';
 }
 
 function showApp(user, data) {
   clearTimeout(_loadFallback);
-  const ls=document.getElementById('loadingScreen');
-  if(ls.style.display!=='none'){ls.style.opacity='0';ls.style.transition='opacity .4s';setTimeout(()=>ls.style.display='none',400);}
-  document.getElementById('authScreen').style.display='none';
-  const shell=document.getElementById('appShell');
-  shell.style.display='flex';shell.style.flexDirection='column';
-  window._lastKnownBalance=data?.balance||0;
-  document.getElementById('editName').value=data?.name||user.displayName||'';
-  document.getElementById('editUsername').value=data?.username||'';
-  document.getElementById('editBio').value=data?.bio||'';
-  document.getElementById('editPhone').value=data?.phone||'';
-  document.getElementById('editCountry').value=data?.country||'';
-  updateProfileUI(data,user);
-  updateAvatarDisplay(data?.name||user.displayName||'?');
-  updateGreeting();refreshWalletUI();
-  renderHomeTasks();renderHistory();renderMyTasks();renderNotifications();
-  renderRecentActivity();drawSpinWheel();checkSpinUsed();
+  const ls = document.getElementById('loadingScreen');
+  if (ls.style.display !== 'none') { ls.style.opacity = '0'; ls.style.transition = 'opacity .4s'; setTimeout(() => ls.style.display = 'none', 400); }
+  document.getElementById('authScreen').style.display = 'none';
+  const shell = document.getElementById('appShell');
+  shell.style.display = 'flex'; shell.style.flexDirection = 'column';
+  window._lastKnownBalance = data?.balance || 0;
+  document.getElementById('editName').value = data?.name || user.displayName || '';
+  document.getElementById('editUsername').value = data?.username || '';
+  document.getElementById('editBio').value = data?.bio || '';
+  document.getElementById('editPhone').value = data?.phone || '';
+  document.getElementById('editCountry').value = data?.country || '';
+  updateProfileUI(data, user);
+  updateAvatarDisplay(data?.name || user.displayName || '?');
+  updateGreeting(); refreshWalletUI();
+  renderHomeTasks(); renderHistory(); renderMyTasks(); renderNotifications();
+  renderRecentActivity(); drawSpinWheel(); checkSpinUsed();
   updateReferralUI(data);
   applySiteSettings();
-  if(!_appInitialized){
-    _appInitialized=true;
-    setInterval(updateGreeting,30000);
-    setInterval(()=>{const el=document.getElementById('clockTime');if(el)el.textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});},10000);
-    if(data?.isNewUser)setTimeout(()=>showOnboarding(),1500);
-    setTimeout(()=>{
-      const firstName=(data?.name||user.displayName||'Friend').split(' ')[0];
-      const pop=document.createElement('div');
-      pop.style.cssText='position:absolute;top:76px;left:14px;right:14px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.22);border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:center;z-index:60;backdrop-filter:blur(20px)';
-      pop.innerHTML=`<div style="width:38px;height:38px;border-radius:11px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">👋</div><div style="flex:1"><div style="font-size:12.5px;font-weight:800;margin-bottom:1px">Welcome, ${escHtml(firstName)}!</div><div style="font-size:11px;color:var(--text2)">${data?.isNewUser?'Account created! Start earning 🚀':'Great to have you back!'}</div></div><div onclick="this.parentElement.remove()" style="cursor:pointer;font-size:15px;opacity:.4;padding:3px">✕</div>`;
+  if (!_appInitialized) {
+    _appInitialized = true;
+    setInterval(updateGreeting, 30000);
+    setInterval(() => { const el = document.getElementById('clockTime'); if (el) el.textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }); }, 10000);
+    if (data?.isNewUser) setTimeout(() => showOnboarding(), 1500);
+    setTimeout(() => {
+      const firstName = (data?.name || user.displayName || 'Friend').split(' ')[0];
+      const pop = document.createElement('div');
+      pop.style.cssText = 'position:absolute;top:76px;left:14px;right:14px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.22);border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:center;z-index:60;backdrop-filter:blur(20px)';
+      pop.innerHTML = `<div style="width:38px;height:38px;border-radius:11px;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">👋</div><div style="flex:1"><div style="font-size:12.5px;font-weight:800;margin-bottom:1px">Welcome, ${escHtml(firstName)}!</div><div style="font-size:11px;color:var(--text2)">${data?.isNewUser ? 'Account created! Start earning 🚀' : 'Great to have you back!'}</div></div><div onclick="this.parentElement.remove()" style="cursor:pointer;font-size:15px;opacity:.4;padding:3px">✕</div>`;
       document.getElementById('appShell').appendChild(pop);
-      setTimeout(()=>{if(pop.parentElement){pop.style.opacity='0';pop.style.transition='opacity .4s';setTimeout(()=>pop.remove(),400);}},4000);
-    },600);
-    if(data?.isNewUser&&window._userRef&&window._fb){
-      window._fb.updateDoc(window._userRef,{isNewUser:false}).catch(()=>{});
+      setTimeout(() => { if (pop.parentElement) { pop.style.opacity = '0'; pop.style.transition = 'opacity .4s'; setTimeout(() => pop.remove(), 400); } }, 4000);
+    }, 600);
+    if (data?.isNewUser && window._userRef && window._fb) {
+      window._fb.updateDoc(window._userRef, { isNewUser: false }).catch(() => {});
     }
   }
 }
 
-function updateAvatarDisplay(name){
-  const letter=(name||'?').charAt(0).toUpperCase();
-  ['topAvatarLetter','profileAvatarBig','editAvatarPreview'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&!el.querySelector('img'))el.textContent=letter;
+function updateAvatarDisplay(name) {
+  const letter = (name || '?').charAt(0).toUpperCase();
+  ['topAvatarLetter', 'profileAvatarBig', 'editAvatarPreview'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && !el.querySelector('img')) el.textContent = letter;
   });
-  document.getElementById('greetName').textContent=name||'—';
+  document.getElementById('greetName').textContent = name || '—';
 }
 
-function updateGreeting(){
-  const h=new Date().getHours();
-  let g='Good Morning';
-  if(h>=12&&h<16)g='Good Afternoon';
-  else if(h>=16&&h<19)g='Good Evening';
-  else if(h>=19||h<5)g='Good Night';
-  document.getElementById('greetHello').textContent=g;
-  document.getElementById('clockTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+function updateGreeting() {
+  const h = new Date().getHours();
+  let g = 'Good Morning';
+  if (h >= 12 && h < 16) g = 'Good Afternoon';
+  else if (h >= 16 && h < 19) g = 'Good Evening';
+  else if (h >= 19 || h < 5) g = 'Good Night';
+  document.getElementById('greetHello').textContent = g;
+  document.getElementById('clockTime').textContent = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
 }
 
-function updateProfileUI(data,user){
-  if(!data)return;
-  const u=user||window._currentUser;
-  const name=data.name||u?.displayName||'WorkHive User';
-  const refCode=data.referralCode||'WH000000';
-  const wLv=data.workerLevel||1;
-  document.getElementById('profileName').textContent=name;
-  document.getElementById('profileMemberId').textContent=refCode;
-  document.getElementById('profileEmail').textContent=data.email||u?.email||'—';
-  document.getElementById('profileUsername').textContent=data.username?'@'+data.username:'@username';
-  document.getElementById('profileTasks').textContent=data.tasksCompleted||0;
-  document.getElementById('profileEarned').textContent=fmtUSD(data.totalEarned||0);
-  document.getElementById('profileWithdrawn').textContent=fmtUSD(data.totalWithdrawn||0);
-  document.getElementById('profilePhone').textContent=data.phone||'—';
-  document.getElementById('profileCountry').textContent=data.country||'—';
-  document.getElementById('profileReferrals').textContent=data.referralCount||0;
-  document.getElementById('refCode').textContent=refCode;
-  if(data.createdAt){try{const d=data.createdAt.toDate?data.createdAt.toDate():new Date(data.createdAt);if(!isNaN(d))document.getElementById('profileJoined').textContent=d.toLocaleDateString('en-US');}catch(e){}}
-  if(data.bio){const b=document.getElementById('profileBio');b.textContent=data.bio;b.style.display='block';}
-  const badgesEl=document.getElementById('profileBadges');
-  if(badgesEl)badgesEl.innerHTML=`<span class="p-badge worker">🐝 Worker L${wLv}</span><span class="p-badge unverified">⚠ KYC Pending</span>`;
-  document.getElementById('workerLevelLabel').textContent=`Level ${wLv} / 5`;
-  document.getElementById('workerLevelFill').style.width=((wLv-1)/4*100+10)+'%';
-  document.getElementById('homeWorkerLv').textContent='L'+wLv;
-  document.getElementById('homeRefCount').textContent=data.referralCount||0;
-  document.getElementById('homeStreak').textContent=(data.streak||0)+' days';
-  document.getElementById('homeTasks').textContent=data.tasksCompleted||0;
-  const acc=data.tasksCompleted?Math.round((data.approvedTasks||0)/data.tasksCompleted*100):0;
-  document.getElementById('homeAccuracy').textContent=acc+'%';
-  document.getElementById('homeJobsPosted').textContent=0;
-  updateAvatarDisplay(name);refreshWalletUI();
+function updateProfileUI(data, user) {
+  if (!data) return;
+  const u = user || window._currentUser;
+  const name = data.name || u?.displayName || 'WorkHive User';
+  const refCode = data.referralCode || 'WH000000';
+  const wLv = data.workerLevel || 1;
+  document.getElementById('profileName').textContent = name;
+  document.getElementById('profileMemberId').textContent = refCode;
+  document.getElementById('profileEmail').textContent = data.email || u?.email || '—';
+  document.getElementById('profileUsername').textContent = data.username ? '@' + data.username : '@username';
+  document.getElementById('profileTasks').textContent = data.tasksCompleted || 0;
+  document.getElementById('profileEarned').textContent = fmtUSD(data.totalEarned || 0);
+  document.getElementById('profileWithdrawn').textContent = fmtUSD(data.totalWithdrawn || 0);
+  document.getElementById('profilePhone').textContent = data.phone || '—';
+  document.getElementById('profileCountry').textContent = data.country || '—';
+  document.getElementById('profileReferrals').textContent = data.referralCount || 0;
+  document.getElementById('refCode').textContent = refCode;
+  if (data.createdAt) { try { const d = data.createdAt.toDate ? data.createdAt.toDate() : new Date(data.createdAt); if (!isNaN(d)) document.getElementById('profileJoined').textContent = d.toLocaleDateString('en-US'); } catch(e) {} }
+  if (data.bio) { const b = document.getElementById('profileBio'); b.textContent = data.bio; b.style.display = 'block'; }
+  const badgesEl = document.getElementById('profileBadges');
+  if (badgesEl) badgesEl.innerHTML = `<span class="p-badge worker">🐝 Worker L${wLv}</span><span class="p-badge unverified">⚠ KYC Pending</span>`;
+  document.getElementById('workerLevelLabel').textContent = `Level ${wLv} / 5`;
+  document.getElementById('workerLevelFill').style.width = ((wLv - 1) / 4 * 100 + 10) + '%';
+  document.getElementById('homeWorkerLv').textContent = 'L' + wLv;
+  document.getElementById('homeRefCount').textContent = data.referralCount || 0;
+  document.getElementById('homeStreak').textContent = (data.streak || 0) + ' days';
+  document.getElementById('homeTasks').textContent = data.tasksCompleted || 0;
+  const acc = data.tasksCompleted ? Math.round((data.approvedTasks || 0) / data.tasksCompleted * 100) : 0;
+  document.getElementById('homeAccuracy').textContent = acc + '%';
+  document.getElementById('homeJobsPosted').textContent = 0;
+  updateAvatarDisplay(name); refreshWalletUI();
 }
 
-function refreshWalletUI(){
-  const data=window._userData||{};
-  const bal=data.balance||0,pend=data.pendingAmount||0,earned=data.totalEarned||0,withdrawn=data.totalWithdrawn||0;
-  document.getElementById('homeBalance').textContent=fmtUSD(bal);
-  document.getElementById('homePending').textContent=fmtUSD(pend);
-  document.getElementById('homeEarned').textContent=fmtUSD(earned);
-  const hw=document.getElementById('homeWithdrawn');if(hw)hw.textContent=fmtUSD(withdrawn);
-  document.getElementById('walletBalance').textContent=fmtUSD(bal);
-  document.getElementById('walletPending').textContent=fmtUSD(pend);
-  document.getElementById('walletTotalEarned').textContent=fmtUSD(earned);
-  document.getElementById('walletWithdrawn').textContent=fmtUSD(withdrawn);
+function refreshWalletUI() {
+  const data = window._userData || {};
+  const bal = data.balance || 0, pend = data.pendingAmount || 0, earned = data.totalEarned || 0, withdrawn = data.totalWithdrawn || 0;
+  document.getElementById('homeBalance').textContent = fmtUSD(bal);
+  document.getElementById('homePending').textContent = fmtUSD(pend);
+  document.getElementById('homeEarned').textContent = fmtUSD(earned);
+  const hw = document.getElementById('homeWithdrawn'); if (hw) hw.textContent = fmtUSD(withdrawn);
+  document.getElementById('walletBalance').textContent = fmtUSD(bal);
+  document.getElementById('walletPending').textContent = fmtUSD(pend);
+  document.getElementById('walletTotalEarned').textContent = fmtUSD(earned);
+  document.getElementById('walletWithdrawn').textContent = fmtUSD(withdrawn);
 }
 
-function updateReferralUI(data){
-  if(!data)return;
-  const code=data.referralCode||'WH000000';
-  const refCodeEl=document.getElementById('refCodePage');
-  if(refCodeEl)refCodeEl.textContent=code;
-  document.getElementById('refCode').textContent=code;
-  const refStatTotal=document.getElementById('refStatTotal'),refStatEarned=document.getElementById('refStatEarned');
-  if(refStatTotal)refStatTotal.textContent=(data.referralCount||0)+(data.gen2Count||0)+(data.gen3Count||0);
-  if(refStatEarned)refStatEarned.textContent=fmtUSD((data.referralEarned||0)+(data.gen2Earned||0)+(data.gen3Earned||0));
+function updateReferralUI(data) {
+  if (!data) return;
+  const code = data.referralCode || 'WH000000';
+  const refCodeEl = document.getElementById('refCodePage');
+  if (refCodeEl) refCodeEl.textContent = code;
+  document.getElementById('refCode').textContent = code;
+  const refStatTotal = document.getElementById('refStatTotal'), refStatEarned = document.getElementById('refStatEarned');
+  if (refStatTotal) refStatTotal.textContent = (data.referralCount || 0) + (data.gen2Count || 0) + (data.gen3Count || 0);
+  if (refStatEarned) refStatEarned.textContent = fmtUSD((data.referralEarned || 0) + (data.gen2Earned || 0) + (data.gen3Earned || 0));
 }
 
-// ── PAYMENT METHODS ──────────────────────────────────────────────
-function renderWithdrawMethodGrid(){
-  if(!S.paymentMethods.length)return;
-  const grid=document.getElementById('withdrawMethodGrid');if(!grid)return;
-  const emojiMap={bKash:'📱',Nagad:'💳',Rocket:'🚀',USDT:'₮',Bank:'🏦'};
-  grid.innerHTML=S.paymentMethods.map(m=>`<div class="method-pill ${S.selectedWithdrawMethod===m.name?'active':''}" data-method="${escHtml(m.name)}" onclick="selectWithdrawMethod(this)"><span class="mp-emoji">${m.emoji||emojiMap[m.name]||'💳'}</span>${escHtml(m.name)}</div>`).join('');
+// ── PAYMENT METHODS ─────────────────────────────────────────────
+function renderWithdrawMethodGrid() {
+  if (!S.paymentMethods.length) return;
+  const grid = document.getElementById('withdrawMethodGrid'); if (!grid) return;
+  const emojiMap = { bKash: '📱', Nagad: '💳', Rocket: '🚀', USDT: '₮', Bank: '🏦' };
+  grid.innerHTML = S.paymentMethods.map(m => `<div class="method-pill ${S.selectedWithdrawMethod === m.name ? 'active' : ''}" data-method="${escHtml(m.name)}" onclick="selectWithdrawMethod(this)"><span class="mp-emoji">${m.logo ? `<img src="${m.logo}" style="width:22px;height:22px;border-radius:5px;object-fit:cover">` : (m.emoji || emojiMap[m.name] || '💳')}</span>${escHtml(m.name)}</div>`).join('');
 }
 
-function selectWithdrawMethod(el){
-  document.querySelectorAll('#withdrawMethodGrid .method-pill').forEach(m=>m.classList.remove('active'));
+function selectWithdrawMethod(el) {
+  document.querySelectorAll('#withdrawMethodGrid .method-pill').forEach(m => m.classList.remove('active'));
   el.classList.add('active');
-  S.selectedWithdrawMethod=el.dataset.method;
+  S.selectedWithdrawMethod = el.dataset.method;
   updateWithdrawPreview();
 }
 
-// ── AUTH ─────────────────────────────────────────────────────────
-function switchAuthTab(tab){
-  document.getElementById('tab-login').classList.toggle('active',tab==='login');
-  document.getElementById('tab-register').classList.toggle('active',tab==='register');
-  document.getElementById('loginPane').style.display=tab==='login'?'block':'none';
-  document.getElementById('registerPane').style.display=tab==='register'?'block':'none';
-  document.getElementById('loginErr').textContent='';
-  document.getElementById('regErr').textContent='';
+// ── AUTH ────────────────────────────────────────────────────────
+function switchAuthTab(tab) {
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+  document.getElementById('loginPane').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('registerPane').style.display = tab === 'register' ? 'block' : 'none';
+  document.getElementById('loginErr').textContent = '';
+  document.getElementById('regErr').textContent = '';
 }
-function togglePass(id,el){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password';el.textContent=i.type==='password'?'👁':'🙈';}
-function checkStrength(val){const el=document.getElementById('strengthFill');let s=0;if(val.length>=6)s++;if(val.length>=10)s++;if(/[A-Z]/.test(val))s++;if(/[0-9]/.test(val))s++;if(/[^A-Za-z0-9]/.test(val))s++;const c=['#FF5252','#FFB300','#FFB300','#00E676','#448AFF'],w=['20%','40%','60%','80%','100%'];el.style.width=s>0?w[s-1]:'0';el.style.background=s>0?c[s-1]:'transparent';}
+function togglePass(id, el) { const i = document.getElementById(id); i.type = i.type === 'password' ? 'text' : 'password'; el.textContent = i.type === 'password' ? '👁' : '🙈'; }
+function checkStrength(val) { const el = document.getElementById('strengthFill'); let s = 0; if (val.length >= 6) s++; if (val.length >= 10) s++; if (/[A-Z]/.test(val)) s++; if (/[0-9]/.test(val)) s++; if (/[^A-Za-z0-9]/.test(val)) s++; const c = ['#FF5252','#FFB300','#FFB300','#00E676','#448AFF'], w = ['20%','40%','60%','80%','100%']; el.style.width = s > 0 ? w[s-1] : '0'; el.style.background = s > 0 ? c[s-1] : 'transparent'; }
 
-async function waitForFirebase(){
-  if(window._fbReady)return true;
-  await Promise.race([window._fbReadyPromise,new Promise(r=>setTimeout(r,3000))]);
-  return!!window._fbReady;
-}
-
-function setAuthLoading(type,loading){
-  const btn=document.getElementById(type==='login'?'loginBtn':'regBtn');
-  const txt=document.getElementById(type==='login'?'loginBtnText':'regBtnText');
-  btn.disabled=loading;
-  txt.textContent=loading?(type==='login'?'Logging in...':'Creating...'):(type==='login'?'Login':'Create Account');
+async function waitForFirebase() {
+  if (window._fbReady) return true;
+  await Promise.race([window._fbReadyPromise, new Promise(r => setTimeout(r, 3000))]);
+  return !!window._fbReady;
 }
 
-async function doLogin(){
-  const email=document.getElementById('loginEmail').value.trim(),pass=document.getElementById('loginPass').value,errEl=document.getElementById('loginErr');
-  errEl.textContent='';
-  if(!email||!pass){errEl.textContent='❌ Fill in all fields';return;}
-  // Save remember me
-  try{const remember=document.getElementById('rememberMe')?.checked;if(remember)localStorage.setItem('wh_remember_email',email);else localStorage.removeItem('wh_remember_email');}catch(e){}
-  // Show loading IMMEDIATELY before Firebase wait
-  setAuthLoading('login',true);
-  if(!window._fbReady){const ok=await waitForFirebase();if(!ok){errEl.textContent='❌ Check your connection';setAuthLoading('login',false);return;}}
-  try{
-    await window._fb.signInWithEmailAndPassword(window._fb.auth,email,pass);
-    // onAuthStateChanged handles the rest
-  }catch(e){
-    const msgs={'auth/wrong-password':'❌ Wrong password','auth/user-not-found':'❌ No account with this email','auth/invalid-email':'❌ Invalid email format','auth/too-many-requests':'⚠ Too many attempts, try later','auth/invalid-credential':'❌ Wrong email or password','auth/network-request-failed':'❌ Check your internet connection'};
-    errEl.textContent=msgs[e.code]||'❌ '+e.message;
-    setAuthLoading('login',false);
+function setAuthLoading(type, loading) {
+  const btn = document.getElementById(type === 'login' ? 'loginBtn' : 'regBtn');
+  const txt = document.getElementById(type === 'login' ? 'loginBtnText' : 'regBtnText');
+  btn.disabled = loading;
+  txt.textContent = loading ? (type === 'login' ? 'Logging in...' : 'Creating...') : (type === 'login' ? 'Login' : 'Create Account');
+}
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim(), pass = document.getElementById('loginPass').value, errEl = document.getElementById('loginErr');
+  errEl.textContent = '';
+  if (!email || !pass) { errEl.textContent = '❌ Fill in all fields'; return; }
+  try { const remember = document.getElementById('rememberMe')?.checked; if (remember) localStorage.setItem('wh_remember_email', email); else localStorage.removeItem('wh_remember_email'); } catch(e) {}
+  setAuthLoading('login', true);
+  if (!window._fbReady) { const ok = await waitForFirebase(); if (!ok) { errEl.textContent = '❌ Check your connection'; setAuthLoading('login', false); return; } }
+  try {
+    await window._fb.signInWithEmailAndPassword(window._fb.auth, email, pass);
+  } catch(e) {
+    const msgs = { 'auth/wrong-password': '❌ Wrong password', 'auth/user-not-found': '❌ No account with this email', 'auth/invalid-email': '❌ Invalid email format', 'auth/too-many-requests': '⚠ Too many attempts, try later', 'auth/invalid-credential': '❌ Wrong email or password', 'auth/network-request-failed': '❌ Check your internet connection' };
+    errEl.textContent = msgs[e.code] || '❌ ' + e.message;
+    setAuthLoading('login', false);
   }
 }
 
-async function doRegister(){
-  const name=document.getElementById('regName').value.trim(),username=document.getElementById('regUsername').value.trim().toLowerCase(),email=document.getElementById('regEmail').value.trim(),phone=document.getElementById('regPhone').value.trim(),pass=document.getElementById('regPass').value,confirm=document.getElementById('regConfirmPass').value,country=document.getElementById('regCountry').value,ref=document.getElementById('regRef').value.trim().toUpperCase(),errEl=document.getElementById('regErr');
-  errEl.textContent='';
-  if(!name){errEl.textContent='❌ Enter your name';return;}
-  if(!username){errEl.textContent='❌ Enter username';return;}
-  if(!email){errEl.textContent='❌ Enter email';return;}
-  if(!phone){errEl.textContent='❌ Enter phone number';return;}
-  if(!pass||pass.length<6){errEl.textContent='❌ Password min 6 characters';return;}
-  if(pass!==confirm){errEl.textContent='❌ Passwords do not match';return;}
-  setAuthLoading('register',true);
-  if(!window._fbReady){const ok=await waitForFirebase();if(!ok){errEl.textContent='❌ Check connection';setAuthLoading('register',false);return;}}
-  const fb=window._fb;
-  try{
-    const cred=await fb.createUserWithEmailAndPassword(fb.auth,email,pass);
-    await fb.updateProfile(cred.user,{displayName:name}).catch(()=>{});
-    const refCode='WH'+Math.random().toString(36).substr(2,6).toUpperCase();
-    const userData = {
-      name,username,email,country,phone,bio:'',photoURL:'',
-      balance:0,totalEarned:0,totalWithdrawn:0,pendingAmount:0,
-      tasksCompleted:0,approvedTasks:0,accuracy:0,streak:0,workerLevel:1,
-      kyc:false,kycStatus:'pending',
-      referralCode:refCode,referredBy:ref||'',referralCount:0,referralEarned:0,
-      gen2Count:0,gen3Count:0,gen2Earned:0,gen3Earned:0,
-      spinLastUsed:null,isNewUser:true,status:'active',role:'user',
-      deviceInfo: navigator.userAgent||'',
-      loginCount:1,
-      createdAt:fb.serverTimestamp(),lastActive:fb.serverTimestamp(),lastLoginAt:fb.serverTimestamp()
-    };
-    await fb.setDoc(fb.doc(fb.db,'users',cred.user.uid), userData);
-    // Process referral chain
-    if(ref){
-      try{
-        const refQ=fb.query(fb.collection(fb.db,'users'),fb.where('referralCode','==',ref));
-        const refSnap=await fb.getDocs(refQ);
-        refSnap.forEach(async refDoc=>{
-          // Gen 1
-          fb.updateDoc(refDoc.ref,{referralCount:fb.increment(1),referralEarned:fb.increment(SITE.refGen1),balance:fb.increment(SITE.refGen1),totalEarned:fb.increment(SITE.refGen1)}).catch(()=>{});
-          // Notify Gen 1
-          fb.addDoc(fb.collection(fb.db,'users',refDoc.id,'notifications'),{title:'🎉 New Referral!',msg:`${name} joined using your code. You earned $${SITE.refGen1.toFixed(2)}!`,icon:'👥',unread:true,createdAt:fb.serverTimestamp()}).catch(()=>{});
-          // Gen 2
-          const g1Data=refDoc.data();
-          if(g1Data.referredBy){
-            const g2Q=fb.query(fb.collection(fb.db,'users'),fb.where('referralCode','==',g1Data.referredBy));
-            const g2Snap=await fb.getDocs(g2Q);
-            g2Snap.forEach(g2Doc=>{
-              fb.updateDoc(g2Doc.ref,{gen2Count:fb.increment(1),gen2Earned:fb.increment(SITE.refGen2),balance:fb.increment(SITE.refGen2),totalEarned:fb.increment(SITE.refGen2)}).catch(()=>{});
-              fb.addDoc(fb.collection(fb.db,'users',g2Doc.id,'notifications'),{title:'💰 Gen 2 Referral Bonus',msg:`You earned $${SITE.refGen2.toFixed(2)} from a 2nd generation referral!`,icon:'🌿',unread:true,createdAt:fb.serverTimestamp()}).catch(()=>{});
-              // Gen 3
-              const g2Data=g2Doc.data();
-              if(g2Data.referredBy){
-                const g3Q=fb.query(fb.collection(fb.db,'users'),fb.where('referralCode','==',g2Data.referredBy));
-                fb.getDocs(g3Q).then(g3Snap=>{
-                  g3Snap.forEach(g3Doc=>{
-                    fb.updateDoc(g3Doc.ref,{gen3Count:fb.increment(1),gen3Earned:fb.increment(SITE.refGen3),balance:fb.increment(SITE.refGen3),totalEarned:fb.increment(SITE.refGen3)}).catch(()=>{});
-                    fb.addDoc(fb.collection(fb.db,'users',g3Doc.id,'notifications'),{title:'🌳 Gen 3 Referral Bonus',msg:`You earned $${SITE.refGen3.toFixed(2)} from a 3rd generation referral!`,icon:'🌳',unread:true,createdAt:fb.serverTimestamp()}).catch(()=>{});
-                  });
-                }).catch(()=>{});
+async function doRegister() {
+  const name = document.getElementById('regName').value.trim(), username = document.getElementById('regUsername').value.trim().toLowerCase(), email = document.getElementById('regEmail').value.trim(), phone = document.getElementById('regPhone').value.trim(), pass = document.getElementById('regPass').value, confirm = document.getElementById('regConfirmPass').value, country = document.getElementById('regCountry').value, ref = document.getElementById('regRef').value.trim().toUpperCase(), errEl = document.getElementById('regErr');
+  errEl.textContent = '';
+  if (!name) { errEl.textContent = '❌ Enter your name'; return; }
+  if (!username) { errEl.textContent = '❌ Enter username'; return; }
+  if (!email) { errEl.textContent = '❌ Enter email'; return; }
+  if (!phone) { errEl.textContent = '❌ Enter phone number'; return; }
+  if (!pass || pass.length < 6) { errEl.textContent = '❌ Password min 6 characters'; return; }
+  if (pass !== confirm) { errEl.textContent = '❌ Passwords do not match'; return; }
+  setAuthLoading('register', true);
+  if (!window._fbReady) { const ok = await waitForFirebase(); if (!ok) { errEl.textContent = '❌ Check connection'; setAuthLoading('register', false); return; } }
+  const fb = window._fb;
+  try {
+    const cred = await fb.createUserWithEmailAndPassword(fb.auth, email, pass);
+    await fb.updateProfile(cred.user, { displayName: name }).catch(() => {});
+    const refCode = 'WH' + Math.random().toString(36).substr(2, 6).toUpperCase();
+    const userData = { name, username, email, country, phone, bio: '', photoURL: '', balance: 0, totalEarned: 0, totalWithdrawn: 0, pendingAmount: 0, tasksCompleted: 0, approvedTasks: 0, accuracy: 0, streak: 0, workerLevel: 1, kyc: false, kycStatus: 'pending', referralCode: refCode, referredBy: ref || '', referralCount: 0, referralEarned: 0, gen2Count: 0, gen3Count: 0, gen2Earned: 0, gen3Earned: 0, spinLastUsed: null, isNewUser: true, status: 'active', role: 'user', deviceInfo: navigator.userAgent || '', loginCount: 1, createdAt: fb.serverTimestamp(), lastActive: fb.serverTimestamp(), lastLoginAt: fb.serverTimestamp() };
+    await fb.setDoc(fb.doc(fb.db, 'users', cred.user.uid), userData);
+    if (ref) {
+      try {
+        const refQ = fb.query(fb.collection(fb.db, 'users'), fb.where('referralCode', '==', ref));
+        const refSnap = await fb.getDocs(refQ);
+        refSnap.forEach(async refDoc => {
+          fb.updateDoc(refDoc.ref, { referralCount: fb.increment(1), referralEarned: fb.increment(SITE.refGen1), balance: fb.increment(SITE.refGen1), totalEarned: fb.increment(SITE.refGen1) }).catch(() => {});
+          fb.addDoc(fb.collection(fb.db, 'users', refDoc.id, 'notifications'), { title: '🎉 New Referral!', msg: `${name} joined using your code. You earned $${SITE.refGen1.toFixed(2)}!`, icon: '👥', unread: true, createdAt: fb.serverTimestamp() }).catch(() => {});
+          const g1Data = refDoc.data();
+          if (g1Data.referredBy) {
+            const g2Q = fb.query(fb.collection(fb.db, 'users'), fb.where('referralCode', '==', g1Data.referredBy));
+            const g2Snap = await fb.getDocs(g2Q);
+            g2Snap.forEach(g2Doc => {
+              fb.updateDoc(g2Doc.ref, { gen2Count: fb.increment(1), gen2Earned: fb.increment(SITE.refGen2), balance: fb.increment(SITE.refGen2), totalEarned: fb.increment(SITE.refGen2) }).catch(() => {});
+              fb.addDoc(fb.collection(fb.db, 'users', g2Doc.id, 'notifications'), { title: '💰 Gen 2 Referral Bonus', msg: `You earned $${SITE.refGen2.toFixed(2)} from a 2nd generation referral!`, icon: '🌿', unread: true, createdAt: fb.serverTimestamp() }).catch(() => {});
+              const g2Data = g2Doc.data();
+              if (g2Data.referredBy) {
+                const g3Q = fb.query(fb.collection(fb.db, 'users'), fb.where('referralCode', '==', g2Data.referredBy));
+                fb.getDocs(g3Q).then(g3Snap => { g3Snap.forEach(g3Doc => { fb.updateDoc(g3Doc.ref, { gen3Count: fb.increment(1), gen3Earned: fb.increment(SITE.refGen3), balance: fb.increment(SITE.refGen3), totalEarned: fb.increment(SITE.refGen3) }).catch(() => {}); fb.addDoc(fb.collection(fb.db, 'users', g3Doc.id, 'notifications'), { title: '🌳 Gen 3 Referral Bonus', msg: `You earned $${SITE.refGen3.toFixed(2)} from a 3rd generation referral!`, icon: '🌳', unread: true, createdAt: fb.serverTimestamp() }).catch(() => {}); }); }).catch(() => {});
               }
             });
           }
         });
-      }catch(e){console.warn('referral:',e);}
+      } catch(e) { console.warn('referral:', e); }
     }
-  }catch(e){
-    const msgs={'auth/email-already-in-use':'❌ Email already registered','auth/weak-password':'❌ Password too weak','auth/network-request-failed':'❌ Check connection'};
-    errEl.textContent=msgs[e.code]||'❌ '+e.message;
-    setAuthLoading('register',false);
+  } catch(e) {
+    const msgs = { 'auth/email-already-in-use': '❌ Email already registered', 'auth/weak-password': '❌ Password too weak', 'auth/network-request-failed': '❌ Check connection' };
+    errEl.textContent = msgs[e.code] || '❌ ' + e.message;
+    setAuthLoading('register', false);
   }
 }
 
-async function doGoogle(){
-  if(!window._fbReady){const ok=await waitForFirebase();if(!ok){showToast('Check connection','error');return;}}
-  try{await window._fb.signInWithPopup(window._fb.auth,window._fb.googleProvider);}
-  catch(e){if(e.code!=='auth/cancelled-popup-request')showToast('Google login failed','error');}
+async function doGoogle() {
+  if (!window._fbReady) { const ok = await waitForFirebase(); if (!ok) { showToast('Check connection', 'error'); return; } }
+  try { await window._fb.signInWithPopup(window._fb.auth, window._fb.googleProvider); }
+  catch(e) { if (e.code !== 'auth/cancelled-popup-request') showToast('Google login failed', 'error'); }
 }
 
-let _resetCooldown=false;
-async function doForgotPassword(){
-  const email=document.getElementById('loginEmail').value.trim(),errEl=document.getElementById('loginErr');
-  if(!email){errEl.style.color='var(--red)';errEl.textContent='❌ Enter your email first';return;}
-  if(_resetCooldown){showToast('Please wait before resending','info');return;}
-  if(!window._fbReady){const ok=await waitForFirebase();if(!ok){errEl.textContent='❌ Check connection';return;}}
-  try{
-    await window._fb.sendPasswordResetEmail(window._fb.auth,email);
-    _resetCooldown=true;setTimeout(()=>_resetCooldown=false,30000);
-    errEl.textContent='';
-    document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 14px"><div style="font-size:44px;margin-bottom:11px">📩</div><div class="modal-title">Reset link sent!</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:14px">Check <b>${escHtml(email)}</b> — check spam too.</div><button class="btn-primary" onclick="closeConfirm()">OK</button></div>`;
+let _resetCooldown = false;
+async function doForgotPassword() {
+  const email = document.getElementById('loginEmail').value.trim(), errEl = document.getElementById('loginErr');
+  if (!email) { errEl.style.color = 'var(--red)'; errEl.textContent = '❌ Enter your email first'; return; }
+  if (_resetCooldown) { showToast('Please wait before resending', 'info'); return; }
+  if (!window._fbReady) { const ok = await waitForFirebase(); if (!ok) { errEl.textContent = '❌ Check connection'; return; } }
+  try {
+    await window._fb.sendPasswordResetEmail(window._fb.auth, email);
+    _resetCooldown = true; setTimeout(() => _resetCooldown = false, 30000);
+    errEl.textContent = '';
+    document.getElementById('confirmContent').innerHTML = `<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 14px"><div style="font-size:44px;margin-bottom:11px">📩</div><div class="modal-title">Reset link sent!</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:14px">Check <b>${escHtml(email)}</b> — check spam too.</div><button class="btn-primary" onclick="closeConfirm()">OK</button></div>`;
     document.getElementById('confirmOverlay').classList.add('show');
-  }catch(e){const m={'auth/user-not-found':'❌ No account with this email','auth/invalid-email':'❌ Invalid email'};errEl.style.color='var(--red)';errEl.textContent=m[e.code]||'❌ Could not send.';}
+  } catch(e) { const m = { 'auth/user-not-found': '❌ No account with this email', 'auth/invalid-email': '❌ Invalid email' }; errEl.style.color = 'var(--red)'; errEl.textContent = m[e.code] || '❌ Could not send.'; }
 }
 
-function openChangePassword(){
-  document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div><div class="modal-title">🔒 Change Password</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:14px">Enter current password to verify.</div><div class="field"><label>Current Password</label><input type="password" id="cpOld" placeholder="Current password"></div><div class="field"><label>New Password</label><input type="password" id="cpNew" placeholder="At least 6 characters"></div><div class="field"><label>Confirm New Password</label><input type="password" id="cpConfirm" placeholder="Re-enter new password"></div><div class="auth-error" id="cpErr"></div><div style="display:flex;gap:9px"><button class="btn-ghost" style="flex:1" onclick="closeConfirm()">Cancel</button><button class="btn-primary" style="flex:1" onclick="submitChangePassword()">Update</button></div></div>`;
+function openChangePassword() {
+  document.getElementById('confirmContent').innerHTML = `<div class="modal-handle"></div><div><div class="modal-title">🔒 Change Password</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:14px">Enter current password to verify.</div><div class="field"><label>Current Password</label><input type="password" id="cpOld" placeholder="Current password"></div><div class="field"><label>New Password</label><input type="password" id="cpNew" placeholder="At least 6 characters"></div><div class="field"><label>Confirm New Password</label><input type="password" id="cpConfirm" placeholder="Re-enter new password"></div><div class="auth-error" id="cpErr"></div><div style="display:flex;gap:9px"><button class="btn-ghost" style="flex:1" onclick="closeConfirm()">Cancel</button><button class="btn-primary" style="flex:1" onclick="submitChangePassword()">Update</button></div></div>`;
   document.getElementById('confirmOverlay').classList.add('show');
 }
-async function submitChangePassword(){
-  const old=document.getElementById('cpOld').value,nw=document.getElementById('cpNew').value,cf=document.getElementById('cpConfirm').value,errEl=document.getElementById('cpErr');
-  errEl.textContent='';
-  if(!old||!nw||!cf){errEl.textContent='❌ Fill all fields';return;}
-  if(nw.length<6){errEl.textContent='❌ Min 6 chars';return;}
-  if(nw!==cf){errEl.textContent='❌ Passwords do not match';return;}
-  const user=window._currentUser;if(!user||!window._fbReady){errEl.textContent='❌ Please try again';return;}
-  try{
-    const fb=window._fb;
-    const cred=fb.EmailAuthProvider.credential(user.email,old);
-    await fb.reauthenticateWithCredential(user,cred);
-    await fb.updatePassword(user,nw);
-    closeConfirm();showToast('✅ Password updated!');
-  }catch(e){const m={'auth/wrong-password':'❌ Wrong current password','auth/invalid-credential':'❌ Wrong current password'};errEl.textContent=m[e.code]||'❌ Failed';}
+async function submitChangePassword() {
+  const old = document.getElementById('cpOld').value, nw = document.getElementById('cpNew').value, cf = document.getElementById('cpConfirm').value, errEl = document.getElementById('cpErr');
+  errEl.textContent = '';
+  if (!old || !nw || !cf) { errEl.textContent = '❌ Fill all fields'; return; }
+  if (nw.length < 6) { errEl.textContent = '❌ Min 6 chars'; return; }
+  if (nw !== cf) { errEl.textContent = '❌ Passwords do not match'; return; }
+  const user = window._currentUser; if (!user || !window._fbReady) { errEl.textContent = '❌ Please try again'; return; }
+  try {
+    const fb = window._fb;
+    const cred = fb.EmailAuthProvider.credential(user.email, old);
+    await fb.reauthenticateWithCredential(user, cred);
+    await fb.updatePassword(user, nw);
+    closeConfirm(); showToast('✅ Password updated!');
+  } catch(e) { const m = { 'auth/wrong-password': '❌ Wrong current password', 'auth/invalid-credential': '❌ Wrong current password' }; errEl.textContent = m[e.code] || '❌ Failed'; }
 }
 
-async function doLogout(){
-  if(!window._fbReady)return;
-  try{
-    if(window._userUnsub)window._userUnsub();
-    if(window._notifsUnsub)window._notifsUnsub();
-    if(window._jobsUnsub)window._jobsUnsub();
-    if(window._submissionsUnsub)window._submissionsUnsub();
-    if(window._withdrawalsUnsub)window._withdrawalsUnsub();
-    if(window._pmUnsub)window._pmUnsub();
-    if(window._settingsUnsub)window._settingsUnsub();
+async function doLogout() {
+  if (!window._fbReady) return;
+  try {
+    [window._userUnsub, window._notifsUnsub, window._jobsUnsub, window._submissionsUnsub, window._withdrawalsUnsub, window._pmUnsub, window._settingsUnsub].forEach(u => { if (u) u(); });
     await window._fb.signOut(window._fb.auth);
-    _appInitialized=false;
-    S.approvedJobs=[];S.myTaskSubmissions=[];S.transactions=[];S.notifications=[];
-    window._userWithdrawals=[];
-  }catch(e){showToast('Logout failed','error');}
+    _appInitialized = false;
+    S.approvedJobs = []; S.myTaskSubmissions = []; S.transactions = []; S.notifications = [];
+    window._userWithdrawals = [];
+  } catch(e) { showToast('Logout failed', 'error'); }
 }
-function doLogoutConfirm(){document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 18px"><div style="font-size:38px;margin-bottom:11px">🚪</div><div class="modal-title">Log out?</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:18px">You can log back in anytime.</div><div style="display:flex;gap:9px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" onclick="closeConfirm();doLogout()" style="flex:1">Logout</button></div></div>`;document.getElementById('confirmOverlay').classList.add('show');}
-async function confirmDeleteAccount(){document.getElementById('confirmContent').innerHTML=`<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 18px"><div style="font-size:38px;margin-bottom:11px">⚠️</div><div class="modal-title">Delete Account?</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:18px">All data will be permanently lost.</div><div style="display:flex;gap:9px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" style="flex:1;background:var(--red);color:#fff" onclick="reallyDeleteAccount()">Delete</button></div></div>`;document.getElementById('confirmOverlay').classList.add('show');}
-async function reallyDeleteAccount(){closeConfirm();const user=window._currentUser;if(!user||!window._fbReady)return;try{const fb=window._fb;await fb.deleteDoc(fb.doc(fb.db,'users',user.uid)).catch(()=>{});await fb.deleteUser(user);}catch(e){showToast('Delete failed — re-login and try','error');}}
-function closeConfirm(){document.getElementById('confirmOverlay').classList.remove('show');}
+function doLogoutConfirm() { document.getElementById('confirmContent').innerHTML = `<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 18px"><div style="font-size:38px;margin-bottom:11px">🚪</div><div class="modal-title">Log out?</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:18px">You can log back in anytime.</div><div style="display:flex;gap:9px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" onclick="closeConfirm();doLogout()" style="flex:1">Logout</button></div></div>`; document.getElementById('confirmOverlay').classList.add('show'); }
+async function confirmDeleteAccount() { document.getElementById('confirmContent').innerHTML = `<div class="modal-handle"></div><div style="text-align:center;padding:10px 0 18px"><div style="font-size:38px;margin-bottom:11px">⚠️</div><div class="modal-title">Delete Account?</div><div style="font-size:12.5px;color:var(--text2);margin-bottom:18px">All data will be permanently lost.</div><div style="display:flex;gap:9px"><button class="btn-ghost" onclick="closeConfirm()" style="flex:1">Cancel</button><button class="btn-primary" style="flex:1;background:var(--red);color:#fff" onclick="reallyDeleteAccount()">Delete</button></div></div>`; document.getElementById('confirmOverlay').classList.add('show'); }
+async function reallyDeleteAccount() { closeConfirm(); const user = window._currentUser; if (!user || !window._fbReady) return; try { const fb = window._fb; await fb.deleteDoc(fb.doc(fb.db, 'users', user.uid)).catch(() => {}); await fb.deleteUser(user); } catch(e) { showToast('Delete failed — re-login and try', 'error'); } }
+function closeConfirm() { document.getElementById('confirmOverlay').classList.remove('show'); }
 
-// ── NAVIGATION ────────────────────────────────────────────────────
-function goTab(name){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  const sc=document.getElementById('screen-'+name);
-  if(sc)sc.classList.add('active');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));
-  if(name==='mytasks')renderMyTasks();
-  if(name==='history')renderHistory();
-  if(name==='referral'){updateReferralUI(window._userData);updateGenCounts();renderGenTree(S.currentGenTab);}
-  if(name==='wallet')renderTxList();
-  document.getElementById('mainScroll').scrollTo(0,0);
+// ── NAVIGATION ───────────────────────────────────────────────────
+function goTab(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const sc = document.getElementById('screen-' + name);
+  if (sc) sc.classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  if (name === 'mytasks') renderMyTasks();
+  if (name === 'history') renderHistory();
+  if (name === 'referral') { updateReferralUI(window._userData); updateGenCounts(); renderGenTree(S.currentGenTab); }
+  if (name === 'wallet') renderTxList();
+  document.getElementById('mainScroll').scrollTo(0, 0);
 }
 
 let _toastTimer;
-function showToast(msg,type=''){const el=document.getElementById('toast');el.textContent=msg;el.className='toast show'+(type?' '+type:'');clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>el.classList.remove('show'),2800);}
+function showToast(msg, type = '') { const el = document.getElementById('toast'); el.textContent = msg; el.className = 'toast show' + (type ? ' ' + type : ''); clearTimeout(_toastTimer); _toastTimer = setTimeout(() => el.classList.remove('show'), 2800); }
 
-// ── ONBOARDING ────────────────────────────────────────────────────
-const onboardSteps=[
-  {ico:'🐝',title:'Welcome to WorkHive!',body:"Bangladesh's most trusted micro-earning platform."},
-  {ico:'✅',title:'Complete Tasks, Earn',body:'Social media, app downloads, reviews — admin approves proof then credits your balance.'},
-  {ico:'💳',title:'Withdraw Anytime',body:'Request withdrawals via bKash/Nagad/USDT. Admin processes within 24–48 hours.'},
-  {ico:'👥',title:'3-Gen Referrals',body:`Earn $${SITE.refGen1}/$${SITE.refGen2}/$${SITE.refGen3} across 3 generations. Build your network!`}
+// ── ONBOARDING ───────────────────────────────────────────────────
+const onboardSteps = [
+  { ico: '🐝', title: 'Welcome to WorkHive!', body: "Bangladesh's most trusted micro-earning platform." },
+  { ico: '✅', title: 'Complete Tasks, Earn', body: 'Social media, app downloads, reviews — admin approves proof then credits your balance.' },
+  { ico: '💳', title: 'Withdraw Anytime', body: 'Request withdrawals via bKash/Nagad/USDT. Admin processes within 24–48 hours.' },
+  { ico: '👥', title: '3-Gen Referrals', body: `Earn $${SITE.refGen1}/$${SITE.refGen2}/$${SITE.refGen3} across 3 generations. Build your network!` }
 ];
-function showOnboarding(){const div=document.createElement('div');div.className='onboard-overlay';div.id='onboardOverlay';div.innerHTML=buildOnboard(0);document.getElementById('appShell').appendChild(div);}
-function buildOnboard(idx){const s=onboardSteps[idx];const dots=onboardSteps.map((_,i)=>`<div class="onboard-dot ${i===idx?'active':''}"></div>`).join('');const isLast=idx===onboardSteps.length-1;return`<div class="onboard-sheet"><div class="onboard-ico">${s.ico}</div><div class="onboard-title">${s.title}</div><div class="onboard-body">${s.body}</div><div class="onboard-dots">${dots}</div><button class="btn-primary" onclick="nextOnboard(${idx})">${isLast?'✅ Get Started':'Next →'}</button>${!isLast?`<button class="btn-ghost" style="margin-top:7px" onclick="closeOnboard()">Skip</button>`:''}</div>`;}
-function nextOnboard(c){if(c>=onboardSteps.length-1){closeOnboard();return;}document.getElementById('onboardOverlay').innerHTML=buildOnboard(c+1);}
-function closeOnboard(){const el=document.getElementById('onboardOverlay');if(el)el.remove();}
+function showOnboarding() { const div = document.createElement('div'); div.className = 'onboard-overlay'; div.id = 'onboardOverlay'; div.innerHTML = buildOnboard(0); document.getElementById('appShell').appendChild(div); }
+function buildOnboard(idx) { const s = onboardSteps[idx]; const dots = onboardSteps.map((_, i) => `<div class="onboard-dot ${i === idx ? 'active' : ''}"></div>`).join(''); const isLast = idx === onboardSteps.length - 1; return `<div class="onboard-sheet"><div class="onboard-ico">${s.ico}</div><div class="onboard-title">${s.title}</div><div class="onboard-body">${s.body}</div><div class="onboard-dots">${dots}</div><button class="btn-primary" onclick="nextOnboard(${idx})">${isLast ? '✅ Get Started' : 'Next →'}</button>${!isLast ? `<button class="btn-ghost" style="margin-top:7px" onclick="closeOnboard()">Skip</button>` : ''}</div>`; }
+function nextOnboard(c) { if (c >= onboardSteps.length - 1) { closeOnboard(); return; } document.getElementById('onboardOverlay').innerHTML = buildOnboard(c + 1); }
+function closeOnboard() { const el = document.getElementById('onboardOverlay'); if (el) el.remove(); }
 
-// ── TASK RENDERING ────────────────────────────────────────────────
-function taskCardHtml(t){
-  const submitted=S.myTaskSubmissions.some(h=>h.jobId===t.id&&h.status!=='rejected');
-  const approved=S.myTaskSubmissions.some(h=>h.jobId===t.id&&(h.status==='completed'||h.status==='approved'));
-  const bg=catColors[t.category]||catColors['Social Media'],ico=catSvg[t.category]||catSvg['Social Media'];
-  const filled=t.filled||0,lim=t.limit||100,pct=Math.min(100,Math.round(filled/lim*100)),full=filled>=lim;
-  let statusBadge='';
-  if(approved)statusBadge='<span class="badge type-done">✓ Approved</span>';
-  else if(submitted)statusBadge='<span class="badge type-pending">⏳ Pending</span>';
-  else if(full)statusBadge='<span class="badge type-done">Full</span>';
-  else statusBadge=`<span style="color:var(--text3);font-size:10px">${lim-filled} slots</span>`;
-  const clickable=!submitted&&!approved&&!full;
-  return`<div class="task-card" onclick="${clickable?'openTaskModal(\''+t.id+'\')':'void(0)'}" style="${!clickable?'opacity:.55;cursor:default':''}">
-    <div class="task-ico" style="background:${bg}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ico}</svg></div>
-    <div class="task-body"><div class="task-top"><div class="task-title">${escHtml(t.title)}</div><div class="task-reward">+${fmtUSD(t.reward||0)}</div></div>
-    <div class="task-meta"><span class="badge ${t.type==='link'?'type-link':'type-proof'}">${t.type==='link'?'🔗 Link':'📸 Proof'}</span><span>${escHtml(t.country||'Global')}</span>${statusBadge}</div>
-    <div class="task-progress"><div class="task-progress-fill" style="width:${pct}%;background:${bg}"></div></div></div>
+// ── IMPROVED TASK CARD HTML ──────────────────────────────────────
+function getCatGrad(cat) { return catGradients[cat] || catGradients['Other']; }
+function getCatAccent(cat) { return catAccent[cat] || '#78909C'; }
+function getCatSvg(cat) { return catSvg[cat] || catSvg['Other']; }
+
+let _currentCategory = 'All';
+
+function taskCardHtml(t, compact = false) {
+  const submitted = S.myTaskSubmissions.some(h => h.jobId === t.id && h.status !== 'rejected');
+  const approved = S.myTaskSubmissions.some(h => h.jobId === t.id && (h.status === 'completed' || h.status === 'approved'));
+  const pending = S.myTaskSubmissions.some(h => h.jobId === t.id && h.status === 'pending');
+  const rejected = S.myTaskSubmissions.some(h => h.jobId === t.id && h.status === 'rejected');
+  const grad = getCatGrad(t.category);
+  const accent = getCatAccent(t.category);
+  const ico = getCatSvg(t.category);
+  const filled = t.filled || 0, lim = t.limit || 100, pct = Math.min(100, Math.round(filled / lim * 100)), full = filled >= lim;
+  const clickable = !submitted && !approved && !pending && !full;
+
+  let statusBadge = '';
+  if (approved) statusBadge = '<span class="badge type-done">✓ Approved</span>';
+  else if (pending) statusBadge = '<span class="badge type-pending">⏳ Pending Review</span>';
+  else if (full) statusBadge = '<span class="badge type-done" style="background:rgba(255,255,255,.07);color:var(--text3);border-color:var(--border)">Slots Full</span>';
+  else statusBadge = `<span style="font-size:9.5px;color:var(--text3);font-weight:700">${lim - filled} slots left</span>`;
+
+  if (compact) {
+    return `<div class="task-card" onclick="${clickable ? 'openTaskModal(\'' + t.id + '\')' : 'void(0)'}" style="${!clickable ? 'opacity:.6;cursor:default' : ''}">
+      <div class="task-card-accent" style="background:${grad}"></div>
+      <div class="task-card-inner" style="display:flex;gap:9px;align-items:flex-start">
+        <div class="task-ico" style="background:${grad};width:32px;height:32px;border-radius:9px"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ico}</svg></div>
+        <div class="task-body"><div class="task-top"><div class="task-title" style="font-size:10.5px">${escHtml(t.title)}</div><div class="task-reward-pill" style="padding:2px 7px"><span style="font-size:11px">+${fmtUSD(t.reward || 0)}</span></div></div>
+        <div class="task-meta" style="font-size:8.5px;margin-top:4px">${statusBadge}</div></div>
+      </div>
+    </div>`;
+  }
+
+  return `<div class="task-card" onclick="${clickable ? 'openTaskModal(\'' + t.id + '\')' : 'void(0)'}" style="${!clickable ? 'opacity:.6;cursor:default' : ''}">
+    <div class="task-card-accent" style="background:${grad}"></div>
+    <div class="task-card-inner">
+      <div style="display:flex;gap:11px;align-items:flex-start">
+        <div class="task-ico" style="background:${grad}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ico}</svg></div>
+        <div class="task-body">
+          <div class="task-top">
+            <div class="task-title">${escHtml(t.title)}</div>
+            <div class="task-reward-pill"><span>+${fmtUSD(t.reward || 0)}</span></div>
+          </div>
+          <div class="task-meta">
+            <span class="badge ${t.type === 'link' ? 'type-link' : 'type-proof'}">${t.type === 'link' ? '🔗 Link' : '📸 Proof'}</span>
+            <span>${escHtml(t.category || '')}</span>
+            <span>🌍 ${escHtml(t.country || 'Global')}</span>
+          </div>
+        </div>
+      </div>
+      <div class="task-bottom-row">
+        <div class="task-slots">
+          <div class="task-slots-bar"><div class="task-slots-fill" style="width:${pct}%;background:${accent}"></div></div>
+          <span>${filled}/${lim}</span>
+        </div>
+        ${statusBadge}
+        ${clickable ? `<div class="task-cta">Start Task →</div>` : `<div class="task-cta disabled-cta">${approved ? 'Approved ✓' : pending ? 'In Review' : full ? 'Full' : ''}</div>`}
+      </div>
+    </div>
   </div>`;
 }
 
-function renderHomeTasks(){document.getElementById('homeTaskList').innerHTML=S.approvedJobs.slice(0,3).map(taskCardHtml).join('')||'<div class="history-empty" style="padding:18px 0"><div class="big">📋</div>No tasks yet.</div>';}
-function renderTaskCategories(){const cats=['All',...new Set(S.approvedJobs.map(t=>t.category).filter(Boolean))];document.getElementById('categoryChips').innerHTML=cats.map((c,i)=>`<div class="chip ${i===0?'active':''}" onclick="filterTaskCategory(this,'${escHtml(c)}')">${escHtml(c)}</div>`).join('');renderAllTasks('All');}
-function filterTaskCategory(el,cat){document.querySelectorAll('#categoryChips .chip').forEach(c=>c.classList.remove('active'));if(el&&el.classList)el.classList.add('active');renderAllTasks(cat);}
-function renderAllTasks(cat){cat=cat||'All';const list=cat==='All'?S.approvedJobs:S.approvedJobs.filter(t=>t.category===cat);document.getElementById('taskCountBadge').textContent=list.length+' tasks';document.getElementById('taskListFull').innerHTML=list.length?list.map(taskCardHtml).join(''):'<div class="history-empty"><div class="big">🔍</div>No tasks in this category.</div>';}
+function renderHomeTasks() {
+  const el = document.getElementById('homeTaskList');
+  if (!S.approvedJobs.length) { el.innerHTML = '<div class="history-empty" style="padding:18px 0"><div class="big">📋</div>No tasks yet.</div>'; return; }
+  el.innerHTML = S.approvedJobs.slice(0, 3).map(t => taskCardHtml(t, true)).join('');
+}
 
-// ── MY TASKS ──────────────────────────────────────────────────────
-function renderMyTasks(){
-  const el=document.getElementById('myTasksList');if(!el)return;
-  const filter=S.myTasksFilter||'all';
-  let list=S.myTaskSubmissions;
-  if(filter==='pending')list=list.filter(t=>t.status==='pending');
-  else if(filter==='approved')list=list.filter(t=>t.status==='completed'||t.status==='approved');
-  else if(filter==='rejected')list=list.filter(t=>t.status==='rejected');
-  else if(filter==='spin')list=list.filter(t=>t.jobId==='spin');
-  if(!list.length){el.innerHTML='<div class="history-empty"><div class="big">📋</div>No tasks yet.<br><small>Start completing tasks!</small></div>';return;}
-  el.innerHTML=list.map(h=>{
-    const bg=h.jobId==='spin'?catColors['Review/Rating']:catColors[h.category]||catColors['Social Media'];
-    const ico=h.jobId==='spin'?'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>':catSvg[h.category]||catSvg['Social Media'];
-    const st=h.status,stLabel=st==='completed'||st==='approved'?'✓ Approved':st==='rejected'?'❌ Rejected':'⏳ Pending';
-    const stColor=st==='completed'||st==='approved'?'type-done':st==='rejected'?'type-link':'type-pending';
-    return`<div class="task-card" style="cursor:default"><div class="task-ico" style="background:${bg}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${ico}</svg></div><div class="task-body"><div class="task-top"><div class="task-title">${escHtml(h.jobTitle||h.title||'Task')}</div><div class="task-reward" style="color:${st==='pending'?'var(--gold)':'var(--green)'}">+${fmtUSD(h.reward||0)}</div></div><div class="task-meta"><span class="badge ${stColor}">${stLabel}</span><span>${escHtml(h.category||'')}</span><span>${h.date||''}</span></div>${h.proofText?`<div style="font-size:10.5px;color:var(--text3);margin-top:3px;font-style:italic">"${escHtml(h.proofText.substring(0,60))}${h.proofText.length>60?'...':''}"</div>`:''}</div></div>`;
+let _activeCategoryChip = 'All';
+function renderTaskCategories() {
+  const cats = ['All', ...new Set(S.approvedJobs.map(t => t.category).filter(Boolean))];
+  document.getElementById('categoryChips').innerHTML = cats.map((c, i) => `<div class="chip ${c === _activeCategoryChip ? 'active' : ''}" onclick="filterTaskCategory(this,'${escHtml(c)}')">${escHtml(c)}</div>`).join('');
+  renderAllTasks(_activeCategoryChip);
+}
+
+function filterTaskCategory(el, cat) {
+  _activeCategoryChip = cat;
+  document.querySelectorAll('#categoryChips .chip').forEach(c => c.classList.remove('active'));
+  if (el && el.classList) el.classList.add('active');
+  renderAllTasks(cat);
+}
+
+function renderAllTasks(cat) {
+  if (cat === '__current__') cat = _activeCategoryChip;
+  const list = (cat === 'All') ? S.approvedJobs : S.approvedJobs.filter(t => t.category === cat);
+  document.getElementById('taskCountBadge').textContent = list.length + ' tasks';
+  document.getElementById('taskListFull').innerHTML = list.length ? list.map(t => taskCardHtml(t, false)).join('') : '<div class="history-empty"><div class="big">🔍</div>No tasks in this category.</div>';
+}
+
+// ── MY TASKS ─────────────────────────────────────────────────────
+function renderMyTasks() {
+  const el = document.getElementById('myTasksList'); if (!el) return;
+  const filter = S.myTasksFilter || 'all';
+  let list = S.myTaskSubmissions;
+  if (filter === 'pending') list = list.filter(t => t.status === 'pending');
+  else if (filter === 'approved') list = list.filter(t => t.status === 'completed' || t.status === 'approved');
+  else if (filter === 'rejected') list = list.filter(t => t.status === 'rejected');
+  else if (filter === 'spin') list = list.filter(t => t.jobId === 'spin');
+  if (!list.length) { el.innerHTML = '<div class="history-empty"><div class="big">📋</div>No tasks yet.<br><small>Start completing tasks!</small></div>'; return; }
+  el.innerHTML = list.map(h => {
+    const st = h.status, stLabel = (st === 'completed' || st === 'approved') ? '✓ Approved' : st === 'rejected' ? '❌ Rejected' : '⏳ Pending Review';
+    const stClass = (st === 'completed' || st === 'approved') ? 'type-done' : st === 'rejected' ? 'type-rejected' : 'type-pending';
+    const grad = h.jobId === 'spin' ? catGradients['Review/Rating'] : getCatGrad(h.category);
+    const ico = h.jobId === 'spin' ? '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>' : getCatSvg(h.category);
+    const rwColor = (st === 'completed' || st === 'approved') ? 'var(--green)' : st === 'pending' ? 'var(--gold)' : 'var(--red)';
+    return `<div class="task-card" style="cursor:default">
+      <div class="task-card-accent" style="background:${grad}"></div>
+      <div class="task-card-inner">
+        <div style="display:flex;gap:11px;align-items:flex-start">
+          <div class="task-ico" style="background:${grad}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${ico}</svg></div>
+          <div class="task-body">
+            <div class="task-top"><div class="task-title">${escHtml(h.jobTitle || h.title || 'Task')}</div><div class="task-reward-pill" style="background:${rwColor}15;border-color:${rwColor}33"><span style="color:${rwColor}">+${fmtUSD(h.reward || 0)}</span></div></div>
+            <div class="task-meta"><span class="badge ${stClass}">${stLabel}</span><span>${escHtml(h.category || '')}</span><span>${h.date || ''}</span></div>
+            ${h.proofText ? `<div style="font-size:10.5px;color:var(--text3);margin-top:5px;font-style:italic">"${escHtml(h.proofText.substring(0, 60))}${h.proofText.length > 60 ? '...' : ''}"</div>` : ''}
+          </div>
+        </div>
+      </div>
+    </div>`;
   }).join('');
 }
-function filterMyTasks(status,el){S.myTasksFilter=status;document.querySelectorAll('.mytask-filter .h-chip').forEach(c=>c.classList.remove('active'));if(el)el.classList.add('active');renderMyTasks();}
+function filterMyTasks(status, el) { S.myTasksFilter = status; document.querySelectorAll('.mytask-filter .h-chip').forEach(c => c.classList.remove('active')); if (el) el.classList.add('active'); renderMyTasks(); }
 
-// ── TASK MODAL ────────────────────────────────────────────────────
-function openTaskModal(jobId){
-  const t=S.approvedJobs.find(x=>x.id===jobId);if(!t)return;
-  const bg=catColors[t.category]||catColors['Social Media'],ico=catSvg[t.category]||catSvg['Social Media'];
-  let body;
-  const headerHtml=`<div style="background:${bg};border-radius:var(--r-lg);padding:13px;margin-bottom:12px;display:flex;align-items:center;gap:9px"><div class="task-ico" style="background:rgba(255,255,255,.18);width:38px;height:38px"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${ico}</svg></div><div><div style="font-size:13.5px;font-weight:800">${escHtml(t.title)}</div><div style="font-size:11.5px;color:rgba(255,255,255,.65)">${escHtml(t.category)}</div></div></div><div style="background:var(--bg3);border-radius:var(--r-md);padding:11px;margin-bottom:12px;display:flex;justify-content:space-between"><div style="text-align:center"><div style="font-size:17px;font-weight:900;color:var(--gold)">+${fmtUSD(t.reward||0)}</div><div style="font-size:9.5px;color:var(--text3)">Reward</div></div><div style="text-align:center"><div style="font-size:17px;font-weight:900">${(t.limit||0)-(t.filled||0)}</div><div style="font-size:9.5px;color:var(--text3)">Slots Left</div></div><div style="text-align:center"><div style="font-size:13.5px;font-weight:900;color:var(--gold)">⏳ Pending</div><div style="font-size:9.5px;color:var(--text3)">After Submit</div></div></div><p style="font-size:12.5px;color:var(--text2);line-height:1.7;margin-bottom:12px;background:var(--bg3);border-radius:var(--r-md);padding:11px">${escHtml(t.instructions||t.desc||'Complete the task and submit proof.')}</p><div class="info-banner" style="margin-bottom:12px">⚠️ Submit proof below. Reward credited after admin verifies.</div>`;
-  if(t.type==='link'){
-    const visited=S._visitedLinks[jobId];
-    body=headerHtml+`<button class="btn-ghost" style="margin-bottom:9px" onclick="visitLink('${jobId}','${escHtml(t.link||'')}')">🔗 Visit Link</button><button class="btn-primary" ${visited?'':'disabled'} id="finishBtn${jobId}" onclick="submitTaskProof('${jobId}',null)">${visited?'✅ Submit Completion':'⬆ Visit the link first'}</button>`;
-  }else{
-    body=headerHtml+`<div class="field"><label>Proof Text *</label><textarea id="proofText${jobId}" placeholder="e.g. Liked. Username: @your_username" rows="3"></textarea></div><button class="btn-primary" onclick="submitTaskProof('${jobId}',document.getElementById('proofText${jobId}').value)">📤 Submit Proof</button>`;
+// ── IMPROVED TASK MODAL ───────────────────────────────────────────
+function openTaskModal(jobId) {
+  const t = S.approvedJobs.find(x => x.id === jobId); if (!t) return;
+  const grad = getCatGrad(t.category);
+  const accent = getCatAccent(t.category);
+  const ico = getCatSvg(t.category);
+  const filled = t.filled || 0, lim = t.limit || 100, pct = Math.min(100, Math.round(filled / lim * 100));
+
+  // Parse instructions into steps if newlines exist
+  const rawInstructions = t.instructions || t.desc || 'Complete the task and submit your proof below.';
+  const steps = rawInstructions.split('\n').filter(s => s.trim());
+  const stepsHtml = steps.length > 1
+    ? `<ul class="step-list">${steps.map((s, i) => `<li><div class="step-num">${i+1}</div><span>${escHtml(s)}</span></li>`).join('')}</ul>`
+    : `<p style="font-size:12.5px;color:var(--text2);line-height:1.7;margin:0">${escHtml(rawInstructions)}</p>`;
+
+  let submissionHtml;
+  if (t.type === 'link') {
+    const visited = S._visitedLinks[jobId];
+    submissionHtml = `
+      <button class="link-visit-btn ${visited ? 'visited' : ''}" id="visitBtn${jobId}" onclick="visitLink('${jobId}','${escHtml(t.link || '')}')">
+        ${visited ? '✅ Link Visited' : '🔗 Visit the Link First'}
+      </button>
+      <div class="field"><label>Confirmation Note (Optional)</label><textarea id="proofText${jobId}" placeholder="e.g. Done! My username: @yourname" rows="2"></textarea></div>
+      <button class="btn-primary" ${visited ? '' : 'disabled'} id="finishBtn${jobId}" onclick="submitTaskProof('${jobId}',document.getElementById('proofText${jobId}').value)">
+        ${visited ? '📤 Submit Completion' : '⬆ Visit the link first'}
+      </button>`;
+  } else {
+    submissionHtml = `
+      <div class="proof-upload-area" onclick="document.getElementById('proofText${jobId}').focus()">
+        <div class="pua-icon">📝</div>
+        <div class="pua-text">Enter your proof below</div>
+        <div class="pua-sub">Screenshot info, username, or completion detail</div>
+      </div>
+      <div class="field"><label>Proof / Submission *</label><textarea id="proofText${jobId}" placeholder="e.g. Liked and commented. My username: @yourname" rows="3"></textarea></div>
+      <button class="btn-primary" onclick="submitTaskProof('${jobId}',document.getElementById('proofText${jobId}').value)">📤 Submit Proof for Review</button>`;
   }
-  document.getElementById('modalContent').innerHTML=body;
+
+  const body = `
+    <div class="modal-task-header" style="background:${grad}">
+      <div class="mth-ico" style="background:rgba(255,255,255,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ico}</svg></div>
+      <div><div class="mth-title">${escHtml(t.title)}</div><div class="mth-cat">${escHtml(t.category)} · ${escHtml(t.country || 'Global')}</div></div>
+    </div>
+    <div class="modal-stats-row">
+      <div class="msr-cell"><div class="msr-val" style="color:var(--gold)">+${fmtUSD(t.reward || 0)}</div><div class="msr-lbl">Reward</div></div>
+      <div class="msr-cell"><div class="msr-val">${lim - filled}</div><div class="msr-lbl">Slots Left</div></div>
+      <div class="msr-cell"><div class="msr-val" style="color:var(--gold)">⏳ Pending</div><div class="msr-lbl">After Submit</div></div>
+    </div>
+    <div class="modal-instructions">
+      <div style="font-size:10px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">📋 Task Instructions</div>
+      ${stepsHtml}
+    </div>
+    <div style="height:4px;border-radius:4px;background:var(--bg3);margin-bottom:14px;overflow:hidden">
+      <div style="height:100%;width:${pct}%;background:${accent};border-radius:4px;transition:width .5s"></div>
+    </div>
+    <div class="info-banner" style="margin-bottom:13px">⚠️ Submit proof below. Reward will be credited after admin review (24–48hrs).</div>
+    ${submissionHtml}`;
+
+  document.getElementById('modalContent').innerHTML = body;
   document.getElementById('taskOverlay').classList.add('show');
 }
-function closeTaskModal(){document.getElementById('taskOverlay').classList.remove('show');}
-function visitLink(jobId,url){if(url)window.open(url,'_blank');S._visitedLinks[jobId]=true;setTimeout(()=>openTaskModal(jobId),300);}
-async function submitTaskProof(jobId,proofText){
-  const t=S.approvedJobs.find(x=>x.id===jobId);if(!t)return;
-  if(t.type!=='link'&&(!proofText||!proofText.trim())){showToast('Enter proof text','error');return;}
-  const user=window._currentUser,data=window._userData;
-  if(!user||!window._fbReady){showToast('Please login again','error');return;}
-  closeTaskModal();showToast('📤 Proof submitted! Awaiting admin review...','info');
-  const fb=window._fb;
-  try{
-    await fb.addDoc(fb.collection(fb.db,'taskSubmissions'),{
-      jobId,jobTitle:t.title,reward:t.reward||0,
-      workerId:user.uid,workerName:data?.name||user.displayName||'Unknown',workerEmail:user.email||'',
-      proofText:proofText||'',proofType:t.type,status:'pending',
-      category:t.category||'',country:t.country||'Global',
-      date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()
+
+function closeTaskModal() { document.getElementById('taskOverlay').classList.remove('show'); }
+
+function visitLink(jobId, url) {
+  if (url) window.open(url, '_blank');
+  S._visitedLinks[jobId] = true;
+  const vBtn = document.getElementById('visitBtn' + jobId);
+  const fBtn = document.getElementById('finishBtn' + jobId);
+  if (vBtn) { vBtn.textContent = '✅ Link Visited'; vBtn.classList.add('visited'); }
+  if (fBtn) { fBtn.disabled = false; fBtn.textContent = '📤 Submit Completion'; }
+}
+
+async function submitTaskProof(jobId, proofText) {
+  const t = S.approvedJobs.find(x => x.id === jobId); if (!t) return;
+  if (t.type !== 'link' && (!proofText || !proofText.trim())) { showToast('Enter your proof first', 'error'); return; }
+  const user = window._currentUser, data = window._userData;
+  if (!user || !window._fbReady) { showToast('Please login again', 'error'); return; }
+
+  // Check if already submitted
+  const alreadySubmitted = S.myTaskSubmissions.some(h => h.jobId === jobId && h.status !== 'rejected');
+  if (alreadySubmitted) { showToast('Already submitted!', 'warn'); return; }
+
+  closeTaskModal();
+  showToast('📤 Proof submitted! Awaiting admin review...', 'info');
+  const fb = window._fb;
+  try {
+    // ✅ STATUS = 'pending' — admin must approve to credit balance
+    await fb.addDoc(fb.collection(fb.db, 'taskSubmissions'), {
+      jobId, jobTitle: t.title, reward: t.reward || 0,
+      workerId: user.uid, workerName: data?.name || user.displayName || 'Unknown',
+      workerEmail: user.email || '',
+      proofText: proofText || '', proofType: t.type,
+      status: 'pending',  // ← CRITICAL: stays pending until admin approves
+      category: t.category || '', country: t.country || 'Global',
+      date: new Date().toLocaleString('en-US'),
+      _ts: Date.now(), createdAt: fb.serverTimestamp()
     });
-    // Increment filled count on the job
-    fb.updateDoc(fb.doc(fb.db,'jobs',jobId),{filled:fb.increment(1)}).catch(()=>{});
-  }catch(e){console.error('submitTaskProof:',e);}
+    // NOTE: We do NOT increment 'filled' here — admin panel does it on approval
+    // NOTE: We do NOT credit balance here — admin panel credits on approval
+    // NOTE: tasksCompleted is NOT incremented until admin approves
+  } catch(e) { console.error('submitTaskProof:', e); showToast('Submission failed. Try again.', 'error'); }
 }
 
-// ── ACTIVITY ──────────────────────────────────────────────────────
-function renderRecentActivity(){
-  const items=S.myTaskSubmissions.slice(0,5),el=document.getElementById('recentActivityHome');
-  if(!items.length){el.innerHTML='<div class="history-empty" style="padding:18px 0"><div class="big">🔄</div>No activity yet.</div>';return;}
-  el.innerHTML='<div class="activity-card">'+items.map(a=>{
-    const st=a.status||'pending',icon=st==='completed'||st==='approved'?'✅':st==='rejected'?'❌':'⏳',cls=st==='completed'||st==='approved'?'approved':st==='rejected'?'rejected':'pending';
-    return`<div class="activity-row"><div class="activity-icon ${cls}">${icon}</div><div class="activity-body"><div class="activity-title">${escHtml(a.jobTitle||a.title||'Task')}</div><div class="activity-time">${a.date||''}</div></div><div class="activity-amt ${cls==='rejected'?'neg':cls==='pending'?'pending':''}">${cls==='pending'?'⏳ ':'+'}${fmtUSD(a.reward||0)}</div></div>`;
-  }).join('')+'</div>';
+// ── ACTIVITY ─────────────────────────────────────────────────────
+function renderRecentActivity() {
+  const items = S.myTaskSubmissions.slice(0, 5), el = document.getElementById('recentActivityHome');
+  if (!items.length) { el.innerHTML = '<div class="history-empty" style="padding:18px 0"><div class="big">🔄</div>No activity yet.</div>'; return; }
+  el.innerHTML = '<div class="activity-card">' + items.map(a => {
+    const st = a.status || 'pending', icon = (st === 'completed' || st === 'approved') ? '✅' : st === 'rejected' ? '❌' : '⏳';
+    const cls = (st === 'completed' || st === 'approved') ? 'approved' : st === 'rejected' ? 'rejected' : 'pending';
+    return `<div class="activity-row"><div class="activity-icon ${cls}">${icon}</div><div class="activity-body"><div class="activity-title">${escHtml(a.jobTitle || a.title || 'Task')}</div><div class="activity-time">${a.date || ''}</div></div><div class="activity-amt ${cls === 'rejected' ? 'neg' : cls === 'pending' ? 'pending' : ''}">${cls === 'pending' ? '⏳ ' : '+'}${fmtUSD(a.reward || 0)}</div></div>`;
+  }).join('') + '</div>';
 }
 
-// ── LEADERBOARD ───────────────────────────────────────────────────
-function renderLeaderboard(lbData){
-  const medals=['🥇','🥈','🥉'];
-  const data=lbData||[{name:'Arafat Hossain',amt:48.50,color:'#00E676'},{name:'Sumaiya Begum',amt:42.00,color:'#448AFF'},{name:'Tanvir Ahmed',amt:39.00,color:'#E040FB'}];
-  const el=document.getElementById('homeLBPreview');
-  if(el)el.innerHTML='<div class="lb-card">'+data.slice(0,5).map((u,i)=>`<div class="lb-row"><div class="lb-rank ${i<3?'r'+(i+1):''}">${i<3?medals[i]:i+1}</div><div class="lb-avatar" style="background:${u.color}18;color:${u.color}">${(u.name||'?').charAt(0)}</div><div class="lb-name">${escHtml(u.name)}</div><div class="lb-amt">${fmtUSD(u.amt)}</div></div>`).join('')+'</div>';
+// ── LEADERBOARD ──────────────────────────────────────────────────
+function renderLeaderboard(lbData) {
+  const medals = ['🥇', '🥈', '🥉'];
+  const data = lbData || [{ name: 'Arafat Hossain', amt: 48.50, color: '#00E676' }, { name: 'Sumaiya Begum', amt: 42.00, color: '#448AFF' }, { name: 'Tanvir Ahmed', amt: 39.00, color: '#E040FB' }];
+  const el = document.getElementById('homeLBPreview');
+  if (el) el.innerHTML = '<div class="lb-card">' + data.slice(0, 5).map((u, i) => `<div class="lb-row"><div class="lb-rank ${i < 3 ? 'r' + (i + 1) : ''}">${i < 3 ? medals[i] : i + 1}</div><div class="lb-avatar" style="background:${u.color}18;color:${u.color}">${(u.name || '?').charAt(0)}</div><div class="lb-name">${escHtml(u.name)}</div><div class="lb-amt">${fmtUSD(u.amt)}</div></div>`).join('') + '</div>';
 }
 
 // ── WALLET / WITHDRAW ─────────────────────────────────────────────
-function updateWithdrawPreview(){
-  const amt=Number(document.getElementById('withdrawAmt')?.value)||0;
-  const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);
-  const feeP=(method?.withdrawFee??SITE.withdrawFee)/100;
-  const fee=amt*feeP,net=amt-fee;
-  const fdEl=document.getElementById('withdrawFeeDisplay'),ndEl=document.getElementById('withdrawNetDisplay');
-  if(fdEl)fdEl.textContent=(feeP*100).toFixed(1)+'%';
-  if(ndEl)ndEl.textContent=amt?fmtUSD(net):'—';
+function updateWithdrawPreview() {
+  const amt = Number(document.getElementById('withdrawAmt')?.value) || 0;
+  const method = S.paymentMethods.find(m => m.name === S.selectedWithdrawMethod);
+  const feeP = (method?.withdrawFee ?? SITE.withdrawFee) / 100;
+  const fee = amt * feeP, net = amt - fee;
+  const fdEl = document.getElementById('withdrawFeeDisplay'), ndEl = document.getElementById('withdrawNetDisplay');
+  if (fdEl) fdEl.textContent = (feeP * 100).toFixed(1) + '%';
+  if (ndEl) ndEl.textContent = amt ? fmtUSD(net) : '—';
 }
-function renderTxList(){
-  const filtered=S.txFilter==='all'?S.transactions:S.txFilter==='pos'?S.transactions.filter(t=>t.dir==='pos'):S.transactions.filter(t=>t.dir==='neg');
-  document.getElementById('txList').innerHTML=filtered.slice(0,30).map(tx=>`<div class="tx-row"><div class="tx-left"><div class="tx-ico" style="background:${tx.dir==='pos'?'var(--green-dim)':tx.dir==='neg'?'var(--red-dim)':'var(--gold-dim)'}">${tx.icon||'💰'}</div><div><div class="tx-name">${escHtml(tx.name)}</div><div class="tx-date">${tx.date}</div>${tx.status?`<span class="tx-status ${tx.status}">${tx.status==='pending'?'Pending':tx.status==='rejected'?'Rejected':'Done'}</span>`:''}</div></div><div class="tx-amt ${tx.dir==='pos'?'pos':tx.dir==='neg'?'neg':'pend'}">${tx.dir==='pos'?'+':tx.dir==='neg'?'-':'⏳ '}${fmtUSD(tx.amt)}</div></div>`).join('')||'<div class="history-empty"><div class="big">📭</div>No transactions yet.</div>';
+
+function renderTxList() {
+  const filtered = S.txFilter === 'all' ? S.transactions : S.txFilter === 'pos' ? S.transactions.filter(t => t.dir === 'pos') : S.transactions.filter(t => t.dir === 'neg');
+  document.getElementById('txList').innerHTML = filtered.slice(0, 30).map(tx => `<div class="tx-row"><div class="tx-left"><div class="tx-ico" style="background:${tx.dir === 'pos' ? 'var(--green-dim)' : tx.dir === 'neg' ? 'var(--red-dim)' : 'var(--gold-dim)'}">${tx.icon || '💰'}</div><div><div class="tx-name">${escHtml(tx.name)}</div><div class="tx-date">${tx.date}</div>${tx.status ? `<span class="tx-status ${tx.status}">${tx.status === 'pending' ? 'Pending' : tx.status === 'rejected' ? 'Rejected' : 'Done'}</span>` : ''}</div></div><div class="tx-amt ${tx.dir === 'pos' ? 'pos' : tx.dir === 'neg' ? 'neg' : 'pend'}">${tx.dir === 'pos' ? '+' : tx.dir === 'neg' ? '-' : '⏳ '}${fmtUSD(tx.amt)}</div></div>`).join('') || '<div class="history-empty"><div class="big">📭</div>No transactions yet.</div>';
 }
-function filterTx(type,el){S.txFilter=type;document.querySelectorAll('.tx-filter-btn').forEach(b=>b.classList.remove('active'));if(el&&el.classList)el.classList.add('active');renderTxList();}
-async function doWithdraw(){
-  const amt=Number(document.getElementById('withdrawAmt').value),num=document.getElementById('withdrawNumber').value.trim(),notes=document.getElementById('withdrawNotes')?.value.trim()||'';
-  if(!amt||amt<SITE.minWithdraw){showToast(`Minimum withdrawal $${SITE.minWithdraw.toFixed(2)}`,'error');return;}
-  const currentBal=window._userData?.balance||0;
-  if(amt>currentBal){showToast('Insufficient balance','error');return;}
-  if(!num){showToast('Enter account number/address','error');return;}
-  const user=window._currentUser,data=window._userData;
-  if(!user||!window._fbReady){showToast('Please login','error');return;}
-  const method=S.paymentMethods.find(m=>m.name===S.selectedWithdrawMethod);
-  const feeP=(method?.withdrawFee??SITE.withdrawFee)/100,fee=amt*feeP,net=parseFloat((amt-fee).toFixed(2));
-  const fb=window._fb;
-  try{
-    await fb.addDoc(fb.collection(fb.db,'withdrawals'),{
-      userId:user.uid,userName:data?.name||user.displayName||'Unknown',userEmail:user.email||'',
-      userPhone:data?.phone||'',userCountry:data?.country||'',
-      amount:amt,net,fee:parseFloat(fee.toFixed(2)),method:S.selectedWithdrawMethod,
-      account:num,notes,status:'pending',
-      date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()
+function filterTx(type, el) { S.txFilter = type; document.querySelectorAll('.tx-filter-btn').forEach(b => b.classList.remove('active')); if (el && el.classList) el.classList.add('active'); renderTxList(); }
+
+async function doWithdraw() {
+  const amt = Number(document.getElementById('withdrawAmt').value), num = document.getElementById('withdrawNumber').value.trim(), notes = document.getElementById('withdrawNotes')?.value.trim() || '';
+  if (!amt || amt < SITE.minWithdraw) { showToast(`Minimum withdrawal $${SITE.minWithdraw.toFixed(2)}`, 'error'); return; }
+  const currentBal = window._userData?.balance || 0;
+  if (amt > currentBal) { showToast('Insufficient balance', 'error'); return; }
+  if (!num) { showToast('Enter account number/address', 'error'); return; }
+  const user = window._currentUser, data = window._userData;
+  if (!user || !window._fbReady) { showToast('Please login', 'error'); return; }
+  const method = S.paymentMethods.find(m => m.name === S.selectedWithdrawMethod);
+  const feeP = (method?.withdrawFee ?? SITE.withdrawFee) / 100, fee = amt * feeP, net = parseFloat((amt - fee).toFixed(2));
+  const fb = window._fb;
+  try {
+    await fb.addDoc(fb.collection(fb.db, 'withdrawals'), {
+      userId: user.uid, userName: data?.name || user.displayName || 'Unknown', userEmail: user.email || '',
+      userPhone: data?.phone || '', userCountry: data?.country || '',
+      amount: amt, net, fee: parseFloat(fee.toFixed(2)), method: S.selectedWithdrawMethod,
+      account: num, notes, status: 'pending',
+      date: new Date().toLocaleString('en-US'), _ts: Date.now(), createdAt: fb.serverTimestamp()
     });
-    if(window._userRef)await fb.updateDoc(window._userRef,{balance:fb.increment(-amt),pendingAmount:fb.increment(net)}).catch(()=>{});
-    document.getElementById('withdrawAmt').value='';
-    document.getElementById('withdrawNumber').value='';
-    if(document.getElementById('withdrawNotes'))document.getElementById('withdrawNotes').value='';
+    if (window._userRef) await fb.updateDoc(window._userRef, { balance: fb.increment(-amt), pendingAmount: fb.increment(net) }).catch(() => {});
+    document.getElementById('withdrawAmt').value = '';
+    document.getElementById('withdrawNumber').value = '';
+    if (document.getElementById('withdrawNotes')) document.getElementById('withdrawNotes').value = '';
     updateWithdrawPreview();
-    showToast('📤 Withdrawal request sent!','info');
-  }catch(e){showToast('Submission failed. Try again.','error');console.error(e);}
+    showToast('📤 Withdrawal request sent!', 'info');
+  } catch(e) { showToast('Submission failed. Try again.', 'error'); console.error(e); }
 }
 
-// ── HISTORY ───────────────────────────────────────────────────────
-function renderHistory(){
-  const filter=S.historyFilter,all=S.myTaskSubmissions;
-  const list=filter==='all'?all:filter==='completed'?all.filter(h=>h.status==='completed'||h.status==='approved'):filter==='pending'?all.filter(h=>h.status==='pending'):all.filter(h=>h.jobId==='spin');
-  if(!list.length){document.getElementById('historyList').innerHTML='<div class="history-empty"><div class="big">📜</div>No history yet.<br><small>Start completing tasks!</small></div>';return;}
-  document.getElementById('historyList').innerHTML=list.map(h=>`<div class="task-card" style="cursor:default"><div class="task-ico" style="background:${h.jobId==='spin'?catColors['Review/Rating']:catColors[h.category]||catColors['Social Media']}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${h.jobId==='spin'?'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>':catSvg[h.category]||catSvg['Social Media']}</svg></div><div class="task-body"><div class="task-top"><div class="task-title">${escHtml(h.jobTitle||h.title||'Task')}</div><div class="task-reward" style="color:${h.status==='pending'?'var(--gold)':'var(--green)'}">+${fmtUSD(h.reward||0)}</div></div><div class="task-meta"><span class="badge ${h.status==='completed'||h.status==='approved'?'type-done':h.status==='rejected'?'type-link':'type-pending'}">${h.status==='completed'||h.status==='approved'?'✓ Approved':h.status==='rejected'?'❌ Rejected':'⏳ Pending'}</span><span>${escHtml(h.category||'')}</span><span>${h.date||''}</span></div></div></div>`).join('');
+// ── HISTORY ──────────────────────────────────────────────────────
+function renderHistory() {
+  const filter = S.historyFilter, all = S.myTaskSubmissions;
+  const list = filter === 'all' ? all : filter === 'completed' ? all.filter(h => h.status === 'completed' || h.status === 'approved') : filter === 'pending' ? all.filter(h => h.status === 'pending') : all.filter(h => h.jobId === 'spin');
+  if (!list.length) { document.getElementById('historyList').innerHTML = '<div class="history-empty"><div class="big">📜</div>No history yet.<br><small>Start completing tasks!</small></div>'; return; }
+  const grad = h => h.jobId === 'spin' ? catGradients['Review/Rating'] : getCatGrad(h.category);
+  const ico = h => h.jobId === 'spin' ? '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>' : getCatSvg(h.category);
+  document.getElementById('historyList').innerHTML = list.map(h => {
+    const st = h.status, stClass = (st === 'completed' || st === 'approved') ? 'type-done' : st === 'rejected' ? 'type-rejected' : 'type-pending';
+    const stLabel = (st === 'completed' || st === 'approved') ? '✓ Approved' : st === 'rejected' ? '❌ Rejected' : '⏳ Pending';
+    const rwColor = (st === 'completed' || st === 'approved') ? 'var(--green)' : st === 'pending' ? 'var(--gold)' : 'var(--red)';
+    return `<div class="task-card" style="cursor:default">
+      <div class="task-card-accent" style="background:${grad(h)}"></div>
+      <div class="task-card-inner" style="display:flex;gap:11px;align-items:flex-start">
+        <div class="task-ico" style="background:${grad(h)}"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">${ico(h)}</svg></div>
+        <div class="task-body">
+          <div class="task-top"><div class="task-title">${escHtml(h.jobTitle || h.title || 'Task')}</div><div class="task-reward-pill" style="background:${rwColor}15;border-color:${rwColor}33"><span style="color:${rwColor}">+${fmtUSD(h.reward || 0)}</span></div></div>
+          <div class="task-meta"><span class="badge ${stClass}">${stLabel}</span><span>${escHtml(h.category || '')}</span><span>${h.date || ''}</span></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
 }
-function filterHistory(type,el){S.historyFilter=type;document.querySelectorAll('.history-filter .h-chip').forEach(c=>c.classList.remove('active'));if(el)el.classList.add('active');renderHistory();}
+function filterHistory(type, el) { S.historyFilter = type; document.querySelectorAll('.history-filter .h-chip').forEach(c => c.classList.remove('active')); if (el) el.classList.add('active'); renderHistory(); }
 
-// ── NOTIFICATIONS ─────────────────────────────────────────────────
-function updateNotifCount(){const cnt=S.notifications.filter(n=>n.unread).length;const el=document.getElementById('notifCount');if(cnt>0){el.textContent=cnt;el.style.display='block';}else el.style.display='none';}
-async function markAllRead(){
-  const user=window._currentUser;if(!user||!window._fb)return;
-  S.notifications.forEach(n=>{n.unread=false;});
-  updateNotifCount();renderNotifications();showToast('All read');
-  try{const fb=window._fb;const snap=await fb.getDocs(fb.collection(fb.db,'users',user.uid,'notifications'));snap.forEach(d=>{if(d.data().unread)fb.updateDoc(d.ref,{unread:false}).catch(()=>{});});}catch(e){}
+// ── NOTIFICATIONS ────────────────────────────────────────────────
+function updateNotifCount() { const cnt = S.notifications.filter(n => n.unread).length; const el = document.getElementById('notifCount'); if (cnt > 0) { el.textContent = cnt; el.style.display = 'block'; } else el.style.display = 'none'; }
+async function markAllRead() {
+  const user = window._currentUser; if (!user || !window._fb) return;
+  S.notifications.forEach(n => { n.unread = false; });
+  updateNotifCount(); renderNotifications(); showToast('All read');
+  try { const fb = window._fb; const snap = await fb.getDocs(fb.collection(fb.db, 'users', user.uid, 'notifications')); snap.forEach(d => { if (d.data().unread) fb.updateDoc(d.ref, { unread: false }).catch(() => {}); }); } catch(e) {}
 }
-function renderNotifications(){
-  const el=document.getElementById('notifList');
-  if(!S.notifications.length){el.innerHTML='<div class="history-empty"><div class="big">🔔</div>No notifications.</div>';return;}
-  el.innerHTML=S.notifications.map(n=>`<div class="notif-item ${n.unread?'unread':''}" onclick="markNotifRead('${n.id}')"><div class="notif-ico" style="background:${n.unread?'var(--green-dim)':'var(--bg3)'}">${n.icon}</div><div class="notif-body"><div class="notif-title">${escHtml(n.title)}${n.unread?'<span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);margin-left:5px;vertical-align:middle"></span>':''}</div><div class="notif-msg">${escHtml(n.msg)}</div><div class="notif-time">${n.time}</div></div></div>`).join('');
+function renderNotifications() {
+  const el = document.getElementById('notifList');
+  if (!S.notifications.length) { el.innerHTML = '<div class="history-empty"><div class="big">🔔</div>No notifications.</div>'; return; }
+  el.innerHTML = S.notifications.map(n => `<div class="notif-item ${n.unread ? 'unread' : ''}" onclick="markNotifRead('${n.id}')"><div class="notif-ico" style="background:${n.unread ? 'var(--green-dim)' : 'var(--bg3)'}">${n.icon}</div><div class="notif-body"><div class="notif-title">${escHtml(n.title)}${n.unread ? '<span style="display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);margin-left:5px;vertical-align:middle"></span>' : ''}</div><div class="notif-msg">${escHtml(n.msg)}</div><div class="notif-time">${n.time}</div></div></div>`).join('');
 }
-async function markNotifRead(id){const n=S.notifications.find(x=>x.id===id);if(n&&n.unread){n.unread=false;updateNotifCount();renderNotifications();const user=window._currentUser;if(user&&window._fb){window._fb.updateDoc(window._fb.doc(window._fb.db,'users',user.uid,'notifications',id),{unread:false}).catch(()=>{});}}}
+async function markNotifRead(id) { const n = S.notifications.find(x => x.id === id); if (n && n.unread) { n.unread = false; updateNotifCount(); renderNotifications(); const user = window._currentUser; if (user && window._fb) { window._fb.updateDoc(window._fb.doc(window._fb.db, 'users', user.uid, 'notifications', id), { unread: false }).catch(() => {}); } } }
 
-// ── PROFILE ───────────────────────────────────────────────────────
-function previewAvatar(input){if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{['editAvatarPreview','topAvatarLetter','profileAvatarBig'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=`<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`;});};r.readAsDataURL(input.files[0]);}}
-async function saveProfile(){
-  const name=document.getElementById('editName').value.trim(),username=document.getElementById('editUsername').value.trim().toLowerCase(),bio=document.getElementById('editBio').value.trim(),phone=document.getElementById('editPhone').value.trim(),country=document.getElementById('editCountry').value;
-  if(!name){showToast('Enter your name','error');return;}
-  if(window._userRef&&window._fb){
-    try{
-      await window._fb.updateDoc(window._userRef,{name,username,bio,phone,country,lastActive:window._fb.serverTimestamp()});
-      if(window._currentUser)await window._fb.updateProfile(window._currentUser,{displayName:name}).catch(()=>{});
-      showToast('✅ Profile updated!');goTab('profile');
-    }catch(e){console.error(e);showToast('Update failed','error');}
+// ── PROFILE ──────────────────────────────────────────────────────
+function previewAvatar(input) { if (input.files && input.files[0]) { const r = new FileReader(); r.onload = e => { ['editAvatarPreview', 'topAvatarLetter', 'profileAvatarBig'].forEach(id => { const el = document.getElementById(id); if (el) el.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`; }); }; r.readAsDataURL(input.files[0]); } }
+async function saveProfile() {
+  const name = document.getElementById('editName').value.trim(), username = document.getElementById('editUsername').value.trim().toLowerCase(), bio = document.getElementById('editBio').value.trim(), phone = document.getElementById('editPhone').value.trim(), country = document.getElementById('editCountry').value;
+  if (!name) { showToast('Enter your name', 'error'); return; }
+  if (window._userRef && window._fb) {
+    try {
+      await window._fb.updateDoc(window._userRef, { name, username, bio, phone, country, lastActive: window._fb.serverTimestamp() });
+      if (window._currentUser) await window._fb.updateProfile(window._currentUser, { displayName: name }).catch(() => {});
+      showToast('✅ Profile updated!'); goTab('profile');
+    } catch(e) { console.error(e); showToast('Update failed', 'error'); }
   }
 }
 
-// ── REFERRAL ──────────────────────────────────────────────────────
-function copyRef(){const code=document.getElementById('refCodePage')?.textContent||document.getElementById('refCode')?.textContent;if(!code)return;navigator.clipboard.writeText(code).then(()=>showToast('✅ Referral code copied!')).catch(()=>showToast('Code: '+code));}
-function shareRef(){const code=document.getElementById('refCodePage')?.textContent||'WH000000';const msg=`Join WorkHive and earn from home! My referral code: ${code}\nSign up at: https://workhive.app`;if(navigator.share)navigator.share({title:'WorkHive — Earn Online',text:msg}).catch(()=>navigator.clipboard.writeText(msg).then(()=>showToast('✅ Share text copied!')));else navigator.clipboard.writeText(msg).then(()=>showToast('✅ Share link copied!'));}
+// ── REFERRAL ─────────────────────────────────────────────────────
+function copyRef() { const code = document.getElementById('refCodePage')?.textContent || document.getElementById('refCode')?.textContent; if (!code) return; navigator.clipboard.writeText(code).then(() => showToast('✅ Referral code copied!')).catch(() => showToast('Code: ' + code)); }
+function shareRef() { const code = document.getElementById('refCodePage')?.textContent || 'WH000000'; const msg = `Join WorkHive and earn from home! My referral code: ${code}\nSign up at: https://workhive.app`; if (navigator.share) navigator.share({ title: 'WorkHive — Earn Online', text: msg }).catch(() => navigator.clipboard.writeText(msg).then(() => showToast('✅ Share text copied!'))); else navigator.clipboard.writeText(msg).then(() => showToast('✅ Share link copied!')); }
 
 // ── LUCKY SPIN ────────────────────────────────────────────────────
-function drawSpinWheel(angle=0){const canvas=document.getElementById('spinCanvas');if(!canvas)return;const ctx=canvas.getContext('2d'),cx=130,cy=130,r=124,n=S.spinPrizes.length,arc=(2*Math.PI)/n;ctx.clearRect(0,0,260,260);S.spinPrizes.forEach((p,i)=>{const start=angle+i*arc,end=start+arc;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,end);ctx.closePath();ctx.fillStyle=p.color;ctx.fill();ctx.strokeStyle='rgba(8,8,8,0.7)';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(cx,cy);ctx.rotate(start+arc/2);ctx.textAlign='right';ctx.fillStyle='#fff';ctx.font='bold 12.5px Inter,sans-serif';ctx.shadowColor='rgba(0,0,0,0.6)';ctx.shadowBlur=4;ctx.fillText(p.label,r-10,5);ctx.restore();});ctx.beginPath();ctx.arc(cx,cy,20,0,2*Math.PI);ctx.fillStyle='rgba(8,8,8,0.92)';ctx.fill();ctx.strokeStyle='var(--green)';ctx.lineWidth=2.5;ctx.stroke();}
-function checkSpinUsed(){
-  if(!SITE.spinEnabled){document.getElementById('spinBtn').disabled=true;return;}
-  const last=localStorage.getItem('wh_spin_'+(window._currentUser?.uid||''));
-  const today=new Date().toDateString(),spinBtn=document.getElementById('spinBtn');
-  if(!spinBtn)return;
-  if(last===today){S.spinUsedToday=true;spinBtn.disabled=true;document.getElementById('spinInfo').textContent="Today's spin used. Come back tomorrow!";}
-  else{S.spinUsedToday=false;spinBtn.disabled=false;document.getElementById('spinInfo').textContent="Today's spin is available 🎉";}
-  try{const hist=localStorage.getItem('wh_spin_hist_'+(window._currentUser?.uid||''));if(hist){S.spinHistory=JSON.parse(hist);renderSpinHistory();}}catch(e){}
+function drawSpinWheel(angle = 0) { const canvas = document.getElementById('spinCanvas'); if (!canvas) return; const ctx = canvas.getContext('2d'), cx = 130, cy = 130, r = 124, n = S.spinPrizes.length, arc = (2 * Math.PI) / n; ctx.clearRect(0, 0, 260, 260); S.spinPrizes.forEach((p, i) => { const start = angle + i * arc, end = start + arc; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, start, end); ctx.closePath(); ctx.fillStyle = p.color; ctx.fill(); ctx.strokeStyle = 'rgba(8,8,8,0.7)'; ctx.lineWidth = 2; ctx.stroke(); ctx.save(); ctx.translate(cx, cy); ctx.rotate(start + arc / 2); ctx.textAlign = 'right'; ctx.fillStyle = '#fff'; ctx.font = 'bold 12.5px Inter,sans-serif'; ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = 4; ctx.fillText(p.label, r - 10, 5); ctx.restore(); }); ctx.beginPath(); ctx.arc(cx, cy, 20, 0, 2 * Math.PI); ctx.fillStyle = 'rgba(8,8,8,0.92)'; ctx.fill(); ctx.strokeStyle = 'var(--green)'; ctx.lineWidth = 2.5; ctx.stroke(); }
+function checkSpinUsed() {
+  if (!SITE.spinEnabled) { document.getElementById('spinBtn').disabled = true; return; }
+  const last = localStorage.getItem('wh_spin_' + (window._currentUser?.uid || ''));
+  const today = new Date().toDateString(), spinBtn = document.getElementById('spinBtn');
+  if (!spinBtn) return;
+  if (last === today) { S.spinUsedToday = true; spinBtn.disabled = true; document.getElementById('spinInfo').textContent = "Today's spin used. Come back tomorrow!"; }
+  else { S.spinUsedToday = false; spinBtn.disabled = false; document.getElementById('spinInfo').textContent = "Today's spin is available 🎉"; }
+  try { const hist = localStorage.getItem('wh_spin_hist_' + (window._currentUser?.uid || '')); if (hist) { S.spinHistory = JSON.parse(hist); renderSpinHistory(); } } catch(e) {}
 }
-function doSpin(){
-  if(S.isSpinning||S.spinUsedToday||!SITE.spinEnabled)return;
-  S.isSpinning=true;document.getElementById('spinBtn').disabled=true;
-  const prizeIdx=Math.floor(Math.random()*S.spinPrizes.length);
-  const n=S.spinPrizes.length,arc=(2*Math.PI)/n,targetAngle=(2*Math.PI*5)+(2*Math.PI-prizeIdx*arc-arc/2)-(Math.PI/2);
-  const start=performance.now(),duration=4500,startAngle=S.spinAngle;
-  function animate(now){
-    const elapsed=now-start,progress=Math.min(elapsed/duration,1),ease=1-Math.pow(1-progress,4);
-    const angle=startAngle+targetAngle*ease;
+function doSpin() {
+  if (S.isSpinning || S.spinUsedToday || !SITE.spinEnabled) return;
+  S.isSpinning = true; document.getElementById('spinBtn').disabled = true;
+  const prizeIdx = Math.floor(Math.random() * S.spinPrizes.length);
+  const n = S.spinPrizes.length, arc = (2 * Math.PI) / n, targetAngle = (2 * Math.PI * 5) + (2 * Math.PI - prizeIdx * arc - arc / 2) - (Math.PI / 2);
+  const start = performance.now(), duration = 4500, startAngle = S.spinAngle;
+  function animate(now) {
+    const elapsed = now - start, progress = Math.min(elapsed / duration, 1), ease = 1 - Math.pow(1 - progress, 4);
+    const angle = startAngle + targetAngle * ease;
     drawSpinWheel(angle);
-    if(progress<1){requestAnimationFrame(animate);return;}
-    S.spinAngle=angle%(2*Math.PI);S.isSpinning=false;S.spinUsedToday=true;
-    const uid=(window._currentUser?.uid)||'';
-    localStorage.setItem('wh_spin_'+uid,new Date().toDateString());
-    const prize=S.spinPrizes[prizeIdx];
-    const histEntry={label:prize.label,value:prize.value,date:new Date().toLocaleDateString('en-US')};
-    S.spinHistory.unshift(histEntry);if(S.spinHistory.length>7)S.spinHistory.pop();
-    localStorage.setItem('wh_spin_hist_'+uid,JSON.stringify(S.spinHistory));
-    if(prize.value>0){
-      showToast('🎉 Won '+fmtUSD(prize.value)+'! Added to balance.');
-      if(window._fb&&window._currentUser){
-        const fb=window._fb;
-        fb.addDoc(fb.collection(fb.db,'taskSubmissions'),{
-          jobId:'spin',jobTitle:'Lucky Spin Reward',reward:prize.value,
-          workerId:window._currentUser.uid,workerName:window._userData?.name||'Unknown',workerEmail:window._currentUser.email||'',
-          proofText:'Daily spin won: '+prize.label,proofType:'auto',status:'approved',
-          category:'Spin',date:new Date().toLocaleString('en-US'),_ts:Date.now(),createdAt:fb.serverTimestamp()
-        }).then(()=>{
-          if(window._userRef)fb.updateDoc(window._userRef,{balance:fb.increment(prize.value),totalEarned:fb.increment(prize.value),tasksCompleted:fb.increment(1),approvedTasks:fb.increment(1),spinLastUsed:fb.serverTimestamp()}).catch(()=>{});
-        }).catch(()=>{});
+    if (progress < 1) { requestAnimationFrame(animate); return; }
+    S.spinAngle = angle % (2 * Math.PI); S.isSpinning = false; S.spinUsedToday = true;
+    const uid = (window._currentUser?.uid) || '';
+    localStorage.setItem('wh_spin_' + uid, new Date().toDateString());
+    const prize = S.spinPrizes[prizeIdx];
+    const histEntry = { label: prize.label, value: prize.value, date: new Date().toLocaleDateString('en-US') };
+    S.spinHistory.unshift(histEntry); if (S.spinHistory.length > 7) S.spinHistory.pop();
+    localStorage.setItem('wh_spin_hist_' + uid, JSON.stringify(S.spinHistory));
+    if (prize.value > 0) {
+      showToast('🎉 Won ' + fmtUSD(prize.value) + '! Added to balance.');
+      if (window._fb && window._currentUser) {
+        const fb = window._fb;
+        fb.addDoc(fb.collection(fb.db, 'taskSubmissions'), {
+          jobId: 'spin', jobTitle: 'Lucky Spin Reward', reward: prize.value,
+          workerId: window._currentUser.uid, workerName: window._userData?.name || 'Unknown', workerEmail: window._currentUser.email || '',
+          proofText: 'Daily spin won: ' + prize.label, proofType: 'auto', status: 'approved',
+          category: 'Spin', date: new Date().toLocaleString('en-US'), _ts: Date.now(), createdAt: fb.serverTimestamp()
+        }).then(() => {
+          if (window._userRef) fb.updateDoc(window._userRef, { balance: fb.increment(prize.value), totalEarned: fb.increment(prize.value), tasksCompleted: fb.increment(1), approvedTasks: fb.increment(1), spinLastUsed: fb.serverTimestamp() }).catch(() => {});
+        }).catch(() => {});
       }
-    }else{showToast('😅 Try again tomorrow!','error');}
-    document.getElementById('spinInfo').textContent="Today's spin used.";
+    } else { showToast('😅 Try again tomorrow!', 'error'); }
+    document.getElementById('spinInfo').textContent = "Today's spin used.";
     renderSpinHistory();
   }
   requestAnimationFrame(animate);
 }
-function renderSpinHistory(){const el=document.getElementById('spinHistoryList');if(!S.spinHistory.length){el.innerHTML='<p style="color:var(--text3);font-size:11.5px;text-align:center;padding:14px 0">No spins yet.</p>';return;}el.innerHTML=S.spinHistory.map(h=>`<div class="spin-hist-row"><span>${h.date}</span><span style="font-weight:800;color:${h.value>0?'var(--gold)':'var(--text3)'}">${h.label}</span><span style="color:${h.value>0?'var(--green)':'var(--text3)'};">${h.value>0?'+'+fmtUSD(h.value):'—'}</span></div>`).join('');}
+function renderSpinHistory() { const el = document.getElementById('spinHistoryList'); if (!S.spinHistory.length) { el.innerHTML = '<p style="color:var(--text3);font-size:11.5px;text-align:center;padding:14px 0">No spins yet.</p>'; return; } el.innerHTML = S.spinHistory.map(h => `<div class="spin-hist-row"><span>${h.date}</span><span style="font-weight:800;color:${h.value > 0 ? 'var(--gold)' : 'var(--text3)'}">${h.label}</span><span style="color:${h.value > 0 ? 'var(--green)' : 'var(--text3)'};">${h.value > 0 ? '+' + fmtUSD(h.value) : '—'}</span></div>`).join(''); }
 
-// ── INIT ──────────────────────────────────────────────────────────
-try{const saved=localStorage.getItem('wh_remember_email');if(saved){document.getElementById('loginEmail').value=saved;document.getElementById('rememberMe').checked=true;}}catch(e){}
-document.addEventListener('keydown',e=>{if(e.key==='Enter'){if(document.getElementById('authScreen').style.display!=='none'){if(document.getElementById('loginPane').style.display!=='none')doLogin();else doRegister();}}});
+// ── INIT ─────────────────────────────────────────────────────────
+try { const saved = localStorage.getItem('wh_remember_email'); if (saved) { document.getElementById('loginEmail').value = saved; document.getElementById('rememberMe').checked = true; } } catch(e) {}
+document.addEventListener('keydown', e => { if (e.key === 'Enter') { if (document.getElementById('authScreen').style.display !== 'none') { if (document.getElementById('loginPane').style.display !== 'none') doLogin(); else doRegister(); } } });
 </script>
 </body>
 </html>
