@@ -495,6 +495,70 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
   .overlay{border-radius:0}
 }
 #screen-editprofile .field input,#screen-editprofile .field select,#screen-editprofile .field textarea{background:var(--bg3)}
+
+/* ═══ HELPLINE WIDGET ═══ */
+#helpFab{position:absolute;right:16px;bottom:96px;z-index:70;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fab-tile{width:56px;height:56px;border-radius:18px;background:linear-gradient(155deg,#0f140f,#0a0a0a);border:1px solid rgba(0,230,118,.18);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.6);transition:transform .2s}
+.fab-tile:active{transform:scale(.93)}
+.fab-glow{position:absolute;inset:-14px;border-radius:24px;background:radial-gradient(circle,rgba(0,230,118,.35) 0%,rgba(0,230,118,0) 70%);pointer-events:none;animation:glowPulse 2.4s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.fab-btn-inner{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4dffab,#00E676 55%,#00b34e 100%);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 0 1px rgba(0,230,118,.25),0 6px 18px rgba(0,230,118,.5),inset 0 1px 2px rgba(255,255,255,.35)}
+.fab-btn-inner svg{width:18px;height:18px;stroke:#04150a;stroke-width:2.4}
+.fab-ring{position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(0,230,118,.45);animation:fabPulse 2.2s infinite}
+@keyframes fabPulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.fab-dot{position:absolute;top:5px;right:5px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid #0a0a0a;z-index:2}
+.lang-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-bottom:2px;opacity:0;pointer-events:none;transform:translateY(8px);transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.lang-wrap.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.lang-pill{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--border2);border-radius:50px;padding:9px 16px 9px 9px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.5);transition:transform .15s,border-color .15s}
+.lang-pill:active{transform:scale(.95)}
+.lang-pill:hover{border-color:var(--green-border)}
+.lang-pill .flag{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex-shrink:0}
+.lang-pill.bn .flag{background:var(--gold-dim);color:var(--gold)}
+.lang-pill.en .flag{background:var(--green-dim);color:var(--green)}
+.lang-pill .txt{font-size:12.5px;font-weight:700;white-space:nowrap}
+.lang-pill .sub{font-size:9px;color:var(--text3);font-weight:600}
+
+/* SUPPORT CHAT SCREEN */
+#supportScreen{position:absolute;inset:0;background:var(--bg);z-index:90;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .35s cubic-bezier(.22,1,.36,1);border-radius:38px}
+#supportScreen.show{transform:translateY(0)}
+.sup-header{padding:16px 18px 14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);flex-shrink:0}
+.sup-back{width:34px;height:34px;border-radius:11px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.sup-back svg{width:16px;height:16px;stroke:var(--text)}
+.sup-title{flex:1}
+.sup-title .t{font-size:15px;font-weight:800}
+.sup-title .s{font-size:10.5px;color:var(--text3);font-weight:600;margin-top:1px}
+.sup-online{display:flex;align-items:center;gap:5px;background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px}
+.sup-online .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.sup-body{flex:1;overflow-y:auto;padding:18px}
+.sup-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 10px 20px}
+.sup-hero-ico{width:66px;height:66px;border-radius:50%;background:var(--green-dim);border:1.5px solid var(--green-border);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.sup-hero-ico svg{width:28px;height:28px;stroke:var(--green)}
+.sup-hero h2{font-size:16px;font-weight:900;margin-bottom:6px}
+.sup-hero p{font-size:12px;color:var(--text3);line-height:1.6;max-width:270px}
+.sup-tags{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap;justify-content:center}
+.sup-tag{display:flex;align-items:center;gap:5px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:6px 12px;font-size:10.5px;font-weight:700;color:var(--text2)}
+.sup-daydiv{text-align:center;font-size:10.5px;color:var(--text3);font-weight:700;margin:14px 0}
+.msg-row{display:flex;margin-bottom:12px;gap:8px;align-items:flex-end}
+.msg-row.me{justify-content:flex-end}
+.msg-ava{width:28px;height:28px;border-radius:50%;background:var(--green-dim);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.msg-ava svg{width:13px;height:13px;stroke:var(--green)}
+.msg-bubble{max-width:72%;padding:11px 14px;border-radius:16px;font-size:12.5px;line-height:1.55;font-weight:500}
+.msg-row.me .msg-bubble{background:linear-gradient(135deg,var(--green),#00c853);color:#001a0a;font-weight:700;border-bottom-right-radius:5px}
+.msg-row.them .msg-bubble{background:var(--card);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:5px}
+.msg-time{font-size:9px;color:rgba(0,26,10,.55);margin-top:4px;font-weight:700}
+.msg-row.them .msg-time{color:var(--text3)}
+.typing-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.typing-bubble{background:var(--card);border:1px solid var(--border);border-radius:16px;border-bottom-left-radius:5px;padding:12px 16px;display:flex;gap:4px}
+.typing-bubble span{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:tdot 1.2s infinite}
+.typing-bubble span:nth-child(2){animation-delay:.2s}
+.typing-bubble span:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.sup-inputbar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0}
+.sup-attach{width:36px;height:36px;border-radius:11px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text3);cursor:pointer}
+.sup-inputbar input{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:22px;padding:11px 16px;color:var(--text);font-family:inherit;font-size:12.5px;outline:none}
+.sup-inputbar input:focus{border-color:var(--green)}
+.sup-send{width:38px;height:38px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer}
+.sup-send svg{width:16px;height:16px;stroke:#001a0a}
 </style>
 </head>
 <body>
@@ -1004,6 +1068,64 @@ nav.tabbar{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgb
     </div>
   </nav>
 
+  <!-- FLOATING HELPLINE BUTTON (homepage bottom-right) -->
+  <div id="helpFab">
+    <div class="lang-wrap" id="langWrap">
+      <div class="lang-pill bn" onclick="openSupport('bn')">
+        <div class="flag">বাং</div>
+        <div><div class="txt">বাংলা</div><div class="sub">বাংলায় কথা বলুন</div></div>
+      </div>
+      <div class="lang-pill en" onclick="openSupport('en')">
+        <div class="flag">EN</div>
+        <div><div class="txt">English</div><div class="sub">Chat in English</div></div>
+      </div>
+    </div>
+    <div class="fab-tile" onclick="toggleHelpLang()">
+      <div class="fab-glow"></div>
+      <div class="fab-dot" id="helpFabDot"></div>
+      <div class="fab-btn-inner">
+        <div class="fab-ring"></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUPPORT CHAT SCREEN -->
+  <div id="supportScreen">
+    <div class="sup-header">
+      <div class="sup-back" onclick="closeSupport()">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </div>
+      <div class="sup-title">
+        <div class="t" id="supTitle">Help & Support</div>
+        <div class="s" id="supSub">We're here to help you</div>
+      </div>
+      <div class="sup-online"><span class="dot"></span><span id="supOnlineTxt">Online</span></div>
+    </div>
+    <div class="sup-body" id="supBody">
+      <div class="sup-hero">
+        <div class="sup-hero-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
+        <h2 id="heroTitle">Hi, How can we help you?</h2>
+        <p id="heroSub">Send us a message and we'll get back to you as soon as possible.</p>
+        <div class="sup-tags">
+          <div class="sup-tag" id="tag1">⚡ Fast Reply</div>
+          <div class="sup-tag" id="tag2">🕐 24/7 Support</div>
+          <div class="sup-tag" id="tag3">✅ Trusted Support</div>
+        </div>
+      </div>
+      <div class="sup-daydiv" id="dayDiv">Today</div>
+      <div id="msgArea"></div>
+    </div>
+    <div class="sup-inputbar">
+      <div class="sup-attach">📎</div>
+      <input type="text" id="supInput" placeholder="Type your message...">
+      <div class="sup-send" onclick="sendSupportMsg()"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
+    </div>
+  </div>
+
   <!-- MODALS -->
   <div class="overlay" id="taskOverlay" onclick="if(event.target===this)closeTaskModal()">
     <div class="modal-sheet"><span class="close-x" onclick="closeTaskModal()">✕</span><div class="modal-handle"></div><div id="modalContent"></div></div>
@@ -1118,6 +1240,7 @@ onAuthStateChanged(auth, async (user) => {
       listenSiteSettings();
       loadReferralTree(user.uid);
       loadLeaderboard();
+      listenSupportChat(user.uid);
     } catch(e) {
       console.error('Firebase error:', e);
       showApp(user, {});
@@ -1126,6 +1249,7 @@ onAuthStateChanged(auth, async (user) => {
     if (window._userUnsub) window._userUnsub();
     if (window._notifsUnsub) window._notifsUnsub();
     if (window._settingsUnsub) window._settingsUnsub();
+    if (window._supportChatUnsub) window._supportChatUnsub();
     window._currentUser = null;
     window._userData = null;
     showAuthScreen();
@@ -1717,7 +1841,7 @@ async function submitChangePassword() {
 async function doLogout() {
   if (!window._fbReady) return;
   try {
-    [window._userUnsub, window._notifsUnsub, window._jobsUnsub, window._submissionsUnsub, window._withdrawalsUnsub, window._pmUnsub, window._settingsUnsub].forEach(u => { if (u) u(); });
+    [window._userUnsub, window._notifsUnsub, window._jobsUnsub, window._submissionsUnsub, window._withdrawalsUnsub, window._pmUnsub, window._settingsUnsub, window._supportChatUnsub].forEach(u => { if (u) u(); });
     await window._fb.signOut(window._fb.auth);
     _appInitialized = false;
     S.approvedJobs = []; S.myTaskSubmissions = []; S.transactions = []; S.notifications = [];
@@ -2155,6 +2279,138 @@ function doSpin() {
   requestAnimationFrame(animate);
 }
 function renderSpinHistory() { const el = document.getElementById('spinHistoryList'); if (!S.spinHistory.length) { el.innerHTML = '<p style="color:var(--text3);font-size:11.5px;text-align:center;padding:14px 0">No spins yet.</p>'; return; } el.innerHTML = S.spinHistory.map(h => `<div class="spin-hist-row"><span>${h.date}</span><span style="font-weight:800;color:${h.value > 0 ? 'var(--gold)' : 'var(--text3)'}">${h.label}</span><span style="color:${h.value > 0 ? 'var(--green)' : 'var(--text3)'};">${h.value > 0 ? '+' + fmtUSD(h.value) : '—'}</span></div>`).join(''); }
+
+// ══════════════════════════════════════════════════════════════
+// ── HELPLINE / SUPPORT CHAT WIDGET ──────────────────────────────
+// ══════════════════════════════════════════════════════════════
+const SUP_T = {
+  bn: {
+    title: 'হেল্প ও সাপোর্ট', sub: 'আমরা আপনার পাশে আছি', online: 'অনলাইন',
+    heroTitle: 'হ্যালো, কীভাবে সাহায্য করতে পারি?', heroSub: 'আমাদের মেসেজ দিন, যত দ্রুত সম্ভব আমরা রিপ্লাই দেব।',
+    tag1:'⚡ দ্রুত রিপ্লাই', tag2:'🕐 ২৪/৭ সাপোর্ট', tag3:'✅ বিশ্বস্ত সাপোর্ট',
+    autoMsg: 'দয়া করে একটু অপেক্ষা করুন, আমাদের অ্যাডমিন শীঘ্রই আপনার সাথে যোগাযোগ করবেন। 🙏',
+    placeholder: 'আপনার মেসেজ লিখুন...'
+  },
+  en: {
+    title: 'Help & Support', sub: "We're here to help you", online: 'Online',
+    heroTitle: 'Hi, How can we help you?', heroSub: "Send us a message and we'll get back to you as soon as possible.",
+    tag1:'⚡ Fast Reply', tag2:'🕐 24/7 Support', tag3:'✅ Trusted Support',
+    autoMsg: 'Thanks for reaching out! Please hold on a moment — one of our admins will be with you shortly. 🙏',
+    placeholder: 'Type your message...'
+  }
+};
+let _supLang = 'en';
+let _supAutoSent = false;
+
+function toggleHelpLang() {
+  document.getElementById('langWrap').classList.toggle('show');
+}
+
+function openSupport(lang) {
+  _supLang = lang;
+  const t = SUP_T[lang];
+  document.getElementById('supTitle').textContent = t.title;
+  document.getElementById('supSub').textContent = t.sub;
+  document.getElementById('supOnlineTxt').textContent = t.online;
+  document.getElementById('heroTitle').textContent = t.heroTitle;
+  document.getElementById('heroSub').textContent = t.heroSub;
+  document.getElementById('tag1').textContent = t.tag1;
+  document.getElementById('tag2').textContent = t.tag2;
+  document.getElementById('tag3').textContent = t.tag3;
+  document.getElementById('supInput').placeholder = t.placeholder;
+  document.getElementById('langWrap').classList.remove('show');
+  document.getElementById('supportScreen').classList.add('show');
+  renderSupportMessages();
+
+  // send one auto system message (once per session open) via Firestore
+  if (!_supAutoSent) {
+    _supAutoSent = true;
+    sendAutoSupportMsg(t.autoMsg);
+  }
+}
+
+function closeSupport() {
+  document.getElementById('supportScreen').classList.remove('show');
+}
+
+// live chat storage: users/{uid}/supportChat/{msgId}
+function listenSupportChat(uid) {
+  const fb = window._fb; if (!fb || !uid) return;
+  if (window._supportChatUnsub) window._supportChatUnsub();
+  window._supportChatUnsub = fb.onSnapshot(
+    fb.query(fb.collection(fb.db, 'users', uid, 'supportChat'), fb.orderBy('_ts', 'asc'), fb.limit(100)),
+    snap => {
+      S.supportMessages = [];
+      snap.forEach(d => S.supportMessages.push({ id: d.id, ...d.data() }));
+      renderSupportMessages();
+    }, e => console.warn('listenSupportChat:', e)
+  );
+}
+
+function renderSupportMessages() {
+  const area = document.getElementById('msgArea'); if (!area) return;
+  const list = S.supportMessages || [];
+  area.innerHTML = list.map(m => {
+    const time = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}) : (m.timeLabel || '');
+    if (m.from === 'admin') {
+      return `<div class="msg-row them"><div class="msg-ava"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/></svg></div><div><div class="msg-bubble">${escHtml(m.text)}<div class="msg-time">${time}</div></div></div></div>`;
+    }
+    return `<div class="msg-row me"><div><div class="msg-bubble">${escHtml(m.text)}<div class="msg-time">${time}</div></div></div></div>`;
+  }).join('');
+  area.scrollTop = area.scrollHeight;
+}
+
+// Keeps a live top-level "inbox" doc per user so an admin panel can list every
+// conversation in real time (ordered by updatedAt) without needing a
+// collectionGroup query across all users' subcollections.
+async function updateSupportThread(lastText, fromWho) {
+  const uid = window._currentUser?.uid; const fb = window._fb; const data = window._userData;
+  if (!uid || !fb) return;
+  try {
+    await fb.setDoc(fb.doc(fb.db, 'supportThreads', uid), {
+      uid,
+      userName: data?.name || window._currentUser?.displayName || 'Unknown',
+      userEmail: data?.email || window._currentUser?.email || '',
+      lastMessage: lastText,
+      lastFrom: fromWho, // 'user' or 'admin'
+      lang: _supLang,
+      unreadByAdmin: fromWho === 'user',
+      updatedAt: fb.serverTimestamp()
+    }, { merge: true });
+  } catch(e) { console.warn('updateSupportThread:', e); }
+}
+
+async function sendAutoSupportMsg(text) {
+  const uid = window._currentUser?.uid; const fb = window._fb;
+  if (!uid || !fb) return;
+  try {
+    await fb.addDoc(fb.collection(fb.db, 'users', uid, 'supportChat'), {
+      from: 'admin', text, lang: _supLang, auto: true,
+      _ts: Date.now(), createdAt: fb.serverTimestamp()
+    });
+    updateSupportThread(text, 'admin');
+  } catch(e) { console.warn('sendAutoSupportMsg:', e); }
+}
+
+async function sendSupportMsg() {
+  const input = document.getElementById('supInput');
+  const val = input.value.trim();
+  if (!val) return;
+  const uid = window._currentUser?.uid; const fb = window._fb;
+  input.value = '';
+  if (!uid || !fb) { showToast('Please login again', 'error'); return; }
+  try {
+    await fb.addDoc(fb.collection(fb.db, 'users', uid, 'supportChat'), {
+      from: 'user', text: val, lang: _supLang,
+      _ts: Date.now(), createdAt: fb.serverTimestamp()
+    });
+    updateSupportThread(val, 'user');
+  } catch(e) { console.warn('sendSupportMsg:', e); showToast('Message failed to send', 'error'); }
+}
+
+const supInputEl = document.getElementById('supInput');
+if (supInputEl) supInputEl.addEventListener('keydown', e => { if (e.key === 'Enter') sendSupportMsg(); });
+S.supportMessages = [];
 
 // ── INIT ─────────────────────────────────────────────────────────
 try { const saved = localStorage.getItem('wh_remember_email'); if (saved) { document.getElementById('loginEmail').value = saved; document.getElementById('rememberMe').checked = true; } } catch(e) {}
